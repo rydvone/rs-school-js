@@ -2,11 +2,11 @@
 Private repository for @rydvone
 
 ### projects
-[shelter ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/shelter/pages/main/)  
+[shelter ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/shelter/pages/main/) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/6)
   
-[self-intro](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/blob/self-introduction/self-introduction/index.md)
+[self-intro](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/blob/self-introduction/self-introduction/index.md) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/29)
 
-[migration-to-ts ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/migration-newip-to-ts)
+[migration-to-ts ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/migration-newip-to-ts) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/30)
 
 ****
 ### contact info
