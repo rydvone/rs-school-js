@@ -1,13 +1,6 @@
 import AppLoader from './appLoader';
-import Select from '../select/select';
 
 class AppController extends AppLoader {
-    private _select: Select;
-    constructor() {
-        super();
-        this._select = new Select();
-    }
-
     getSources<T>(callback: (data: T) => void) {
         super.getResp(
             {

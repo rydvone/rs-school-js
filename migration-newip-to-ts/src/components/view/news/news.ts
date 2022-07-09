@@ -1,6 +1,8 @@
 import './news.css';
 import { IArticle } from '../../../types/articles';
 import TemplateVisual from '../../template/template';
+
+// type NullOrHTML = null | HTMLElement;
 class News {
     private _template: TemplateVisual;
 
@@ -11,6 +13,8 @@ class News {
     draw(data: IArticle[]) {
         if (data.length === 0) {
             this._template.makeTemplate('.visual-news', true);
+        } else if (data.length !== 0) {
+            this._template.makeTemplate('.visual-news', false);
         }
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
@@ -22,61 +26,33 @@ class News {
 
             if (idx % 2) (newsClone.querySelector('.news__item') as HTMLInputElement).classList.add('alt');
 
-            const urlToImageItem = newsClone.querySelector('.news__meta-photo') as HTMLElement;
-            if (urlToImageItem === null) {
-                throw new Error('No element');
-            }
-
-            urlToImageItem.style.backgroundImage = `url(${
+            (newsClone.querySelector('.news__meta-photo') as HTMLElement).style.backgroundImage = `url(${
                 item.urlToImage ||
                 `https://flomaster.club/uploads/posts/2021-11/1635853791_1-flomaster-club-p-narisovannaya-gazeta-krasivii-risunok-1.jpg`
             })`;
 
-            const authorItem = newsClone.querySelector('.news__meta-author');
-            if (authorItem === null) {
-                throw new Error('No element');
-            }
-            authorItem.textContent = item.author || item.source.name;
+            (newsClone.querySelector('.news__meta-author') as HTMLElement).textContent =
+                item.author || item.source.name;
 
-            const publishedAtItem = newsClone.querySelector('.news__meta-date');
-            if (publishedAtItem === null) {
-                throw new Error('No element');
-            }
-            publishedAtItem.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
+            (newsClone.querySelector('.news__meta-date') as HTMLElement).textContent = item.publishedAt
+                .slice(0, 10)
+                .split('-')
+                .reverse()
+                .join('-');
 
-            const titleItem = newsClone.querySelector('.news__description-title');
-            if (titleItem === null) {
-                throw new Error('No element');
-            }
-            titleItem.textContent = item.title;
+            (newsClone.querySelector('.news__description-title') as HTMLElement).textContent = item.title;
 
-            const sourceNameItem = newsClone.querySelector('.news__description-source');
-            if (sourceNameItem === null) {
-                throw new Error('No element');
-            }
-            sourceNameItem.textContent = item.source.name;
+            (newsClone.querySelector('.news__description-source') as HTMLElement).textContent = item.source.name;
 
-            const descriptionItem = newsClone.querySelector('.news__description-content');
-            if (descriptionItem === null) {
-                throw new Error('No element');
-            }
-            descriptionItem.textContent = item.description;
+            (newsClone.querySelector('.news__description-content') as HTMLElement).textContent = item.description;
 
-            const setAttributeItem = newsClone.querySelector('.news__read-more a');
-            if (setAttributeItem === null) {
-                throw new Error('No element');
-            }
-            setAttributeItem.setAttribute('href', item.url);
+            (newsClone.querySelector('.news__read-more a') as HTMLElement).setAttribute('href', item.url);
 
             fragment.append(newsClone);
         });
 
-        const newsItem = document.querySelector('.news');
-        if (newsItem === null) {
-            throw new Error('No element');
-        }
-        newsItem.innerHTML = '';
-        newsItem.appendChild(fragment);
+        (document.querySelector('.news') as HTMLElement).innerHTML = '';
+        (document.querySelector('.news') as HTMLElement).appendChild(fragment);
     }
 }
 

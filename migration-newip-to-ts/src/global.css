@@ -155,12 +155,12 @@ main {
   border-radius: 10%;
 }
 
-.slide-control__button.active {
+/* .slide-control__button.active {
   cursor: pointer;
-}
+} */
 
-.less,
-.more {
+.less.active,
+.more.active {
   cursor: pointer;
 }
 

@@ -19,17 +19,3 @@ interface ISourcess {
     id: string | null;
     name: string;
 }
-
-// export interface IResp {
-//     endpoint: 'sources' | 'everything';
-//     options?: {[k: string]: string};
-// };
-
-export type IResp = {
-    endpoint: 'sources' | 'everything';
-    options?: { [k: string]: string | null };
-};
-
-// export interface IOptions {
-//     [k: string]: string;
-// };
