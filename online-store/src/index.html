@@ -7,41 +7,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./assets/style/normalize.css">
-  <link rel="shortcut icon" href="assets/image/favicon/favicon.ico" type="image/x-icon">  
+  <link rel="shortcut icon" href="assets/image/favicon/favicon.ico" type="image/x-icon">
+  <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
   <title>store</title>
 </head>
 
 <body class="body">
   <header class="header">
-    <!-- <div class="container">
-      <div class="container__header">         -->
-        <a href="." class="link link_header"><img class="icons icons_header" src="./assets/image/svg/store-logo.svg" alt="Icon Store"/></a>
-        <h1 class="header__title">Dream Store</h1>
-      <!-- </div>
-  </div> -->
+    <a href="." class="link link_header"><img class="icons icons_header" src="./assets/image/svg/store-logo.svg"
+        alt="Icon Store" /></a>
+    <h1 class="header__title">Dream Store</h1>
   </header>
-  
+
   <main class="main">
     <section class="cart">
-      <div class="shopping-cart">cart</div>
+      <div class="shopping-cart">
+        <span class="fa-stack fa-2x has-badge cart__counter" data-count="6">
+          <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+          <i class="fa fa-shopping-cart fa-stack-2x icons-cart"></i>
+        </span>
+      </div>
     </section>
-    
+
     <section class="filters">
       <div class="filter-container filters__value">
-        Filters by value
+        <h3 class="h3">Filters by value</h3>
+        <div class="filters__description">
+          <div class="filters__description__block brand">
+            <div class="filters__title">Brand:</div>
+            <ul class="list-inline">
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_brand">movenpick</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_brand">dallmayr</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_brand">illy</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_brand">lavazza</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filters__description__block country">
+            <div class="filters__title">Country:</div>
+            <ul class="list-inline">
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_country">switzerland</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_country">germany</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_country">italy</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filters__description__block product-type">
+            <div class="filters__title filters__title_product-type">Product coffee:</div>
+            <ul class="list-inline">
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_product-type">Coffee beans</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_product-type">Ground coffee</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_product-type">Coffee pods</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filters__description__block type">
+            <div class="filters__title">Only Espresso</div>
+            <div class="type__checkbox">
+              <label for="type-input" class="type__input-label"></label>
+              <input type="checkbox" class="type__input" id="type-input">
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="filter-container filters__range">
-        Filters by range
+        <h3 class="h3">Filters by range</h3>
+        <div class="filters__description">
+          <div class="filters__description__block range-count">
+            <div class="filters__title">Quantity in stock:</div>
+            <div class="filters__range__slider">
+              <div class="range-count__start">0</div>
+              <div class="range-count__end">50</div>
+            </div>
+            <form id="range-count__form-range">
+              <label for="range-count-range" class="range-count__range-label"></label>
+              <input type="range" id="range-count-range" value="40" min="0" max="50" step="1"
+                class="range-count__range">
+            </form>
+          </div>
+
+          <div class="filters__description__block range-weight">
+            <div class="filters__title">Weight:</div>
+            <div class="filters__range__slider">
+              <div class="range-weight__start">100</div>
+              <div class="range-weight__end">1000</div>
+            </div>
+            <form id="range-weight__form-range">
+              <label for="range-weight-range" class="range-weight__range-label"></label>
+              <input type="range" id="range-weight-range" value="500" min="100" max="1000" step="50"
+                class="range-weight__range">
+            </form>
+          </div>
+        </div>
       </div>
 
       <div class="filter-container filters__search-sort">
-        Search and Sorting
+        <h3 class="h3">Search and Sorting</h3>
+        <div class="filters__description">
+          <div class="filters__description__block search">
+            <div class="filters__title">Search:</div>
+            <form id="search__form-search">
+              <label for="search-search" class="search__search-label"></label>
+              <input type="search" id="search-search" class="search__search" placeholder="search" autocomplete="off">
+            </form>
+          </div>
+
+          <div class="filters__description__block sort">
+            <div class="filters__title">Sort by:</div>
+            <form class="filters__form">
+              <label for="sort-select" class="sort__select-label"></label>
+              <select id="sort-select" class="sort__select">
+                <option value="01" class="sort__option">Name to Up</option>
+                <option value="02" class="sort__option">Name to Down</option>
+                <option value="11" class="sort__option">Price to Up</option>
+                <option value="12" class="sort__option">Price to Down</option>
+                <option value="21" class="sort__option">Count to Up</option>
+                <option value="22" class="sort__option">Count to Down</option>
+              </select>
+            </form>
+          </div>
+
+          <div class="filters__description__block reset">
+            <div class="filters__title">Reset:</div>
+            <ul class="list-inline">
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_reset">Filters reset</button>
+              </li>
+              <li class="list-inline__items">
+                <button class="filters__button filters__button_reset">Common reset</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <section class="products">
-      
+
+      <div class="product">
+        <h3 class="product__title">Best coffee in the World</h3>
+        <div class="product__content">
+          <div class="product__image"></div>
+          <ul class="list-block">
+            <li class="list-block__item">
+              <span class="list-block__title">Age:</span>
+              <span class="list-block__description">23</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">Inoculations:</span>
+              <span class="list-block__description">sdfs</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">Diseases:</span>
+              <span class="list-block__description">fdsdf</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">Parasites:</span>
+              <span class="list-block__description">333 ea fdff</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">ParasitesDecription:</span>
+              <span class="list-block__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui
+                explicabo quas corrupti, alias incidunt itaque error officia quis tempora magni quos, aspernatur
+                similique molestias perferendis voluptatum rem eius voluptas vitae!</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -56,7 +210,8 @@
 
     <div class="footer__logo">
       <a href="https://rs.school/js/" class="link link_icons">
-        <img src="https://rs.school/images/rs_school_js.svg" width="60" height="30" alt="Logo RSSchool" class="icons icons_footer">
+        <img src="https://rs.school/images/rs_school_js.svg" width="60" height="30" alt="Logo RSSchool"
+          class="icons icons_footer">
       </a>
     </div>
 
