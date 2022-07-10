@@ -1,0 +1,206 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --color-error: #ff1302;
+  --color-win: #9bd87f;
+  --color-grey: #2b2b2b;
+  --color-grey-white: #5a5a5a;
+  --color-grey-dark: #424141;
+  --color-background-light: #f9f7f5;
+  --color-background-dark: #2b2b2b;
+  --color-background-dark: #3b3b3b;
+  --font-container: 'Montserrat',sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link:link {
+  color: inherit;
+}
+
+.link:visited {
+  color: inherit;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-background-light);
+  font-family: sans-serif;
+}
+
+/* ------------------------------header------------------------------ */
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+  font: var(--font-container);
+  color: #ffffdd;
+  background-color: var(--color-background-dark);
+  padding: 1vh 6vh;
+  border-top: 1em solid var(--color-background-light);
+}
+
+.link_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(0%) contrast(200%) saturate(0%) invert(100%);
+}
+
+.icons_header {
+  width: 4vh;
+  height: auto;
+  display: block;
+}
+
+.header__title {
+  margin: 0;
+}
+
+/* ------------------------------main------------------------------ */
+
+/* ------------------------------cart------------------------------ */
+.shopping-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 4vw;
+  color: #ffffdd;
+  background-color: var(--color-background-dark);
+  padding: 1vh 6vh;
+}
+
+/* ------------------------------filters------------------------------ */
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2vw;
+  color: #ffffdd;
+  background-color: var(--color-background-dark);
+  padding: 1vh 2vh;
+}
+
+.filter-container {
+  width: 30vw;
+}
+
+/* ------------------------------products------------------------------ */
+.products {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20vw;
+  background-color: rgba(255, 255, 255, 0.73);
+  border: 1px solid #bebbb9;  
+}
+
+.items__title {
+  align-self: center;
+}
+
+.items__image {
+  display: block;
+  width: auto;
+  height: 60%;  
+}
+
+.items__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1vh;
+  font-size: var(--font-container);
+}
+
+/* ------------------------------footer------------------------------ */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* font: italic small-caps bold 1rem cursive; */
+  color: #ffffdd;
+  background-color: var(--color-background-dark);
+  padding: 0.1vh 6vh;
+  border-bottom: 1em solid var(--color-background-light);
+}
+
+.footer__data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: .5rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.footer__item .link {
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.footer__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons_footer {
+  filter: brightness(108%) contrast(108%) hue-rotate(305deg) saturate(129%) sepia(26%) invert(100%);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.icons_footer:hover {
+  filter: brightness(200%) contrast(200%) saturate(0%) invert(100%);
+  cursor: pointer;
+}
+
+@media (max-width: 767.98px) { 
+
+ /* ------------------------------filters------------------------------ */ 
+  .filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+    padding: 1vh 2vh;
+  }
+
+  .filter-container {
+    width: 80vw;
+  }
+
+}
