@@ -233,7 +233,7 @@ html {
 /* to in extend file - range.css */
 
 /* ------------------------------search-sort------------------------------ */
-.search__search {
+.search {
   font: inherit;
   line-height: 1.5;
   color: var(--color-yellow-light); 
@@ -244,7 +244,7 @@ html {
   border-radius: 5px;
 }
 
-.search__search:focus-visible {
+.search:focus-visible {
   outline: none;
   background-color: var(--color-grey);
 }
