@@ -14,6 +14,7 @@ const config = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: 'assets/[hash][ext]'
   },
   devServer: {
     open: true,
@@ -51,7 +52,7 @@ const config = {
     new CopyPlugin({
         patterns: [
             {
-                from: './src/assets/image',
+                from: './src/assets/',
                 to: 'assets',
                 noErrorOnMissing: true,
             },

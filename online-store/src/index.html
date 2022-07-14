@@ -20,10 +20,6 @@
   <main class="main">
     <section class="cart">
       <div class="shopping-cart">
-        <span class="fa-stack fa-2x has-badge cart__counter" data-count="6">
-          <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-          <i class="fa fa-shopping-cart fa-stack-2x icons-cart"></i>
-        </span>
       </div>
     </section>
 
@@ -92,30 +88,32 @@
       <div class="filter-container filters__range">
         <h3 class="h3">Filters by range</h3>
         <div class="filters__description">
-          <div class="filters__description__block range-count">
+          <div class="filters__description">
             <div class="filters__title">Quantity in stock:</div>
-            <div class="filters__range__slider">
-              <div class="range-count__start">0</div>
-              <div class="range-count__end">50</div>
+            <div class="filters__slider">
+              <div class="range-count-start">0</div>
+              <form class="filters__form-range">
+                <label for="range-count-from" class="range-label"></label>
+                <label for="range-count-to" class="range-label"></label>
+                <input id="range-count-from" type="range" value="0" min="0" max="50" class="range-count-from"/>
+                <input id="range-count-to" type="range" value="50" min="0" max="50" class="range-count-to"/>
+              </form>
+              <div class="range-count-end">50</div>
             </div>
-            <form id="range-count__form-range">
-              <label for="range-count-range" class="range-count__range-label"></label>
-              <input type="range" id="range-count-range" value="40" min="0" max="50" step="1"
-                class="range-count__range">
-            </form>
           </div>
 
-          <div class="filters__description__block range-weight">
+          <div class="filters__description">
             <div class="filters__title">Weight:</div>
-            <div class="filters__range__slider">
-              <div class="range-weight__start">100</div>
-              <div class="range-weight__end">1000</div>
+            <div class="filters__slider">
+              <div class="range-weight-start">100</div>
+              <form class="filters__form-range">
+                <label for="range-weight-from" class="range-label"></label>
+                <label for="range-weight-to" class="range-label"></label>
+                <input id="range-weight-from" type="range" value="100" min="100" max="1000" class="range-weight-from"/>
+                <input id="range-weight-to" type="range" value="1000" min="100" max="1000" class="range-weight-to"/>
+              </form>
+              <div class="range-weight-end">1000</div>
             </div>
-            <form id="range-weight__form-range">
-              <label for="range-weight-range" class="range-weight__range-label"></label>
-              <input type="range" id="range-weight-range" value="500" min="100" max="1000" step="50"
-                class="range-weight__range">
-            </form>
           </div>
         </div>
       </div>
@@ -165,31 +163,41 @@
     <section class="products">
 
       <div class="product">
-        <h3 class="product__title">Best coffee in the World</h3>
+        <h3 class="product__title">Mövenpick The Divine Coffee Beans</h3>
         <div class="product__content">
           <div class="product__image"></div>
           <ul class="list-block">
             <li class="list-block__item">
-              <span class="list-block__title">Age:</span>
-              <span class="list-block__description">23</span>
+              <span class="list-block__title">brand:</span>
+              <span class="list-block__description">Movenpick</span>
             </li>
             <li class="list-block__item">
-              <span class="list-block__title">Inoculations:</span>
-              <span class="list-block__description">sdfs</span>
+              <span class="list-block__title">type:</span>
+              <span class="list-block__description">Coffee</span>
             </li>
             <li class="list-block__item">
-              <span class="list-block__title">Diseases:</span>
-              <span class="list-block__description">fdsdf</span>
+              <span class="list-block__title">product:</span>
+              <span class="list-block__description">"Coffee beans</span>
             </li>
             <li class="list-block__item">
-              <span class="list-block__title">Parasites:</span>
-              <span class="list-block__description">333 ea fdff</span>
+              <span class="list-block__title">weight (gr):</span>
+              <span class="list-block__description">1000</span>
             </li>
             <li class="list-block__item">
-              <span class="list-block__title">ParasitesDecription:</span>
-              <span class="list-block__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui
-                explicabo quas corrupti, alias incidunt itaque error officia quis tempora magni quos, aspernatur
-                similique molestias perferendis voluptatum rem eius voluptas vitae!</span>
+              <span class="list-block__title">country:</span>
+              <span class="list-block__description">Switzerland</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">price ($):</span>
+              <span class="list-block__description">10.81</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">count:</span>
+              <span class="list-block__description">20</span>
+            </li>
+            <li class="list-block__item">
+              <span class="list-block__title">decription:</span>
+              <span class="list-block__description">The Movenpick classic. Exquisite highland coffee beans from the best growing regions of the world give this coffee its rich aroma. The noble blend of 100% Arabica beans develops its balanced aroma through careful long roasting.</span>
             </li>
           </ul>
         </div>
@@ -205,14 +213,12 @@
         <a class="link" href="https://github.com/rydvone">github</a>
       </li>
     </ul>
-
     <div class="footer__logo">
       <a href="https://rs.school/js/" class="link link_icons">
         <img src="https://rs.school/images/rs_school_js.svg" width="60" height="30" alt="Logo RSSchool"
           class="icons icons_footer">
       </a>
     </div>
-
   </footer>
 </body>
 

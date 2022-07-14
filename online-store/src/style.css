@@ -1,3 +1,6 @@
+@import './css/normalize.css';
+/* @import './css/filtersRange.css'; */
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -181,7 +184,7 @@ html {
 .filters__description {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 2vw;
 }
 
@@ -227,35 +230,7 @@ html {
 }
 
 /* ------------------------------range------------------------------ */
-.range-count,
-.range-weight {
-  flex-direction: column;
-}
-
-.range-count__range,
-.range-weight__range {
-  width: 80%;
-}
-
-.filters__range__slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.range-count__start,
-.range-count__end,
-.range-weight__start,
-.range-weight__end {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3.5em;
-  height: 2em;
-  border: 0.1em solid var(--color-border-light);
-  border-radius: 1em;
-}
+/* to in extend file - range.css */
 
 /* ------------------------------search-sort------------------------------ */
 .search__search {
