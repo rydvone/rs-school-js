@@ -1,4 +1,4 @@
-type IFunc = (this: void, event: MouseEvent) => void;
+// type IFunc = (this: void, event: MouseEvent) => void;
 
 export class ElementTemplate {
   protected _element: HTMLElement | null;
@@ -34,13 +34,13 @@ export class ElementTemplate {
     }
   }
 
-  click(el: HTMLElement, func: IFunc) {
-    el.addEventListener('click', func);
-  }
+  // click(el: HTMLElement, func: IFunc) {
+  //   el.addEventListener('click', func);
+  // }
 
-  unClick(el: HTMLElement, func: IFunc) {
-    el.removeEventListener('click', func);
-  }
+  // unClick(el: HTMLElement, func: IFunc) {
+  //   el.removeEventListener('click', func);
+  // }
 
   clearNode(el: HTMLElement) {
     while (el.firstChild) {
