@@ -7,6 +7,7 @@ export class InputSearch extends Input {
   constructor(type: string) {
     super(type);
     this._type = type;
+    this.setSearchAttr();
   }
 
   get value() {
@@ -23,5 +24,11 @@ export class InputSearch extends Input {
 
   unKeydown(func: IFunc) {
     super.inputElement.removeEventListener('keydown', func);
+  }
+
+  setSearchAttr() {
+    super.inputElement.placeholder = 'search';
+    super.inputElement.autocomplete = 'off';
+    super.inputElement.focus();
   }
 }
