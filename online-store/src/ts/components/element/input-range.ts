@@ -3,7 +3,6 @@ import { Input } from './input';
 export class InputRange extends Input {
   protected _type: string;
   private _value: number;
-  // public inputElement: HTMLElement;
   constructor(type: string) {
     super(type);
     this._type = type;

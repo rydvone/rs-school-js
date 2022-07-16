@@ -1,9 +1,9 @@
 type IFunc = (this: void, event: MouseEvent) => void;
 
 export class ElementTemplate {
-  // protected element: HTMLElement | null;
+  protected _element: HTMLElement | null;
   constructor() {
-    // this.element = null;
+    this._element = null;
   }
 
   createHTMLElement(el: string, className: string, classNameAdditional?: string) {
@@ -25,10 +25,6 @@ export class ElementTemplate {
     if (classNameAdditional) {
       el.classList.add(classNameAdditional);
     }
-  }
-
-  setIdName(el: HTMLElement, idName: string) {
-    el.setAttribute('id', idName);
   }
 
   setHTMLElement(el: HTMLElement, className: string, classNameAdditional?: string) {
@@ -65,7 +61,7 @@ export class ElementTemplate {
   }
 
   // checkNullable(func) {
-  //   if (this.element === null) {
+  //   if (this._element === null) {
   //     return console.log('Warning! There is No HTMLElement!');
   //   } else {
   //     return func;

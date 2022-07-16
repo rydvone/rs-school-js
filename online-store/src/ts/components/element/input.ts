@@ -5,7 +5,7 @@ const ELEMENT_NAME_CLASS = '';
 
 export class Input extends ElementTemplate {
   protected _type: string;
-  public inputElement: HTMLInputElement;
+  protected inputElement: HTMLInputElement;
   constructor(type: string) {
     super();
     this._type = type;
@@ -14,6 +14,14 @@ export class Input extends ElementTemplate {
       ELEMENT_NAME_CLASS
     ) as HTMLInputElement;
     this.setType();
+  }
+
+  getIdName() {
+    return this.inputElement.id;
+  }
+
+  setIdName(idName: string) {
+    this.inputElement.id = idName;
   }
 
   setType() {
