@@ -8,14 +8,13 @@ const ELEMENT_NAME_CLASS = '';
 export class Input extends ElementTemplate {
   protected _type: string;
   protected inputElement: HTMLInputElement;
-  constructor(type: string) {
+  constructor() {
     super();
-    this._type = type;
+    this._type = 'text';
     this.inputElement = this.createHTMLElement(
       ELEMENT_NAME,
       ELEMENT_NAME_CLASS
     ) as HTMLInputElement;
-    this.setType();
   }
 
   getIdName() {
@@ -26,8 +25,8 @@ export class Input extends ElementTemplate {
     this.inputElement.id = idName;
   }
 
-  setType() {
-    this.inputElement.setAttribute('type', this._type);
+  setType(inputType: string) {
+    this.inputElement.setAttribute('type', inputType);
   }
 
   click(func: IFunc) {

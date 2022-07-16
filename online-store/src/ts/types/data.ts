@@ -1,41 +1,41 @@
-export interface IData {
+export interface Data {
   name: string;
   img: string;
-  fields: IFields[];
+  fields: Fields[];
   date: string;
   ean: string;
 }
 
-export interface IFields {
-  brand: IBrand;
-  type: IType;
-  product: IProduct;
+export interface Fields {
+  brand: Brand;
+  type: Type;
+  product: Product;
   weight: number;
-  country: ICountry;
+  country: Country;
   price: number;
   count: number;
   description: string;
 }
 
-enum IBrand {
+enum Brand {
   MOVENPICK = 'Movenpick',
   DALLMAYR = 'Dallmayr',
   ILLY = 'Illy',
   LAVAZZA = 'Lavazza',
 }
 
-enum IType {
+enum Type {
   COFFEE = 'Coffee',
   ESPRESSO = 'Espresso',
 }
 
-enum IProduct {
+enum Product {
   BEANS = 'Coffee beans',
   PODS = 'Coffee pods',
   GROUND = 'Ground coffee',
 }
 
-enum ICountry {
+enum Country {
   SWITZERLAND = 'Switzerland',
   GERMANY = 'Germany',
   ITALY = 'Italy',

@@ -19,6 +19,7 @@
   <main class="main">
     <section class="cart">
       <div class="shopping-cart">
+        <h3 class="h3">Shopping cart</h3>
         <img class="icons icons_cart" src="./assets/image/svg/shopping-cart-10.svg" alt="Shopping cart" />
         <div class="cart-counter">0</div>
       </div>
@@ -79,7 +80,6 @@
           <div class="filters__description__block type">
             <div class="filters__title">Only Espresso</div>
             <div class="type__checkbox">
-              <label for="type-input" class="type__input-label"></label>
               <input type="checkbox" class="type__input" id="type-input">
             </div>
           </div>
@@ -94,8 +94,6 @@
             <div class="filters__slider">
               <div class="range-count-start">0</div>
               <form class="filters__form-range">
-                <label for="range-count-from" class="range-label"></label>
-                <label for="range-count-to" class="range-label"></label>
                 <input id="range-count-from" type="range" value="0" min="0" max="50" class="range-count-from"/>
                 <input id="range-count-to" type="range" value="50" min="0" max="50" class="range-count-to"/>
               </form>
@@ -108,8 +106,6 @@
             <div class="filters__slider">
               <div class="range-weight-start">100</div>
               <form class="filters__form-range">
-                <label for="range-weight-from" class="range-label"></label>
-                <label for="range-weight-to" class="range-label"></label>
                 <input id="range-weight-from" type="range" value="100" min="100" max="1000" class="range-weight-from"/>
                 <input id="range-weight-to" type="range" value="1000" min="100" max="1000" class="range-weight-to"/>
               </form>
@@ -125,22 +121,20 @@
           <div class="filters__description__block">
             <div class="filters__title">Search:</div>
             <form class="filters__form">
-              <label for="search-search" class="search-label"></label>
-              <input type="search" id="search-search" class="search" placeholder="search" autocomplete="off">
+              <input type="search" id="search" class="search" placeholder="search" autocomplete="off">
             </form>
           </div>
 
           <div class="filters__description__block sort">
             <div class="filters__title">Sort by:</div>
             <form class="filters__form">
-              <label for="sort-select" class="select-label"></label>
               <select id="sort-select" class="select">
-                <option value="01" class="sort__option">Name to Up</option>
-                <option value="02" class="sort__option">Name to Down</option>
-                <option value="11" class="sort__option">Price to Up</option>
-                <option value="12" class="sort__option">Price to Down</option>
-                <option value="21" class="sort__option">Count to Up</option>
-                <option value="22" class="sort__option">Count to Down</option>
+                <option value="name-up" class="select__option">Name to Up</option>
+                <option value="name-down" class="select__option">Name to Down</option>
+                <option value="11" class="select__option">Price to Up</option>
+                <option value="12" class="select__option">Price to Down</option>
+                <option value="21" class="select__option">Count to Up</option>
+                <option value="22" class="select__option">Count to Down</option>
               </select>
             </form>
           </div>

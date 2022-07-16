@@ -1,11 +1,12 @@
 import { Input } from './input';
 
+const ELEMENT_TYPE = 'range';
+
 export class InputRange extends Input {
-  protected _type: string;
   private _value: number;
-  constructor(type: string) {
-    super(type);
-    this._type = type;
+  constructor() {
+    super();
+    super.setType(ELEMENT_TYPE);
     this._value = 0;
   }
 

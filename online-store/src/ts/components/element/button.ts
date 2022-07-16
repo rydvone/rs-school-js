@@ -10,10 +10,14 @@ export class Button extends ElementTemplate {
     super();
     this._title = title;
     this.buttonElement = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
-    this.addText();
+    this.addText(this._title);
   }
 
-  addText() {
-    this.buttonElement.textContent = this._title;
+  addText(title: string) {
+    this.buttonElement.textContent = title;
+  }
+
+  addSelectes() {
+    this.addClassSelected(this.buttonElement);
   }
 }

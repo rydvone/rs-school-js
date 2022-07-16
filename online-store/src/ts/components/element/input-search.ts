@@ -1,13 +1,16 @@
 import { Input } from './input';
 
-type IFunc = (this: void, event: KeyboardEvent) => void;
+type Func = (this: void, event: KeyboardEvent) => void;
+
+const ELEMENT_TYPE = 'search';
+const ELEMENT_ID = 'search';
 
 export class InputSearch extends Input {
-  protected _type: string;
-  constructor(type: string) {
-    super(type);
-    this._type = type;
-    this.setSearchAttr();
+  constructor() {
+    super();
+    super.setType(ELEMENT_TYPE);
+    super.setIdName(ELEMENT_ID);
+    this._setSearchAttr();
   }
 
   get value() {
@@ -18,15 +21,15 @@ export class InputSearch extends Input {
     super.inputElement.value = `${val}`;
   }
 
-  keydown(func: IFunc) {
+  keydown(func: Func) {
     super.inputElement.addEventListener('keydown', func);
   }
 
-  unKeydown(func: IFunc) {
+  unKeydown(func: Func) {
     super.inputElement.removeEventListener('keydown', func);
   }
 
-  setSearchAttr() {
+  private _setSearchAttr() {
     super.inputElement.placeholder = 'search';
     super.inputElement.autocomplete = 'off';
     super.inputElement.focus();
