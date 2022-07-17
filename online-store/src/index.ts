@@ -1,4 +1,5 @@
 import './style.css';
+import App from './ts/components/app/app';
 import initRangeWeight from './ts/components/filters/range/filterRangeFunc';
 
 window.onload = () => {
@@ -19,3 +20,6 @@ window.onload = () => {
     '.range-weight-end'
   );
 };
+
+const app = new App();
+// app.start();

@@ -38,23 +38,7 @@ export class ElementTemplate {
     }
   }
 
-  addClassSelected(el: HTMLElement) {
-    el.classList.add('selected');
+  clearInner(el: HTMLElement) {
+    el.innerHTML = '';
   }
-
-  removeClassSelected(el: HTMLElement) {
-    el.classList.remove('selected');
-  }
-
-  toggleClassSelected(el: HTMLElement) {
-    el.classList.toggle('selected');
-  }
-
-  // checkNullable(func) {
-  //   if (this._element === null) {
-  //     return console.log('Warning! There is No HTMLElement!');
-  //   } else {
-  //     return func;
-  //   }
-  // }
 }

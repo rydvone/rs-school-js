@@ -1,0 +1,48 @@
+[
+  {
+      "brand": [
+        "Movenpick",
+        "Dallmayr",
+        "Illy",
+        "Lavazza"
+      ]
+  },
+  {
+      "product": [
+        "Coffee beans",
+        "Coffee pods",
+        "Ground coffee"
+      ]
+  },
+  {
+      "country": [
+       "Switzerland",
+        "Germany",
+        "Italy"
+      ]
+  }
+]
+// [
+//   {
+//       "brand": [
+//         "Movenpick",
+//         "Dallmayr",
+//         "Illy",
+//         "Lavazza"
+//       ]
+//   },
+//   {
+//       "product": [
+//         "Coffee beans",
+//         "Coffee pods",
+//         "Ground coffee"
+//       ]
+//   },
+//   {
+//       "country": [
+//        "Switzerland",
+//         "Germany",
+//         "Italy"
+//       ]
+//   }
+// ]
