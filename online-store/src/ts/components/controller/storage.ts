@@ -1,5 +1,5 @@
 import { FilterStorage } from '../../types/filter-storage';
-
+import data from '../../../assets/data/storage.json';
 export class Storage {
   // private _state: boolean;
   // private _value: string | null;
@@ -13,25 +13,26 @@ export class Storage {
   // this._value = null;
   // this.setData(this._key);
   // }
-
-  // private _init() {
-  //   window.addEventListener('load', this.getData);
-  //   window.addEventListener('beforeunload', this.setData);
-  // }
-
-  getData(data: FilterStorage) {
-    return Object.entries(data).map(([key, value]) => {
-      if (localStorage.getItem(key) === null) {
-        return (data[key] = '');
-      } else {
-        return (data[key] = localStorage.getItem(key) || '');
-      }
-    });
+  private _data: FilterStorage;
+  constructor() {
+    this._data = data;
+    this._init();
   }
 
-  setData(data: FilterStorage) {
-    Object.entries(data).forEach(([key, value]) => {
-      localStorage.setItem(key, value);
+  private _init() {
+    window.addEventListener('load', () => {
+      return Object.keys(this._data).map((key) => {
+        if (localStorage.getItem(key) === null) {
+          this._data[key] = '';
+        } else {
+          this._data[key] = localStorage.getItem(key) || '';
+        }
+      });
+    });
+    window.addEventListener('beforeunload', () => {
+      Object.entries(this._data).forEach(([key, value]) => {
+        localStorage.setItem(key, value);
+      });
     });
   }
 }

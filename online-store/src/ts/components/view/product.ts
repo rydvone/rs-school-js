@@ -1,5 +1,4 @@
 import { ElementTemplate } from '../element/element-template';
-import data from '../../../assets/data/data.json';
 import { ListProduct } from '../element/list-product';
 import { Data } from '../../types/data';
 
@@ -17,7 +16,6 @@ export class Product extends ElementTemplate {
 
     this._list = new ListProduct();
     this._product = this.createDiv(ELEMENT_NAME_CLASS);
-    // this.appendTo(data);
   }
 
   appendTo(data: Data) {
