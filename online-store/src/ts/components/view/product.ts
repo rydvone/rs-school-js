@@ -13,7 +13,6 @@ export class Product extends ElementTemplate {
   private _list: ListProduct;
   constructor() {
     super();
-
     this._list = new ListProduct();
     this._product = this.createDiv(ELEMENT_NAME_CLASS);
   }
