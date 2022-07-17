@@ -3,13 +3,14 @@ import data from '../../../assets/data/data.json';
 import { Data } from '../../types/data';
 import { Product } from './product';
 
+const ELEMENT_NAME = 'section';
 const ELEMENT_NAME_CLASS = 'products';
 
 export class Products extends ElementTemplate {
   private _products: HTMLElement;
   constructor() {
     super();
-    this._products = this.createDiv(ELEMENT_NAME_CLASS);
+    this._products = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
     this._init(data);
   }
 

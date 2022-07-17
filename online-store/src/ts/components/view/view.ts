@@ -1,5 +1,6 @@
 // import { ElementTemplate } from '../element/element-template';
 // import { PageBlock } from './page-block';
+import { PageCart } from './page-cart';
 import { Products } from './products';
 
 // const HEADER_INNER = `
@@ -45,5 +46,9 @@ export class View {
     const main: HTMLElement = document.querySelector('.main') as HTMLElement;
     const products = new Products();
     main.append(products.element);
+    const cart = new PageCart()
+    main.prepend(cart.element);
   }
+
+  // buildFilter
 }
