@@ -5,7 +5,7 @@ import { Button } from './button';
 const ELEMENT_NAME = 'ul';
 const ELEMENT_NAME_CLASS = 'list-inline';
 const ELEMENT_NAME_ADDITIONAL = 'li';
-const ELEMENT_NAME_CLASS_ADDITIONAL = 'list-inline_item';
+const ELEMENT_NAME_CLASS_ADDITIONAL = 'list-inline__item';
 
 export class ListButton extends ElementTemplate {
   // protected _title: string;

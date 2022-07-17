@@ -22,4 +22,4 @@ window.onload = () => {
 };
 
 const app = new App();
-// app.start();
+app.start();

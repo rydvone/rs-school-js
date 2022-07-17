@@ -1,7 +1,7 @@
 [
   {
     "name": "Movenpick The Divine Coffee Beans",
-    "img": "../image/products/m_venpick_der_himmlische_bohnen_1kg.jpg",
+    "img": "../image/products/4006581205007.jpg",
     "fields": {
       "brand": "Movenpick",
       "type": "Coffee",
@@ -17,7 +17,7 @@
   },
   {
     "name": "Dallmayr Selection of the Year 2022 Hakuna Matata Coffee beans",
-    "img": "../image/products/dallmayr_selektion_des_jahres_2022_hakuna_matyata.jpg",
+    "img": "../image/products/4008167035503.jpg",
     "fields": {
       "brand": "Dallmayr",
       "type": "Coffee",
@@ -49,7 +49,7 @@
   },
   {
     "name": "250gr Illy Colombia Beans",
-    "img": "../image/products/illy_bonen_colombia_250gr.jpg",
+    "img": "../image/products/8003753104904.jpg",
     "fields": {
       "brand": "Illy",
       "type": "Coffee",

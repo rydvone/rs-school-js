@@ -262,10 +262,11 @@ body {
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 21vw;
-  min-height: 42vw;
+  height: auto;
+  min-height: 22vw;
   background-color: #ffffff;
   padding: 1vw;
   background-color: rgba(255, 255, 255, 0.73);
@@ -283,12 +284,16 @@ body {
 
 .product__content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 2vw;
 }
 
 .product__image {
-  width: auto;
-  min-height: 30%;  
+  display: block;
+  width: 7vw;
+  min-height: 5vw;
+  height: 7vw;
+  margin: 0 auto;
 }
 
 .list-block {

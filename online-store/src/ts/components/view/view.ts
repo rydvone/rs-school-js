@@ -1,5 +1,6 @@
 import { ElementTemplate } from '../element/element-template';
 import { PageBlock } from './page-block';
+import { Products } from './products';
 
 const HEADER_INNER = `
   <a href="." class="link link_header"><img class="icons icons_header" src="./assets/image/svg/store-logo.svg" alt="Icon Store"></a>
@@ -32,6 +33,8 @@ export class View {
     // arrPageBlock.push(this._pageBlockHeader)
     this._pageBlockHeader.innerTo(HEADER_INNER);
     this._pageBlockFooter.innerTo(FOOTER_INNER);
+    const products = new Products();
+    this._pageBlockMain.blockElement.append(products.element);
   }
 
   buildPage() {
