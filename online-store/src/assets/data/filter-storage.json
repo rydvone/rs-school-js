@@ -1,0 +1,15 @@
+// [ "brand", "country", "product", "espresso", "count", "weight", "search",
+// "sort" ]
+
+[ 
+  {
+    "brand": "",
+    "country": "",
+    "product": "", 
+    "espresso": "",
+    "count": "",
+    "weight": "",
+    "search": "",
+    "sort": ""
+  }
+]
