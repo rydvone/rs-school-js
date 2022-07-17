@@ -103,7 +103,7 @@ body {
   position: relative;
 }
 
-.icons_cart {
+.icons-cart {
   display: block;
   width: 4rem;
   height: auto;
@@ -131,13 +131,17 @@ body {
   padding: 0;
 }
 
-.filters__button {
+.button {
   cursor: pointer;
 }
 
-.filters__button:hover {
+.button:hover {
   cursor: pointer;
   background-color: #c6d3c1;
+}
+
+.button.selected {
+  background-color: var(--color-selected);
 }
 
 .filters {
@@ -188,7 +192,7 @@ body {
   cursor: pointer;
 }
 
-.filters__button_product-type.selected {
+.button_product-type.selected {
   background-color: var(--color-selected);
 }
 
@@ -235,13 +239,13 @@ body {
   color: rgb(255, 254, 224, 0.5);
 }
 
-.filters__button_reset {
+.button_reset {
   padding: .4em;
   border-radius: 0.3em;
   box-shadow: 0.1em 0.1em #999;
 }
 
-.filters__button_reset:active {
+.button_reset:active {
   background-color: var(--color-selected);
   box-shadow: 0.01em 0.01em #666;
   transform: translate(0.1em, 0.1em);

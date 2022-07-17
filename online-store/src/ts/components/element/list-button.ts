@@ -8,7 +8,6 @@ const ELEMENT_NAME_ADDITIONAL = 'li';
 const ELEMENT_NAME_CLASS_ADDITIONAL = 'list-inline__item';
 
 export class ListButton extends ElementTemplate {
-  // protected _title: string;
   private _typeName: string;
   private _list: HTMLElement;
   constructor(typeName: string) {
@@ -24,7 +23,7 @@ export class ListButton extends ElementTemplate {
     arrData.forEach((el) => {
       const li = this.createHTMLElement(ELEMENT_NAME_ADDITIONAL, ELEMENT_NAME_CLASS_ADDITIONAL);
       const button = new Button(el);
-      button.click(() => button.toggleClass());
+
       li.append(button.element);
       fragment.append(li);
     });

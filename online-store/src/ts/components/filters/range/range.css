@@ -31,7 +31,7 @@
 }
 
 
-.filters__form-range {
+.filters__form {
   display: flex;
   justify-content: center;
   position: relative;

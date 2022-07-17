@@ -1,5 +1,6 @@
 import { ElementTemplate } from './element-template';
 import { DataOption } from '../../types/data-sort';
+import data from '../../../assets/data/data-sort.json';
 
 type Func = (this: void, event: MouseEvent) => void;
 
@@ -8,43 +9,49 @@ const ELEMENT_NAME_CLASS = 'select';
 const ELEMENT_NAME_ID = 'select';
 const ELEMENT_NAME_ADDITIONAL = 'option';
 const ELEMENT_NAME_CLASS_ADDITIONAL = 'select__option';
+const ELEMENT_FORM = 'form';
+const ELEMENT_FORM_CLASS = 'filters__form';
 
 export class Select extends ElementTemplate {
-  protected selectElement: HTMLInputElement;
+  protected _selectElement: HTMLInputElement;
   private _data: DataOption;
-  constructor(data: DataOption) {
+  constructor() {
     super();
     this._data = data;
-    this.selectElement = this.createHTMLElement(
+    this._selectElement = this.createHTMLElement(
       ELEMENT_NAME,
       ELEMENT_NAME_CLASS
     ) as HTMLInputElement;
     this._setIdName(ELEMENT_NAME_ID);
     this._addList();
+    this.click();
   }
 
   getIdName() {
-    return this.selectElement.id;
+    return this._selectElement.id;
   }
 
   private _setIdName(idName: string) {
-    this.selectElement.id = idName;
+    this._selectElement.id = idName;
   }
 
   get value() {
-    return this.selectElement.value;
+    return this._selectElement.value;
   }
 
   // set value(val: string) {
-  //   this.selectElement.value = `${val}`;
+  //   this._selectElement.value = `${val}`;
   // }
 
-  click(func: Func) {
-    this.selectElement.addEventListener('click', func);
+  click() {
+    this._selectElement.addEventListener('click', (e) => {
+      console.log('val = ', this._selectElement.value);
+      console.log('e = ', e);
+    });
   }
 
   unClick(func: Func) {
-    this.selectElement.removeEventListener('click', func);
+    this._selectElement.removeEventListener('click', func);
   }
 
   private _addList() {
@@ -58,6 +65,16 @@ export class Select extends ElementTemplate {
       option.textContent = value;
       fragment.appendChild(option);
     });
-    this.selectElement.appendChild(fragment);
+    this._selectElement.appendChild(fragment);
+  }
+
+  appendTo() {
+    const form = this.createHTMLElement(ELEMENT_FORM, ELEMENT_FORM_CLASS);
+    form.append(this._selectElement);
+    return form;
+  }
+
+  get element() {
+    return this._selectElement;
   }
 }

@@ -4,36 +4,48 @@ type IFunc = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_NAME_CLASS = '';
+const ELEMENT_FORM = 'form';
+const ELEMENT_FORM_CLASS = 'filters__form';
 
 export class Input extends ElementTemplate {
   protected _type: string;
-  protected inputElement: HTMLInputElement;
+  protected _inputElement: HTMLInputElement;
   constructor() {
     super();
     this._type = 'text';
-    this.inputElement = this.createHTMLElement(
+    this._inputElement = this.createHTMLElement(
       ELEMENT_NAME,
       ELEMENT_NAME_CLASS
     ) as HTMLInputElement;
   }
 
+  appendTo() {
+    const form = this.createHTMLElement(ELEMENT_FORM, ELEMENT_FORM_CLASS);
+    form.append(this._inputElement);
+    return form;
+  }
+
   getIdName() {
-    return this.inputElement.id;
+    return this._inputElement.id;
   }
 
   setIdName(idName: string) {
-    this.inputElement.id = idName;
+    this._inputElement.id = idName;
   }
 
   setType(inputType: string) {
-    this.inputElement.setAttribute('type', inputType);
+    this._inputElement.setAttribute('type', inputType);
   }
 
   click(func: IFunc) {
-    this.inputElement.addEventListener('click', func);
+    this._inputElement.addEventListener('click', func);
   }
 
   unClick(func: IFunc) {
-    this.inputElement.removeEventListener('click', func);
+    this._inputElement.removeEventListener('click', func);
+  }
+
+  get element() {
+    return this._inputElement;
   }
 }

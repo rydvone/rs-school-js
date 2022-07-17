@@ -5,7 +5,7 @@ import { ListButton } from '../element/list-button';
 const ELEMENT_NAME_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
 
-export class FilterValueBase extends ElementTemplate {
+export class PageFilterButton extends ElementTemplate {
   private _filterValue: HTMLElement;
   private _filterName: string;
 

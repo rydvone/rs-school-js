@@ -1,35 +1,24 @@
 export class ElementTemplate {
-  protected _element: HTMLElement | null;
-  constructor() {
-    this._element = null;
-  }
-
-  createHTMLElement(el: string, className: string, classNameAdditional?: string) {
+  createHTMLElement(el: string, className: string) {
     const element = document.createElement(el);
-    this.setClassName(element, className, classNameAdditional);
+    this.setClassName(element, className);
     return element;
   }
 
-  createDiv(className: string, classNameAdditional?: string) {
-    return this.createHTMLElement('div', className, classNameAdditional);
+  createDiv(className: string) {
+    return this.createHTMLElement('div', className);
   }
 
-  setClassName(
-    el: HTMLElement | HTMLInputElement,
-    className: string,
-    classNameAdditional?: string
-  ) {
-    el.classList.add(className);
-    if (classNameAdditional) {
-      el.classList.add(classNameAdditional);
-    }
+  setClassName(el: HTMLElement | HTMLInputElement, className: string) {
+    el.className = className;
   }
 
-  setHTMLElement(el: HTMLElement, className: string, classNameAdditional?: string) {
+  addClassName(el: HTMLElement | HTMLInputElement, className: string) {
     el.classList.add(className);
-    if (classNameAdditional) {
-      el.classList.add(classNameAdditional);
-    }
+  }
+
+  setHTMLElement(el: HTMLElement, className: string) {
+    el.classList.add(className);
   }
 
   clearNode(el: HTMLElement) {

@@ -8,7 +8,6 @@ export default class App {
 
   constructor() {
     this._storage = new Storage();
-    // this._controller = new AppController();
     this._view = new View();
   }
 

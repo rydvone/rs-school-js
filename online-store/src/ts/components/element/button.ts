@@ -1,9 +1,10 @@
 import { ElementTemplate } from './element-template';
 
-type IFunc = (this: void, event: MouseEvent) => void;
+// type IFunc = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME = 'button';
 const ELEMENT_NAME_CLASS = 'button';
+const ELEMENT_NAME_CLASS_ADD = 'button_reset';
 
 export class Button extends ElementTemplate {
   private _title: string;
@@ -13,15 +14,28 @@ export class Button extends ElementTemplate {
     this._title = title;
     this._button = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
     this.addText(this._title);
+    this.click();
+    this.addClassReset();
+  }
+
+  addClassReset() {
+    if (this._title === 'Filters reset' || this._title === 'Common reset') {
+      this.addClassName(this._button, ELEMENT_NAME_CLASS_ADD);
+    }
   }
 
   addText(title: string) {
     this._button.textContent = title;
   }
 
-
-  click(func: IFunc) {
-    this._button.addEventListener('click', func);
+  click() {
+    this._button.addEventListener('click', (ev) => {
+      console.log('e = ', ev);
+      console.log('text = ', this._button.textContent);
+      if (this._title !== 'Filters reset' && this._title !== 'Common reset') {
+        this.toggleClass();
+      }
+    });
   }
 
   addClass() {

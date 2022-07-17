@@ -1,15 +1,3 @@
-// [
-//   {
-//     "sort": [
-//       "Name to Down",
-//       "Name to Up",
-//       "Price to Down",
-//       "Price to Up",
-//       "Count to Down",
-//       "Count to Up"
-//     ]
-//   }
-// ]
 {
   "name-down": "Name to Down",
   "name-up": "Name to Up",

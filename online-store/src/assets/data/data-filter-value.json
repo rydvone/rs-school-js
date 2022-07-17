@@ -17,5 +17,9 @@
   ],
   "type": [
     "Espresso"
+  ],
+  "reset": [
+    "Filters reset",
+    "Common reset"
   ]
 }
