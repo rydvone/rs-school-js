@@ -11,26 +11,32 @@ export class InputRange extends Input {
   }
 
   get value() {
-    return parseInt(super._inputElement.value);
+    return parseInt(this._inputElement.value);
   }
 
   set value(val: number) {
-    super._inputElement.value = `${val}`;
+    this._inputElement.value = `${val}`;
   }
 
   get min() {
-    return parseInt(super._inputElement.min);
+    return parseInt(this._inputElement.min);
   }
 
   set min(min: number) {
-    super._inputElement.min = `${min}`;
+    this._inputElement.min = `${min}`;
   }
 
   get max() {
-    return parseInt(super._inputElement.max);
+    return parseInt(this._inputElement.max);
   }
 
   set max(max: number) {
-    super._inputElement.min = `${max}`;
+    this._inputElement.min = `${max}`;
+  }
+
+  setValueMinMax(val: string, min: string, max: string) {
+    this._inputElement.value = `${val}`;
+    this._inputElement.min = `${min}`;
+    this._inputElement.max = `${max}`;
   }
 }

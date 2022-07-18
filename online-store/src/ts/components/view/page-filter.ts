@@ -5,6 +5,7 @@ import { ElementTemplate } from '../element/element-template';
 // import { Product } from './product';
 import { PageFilterButton } from './page-filter-button';
 import { PageFilterForm } from './page-filter-form';
+import { PageFilterRange } from './page-filter-range';
 
 const ELEMENT_NAME_CLASS = 'filter-container';
 const ELEMENT_H3 = 'h3';
@@ -30,6 +31,9 @@ export class PageFilter extends ElementTemplate {
     if (this._filterName === 'Filters by value') {
       this._appendToValue(div);
     }
+    if (this._filterName === 'Filters by range') {
+      this._appendToRange(div);
+    }
     if (this._filterName === 'Search and Sorting') {
       this._appendToSearch(div);
     }
@@ -42,6 +46,13 @@ export class PageFilter extends ElementTemplate {
       const filter = new PageFilterButton(el);
       parent.append(filter.element);
     });
+  }
+
+  private _appendToRange(parent: HTMLElement) {
+    const filter = new PageFilterRange('Quantity in stock');
+    parent.append(filter.element);
+    const filterAdd = new PageFilterRange('Weight');
+    parent.append(filterAdd.element);
   }
 
   private _appendToSearch(parent: HTMLElement) {

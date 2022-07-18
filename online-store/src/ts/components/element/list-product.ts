@@ -16,19 +16,6 @@ export class ListProduct extends ElementTemplate {
   }
 
   appendTo(data: { [key: string]: string }) {
-    // appendTo(data: Fields) {
-    // const objData = data;
-    // data.forEach((el) => {
-    //   el.fields
-    // })
-    //   return Object.entries(data).reduce(
-    //     (res, [key, value]) =>
-    //       res +
-    //       `
-    //     <li class="list-block__item"><span class="list-block__title">${key}:</span><span class="list-block__description">${value}</span></li>`,
-    //     ''
-    //   );
-    // }
     const fragment: DocumentFragment = document.createDocumentFragment();
     Object.entries(data).forEach(([key, value]) => {
       const li = this.createHTMLElement(ELEMENT_NAME_ADDITIONAL, ELEMENT_NAME_CLASS_ADDITIONAL);

@@ -3,7 +3,7 @@ import { PageFilter } from './page-filter';
 
 const ELEMENT_NAME = 'section';
 const ELEMENT_NAME_CLASS = 'filters';
-const ARRAY_FILTER_TYPE = ['Filters by value', 'Search and Sorting'];
+const ARRAY_FILTER_TYPE = ['Filters by value', 'Filters by range', 'Search and Sorting'];
 
 export class PageFilters extends ElementTemplate {
   private _filters: HTMLElement;

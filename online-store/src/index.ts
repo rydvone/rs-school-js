@@ -1,4 +1,5 @@
 import './style.css';
+import './ts/components/filters/range.css';
 import App from './ts/components/app/app';
 // import initRangeWeight from './ts/components/filters/range/filterRangeFunc';
 

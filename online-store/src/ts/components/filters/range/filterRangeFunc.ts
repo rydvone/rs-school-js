@@ -1,4 +1,4 @@
-import './range.css';
+// import './range.css';
 
 function initRangeWeight(
   inputFrom: string,

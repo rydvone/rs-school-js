@@ -1,4 +1,5 @@
 import { ElementTemplate } from '../element/element-template';
+import { Popup } from '../element/popup';
 import { PageBlock } from './page-block';
 import { PageCart } from './page-cart';
 import { PageFilters } from './page-filters';
@@ -33,8 +34,6 @@ export class View {
   private _initPageBlock() {
     this._pageBlockHeader.innerTo(HEADER_INNER);
     this._pageBlockFooter.innerTo(FOOTER_INNER);
-    // const products = new Products();
-    // this._pageBlockMain.blockElement.append(products.element);
   }
 
   buildPage() {
@@ -44,14 +43,13 @@ export class View {
     body.append(this._pageBlockHeader.blockElement);
     body.append(this._pageBlockMain.blockElement);
     body.append(this._pageBlockFooter.blockElement);
-    // const main: HTMLElement = document.querySelector('.main') as HTMLElement;
     const cart = new PageCart();
     this._pageBlockMain.blockElement.append(cart.element);
     const filters = new PageFilters();
     this._pageBlockMain.blockElement.append(filters.element);
     const products = new Products();
     this._pageBlockMain.blockElement.append(products.element);
+    const popup = new Popup();
+    this._pageBlockMain.blockElement.append(popup.element);
   }
-
-  // buildFilter
 }
