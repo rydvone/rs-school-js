@@ -1,8 +1,18 @@
 import { ElementTemplate } from './element-template';
 import { DataOption } from '../../types/data-sort';
-import data from '../../../assets/data/data-sort.json';
+import { Filter } from '../../services/filter';
 
 type Func = (this: void, event: MouseEvent) => void;
+
+export const filterData = new Filter();
+export const OBJ_SORT_VALUE = {
+  'name-up': 'Name to Up',
+  'name-down': 'Name to Down',
+  'price-up': 'Price to Up',
+  'price-down': 'Price to Down',
+  'count-up': 'Count to Up',
+  'count-down': 'Count to Down',
+};
 
 const ELEMENT_NAME = 'select';
 const ELEMENT_NAME_CLASS = 'select';
@@ -17,14 +27,15 @@ export class Select extends ElementTemplate {
   private _data: DataOption;
   constructor() {
     super();
-    this._data = data;
+    this._data = OBJ_SORT_VALUE;
     this._selectElement = this.createHTMLElement(
       ELEMENT_NAME,
       ELEMENT_NAME_CLASS
     ) as HTMLInputElement;
     this._setIdName(ELEMENT_NAME_ID);
     this._addList();
-    this.click();
+    this.click(this._clickCallback.bind(this));
+    this.sort(this.value);
   }
 
   getIdName() {
@@ -39,19 +50,26 @@ export class Select extends ElementTemplate {
     return this._selectElement.value;
   }
 
-  // set value(val: string) {
-  //   this._selectElement.value = `${val}`;
-  // }
-
-  click() {
-    this._selectElement.addEventListener('click', (e) => {
-      console.log('val = ', this._selectElement.value);
-      console.log('e = ', e);
-    });
+  set value(val: string) {
+    this._selectElement.value = `${val}`;
   }
 
-  unClick(func: Func) {
-    this._selectElement.removeEventListener('click', func);
+  sort(val: string) {
+    filterData.sort(val);
+  }
+
+  private _clickCallback(ev: MouseEvent) {
+    console.log('val = ', this._selectElement.value);
+    console.log('e = ', ev);
+    this.sort(this._selectElement.value);
+  }
+
+  click(fn: Func) {
+    this._selectElement.addEventListener('click', fn);
+  }
+
+  unclick(fn: Func) {
+    this._selectElement.removeEventListener('click', fn);
   }
 
   private _addList() {

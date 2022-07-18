@@ -11,10 +11,11 @@ export class Products extends ElementTemplate {
   constructor() {
     super();
     this._products = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
-    this._init(data);
+    this.appendTo(data);
   }
 
-  private _init(data: Data[]) {
+  appendTo(data: Data[]) {
+    this.clearNode(this._products);
     const fragment: DocumentFragment = document.createDocumentFragment();
     data.forEach((el) => {
       const product = new Product();

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Movenpick The Divine Coffee Beans",
+    "name": "The Divine Coffee Beans",
     "img": "../image/products/4006581205007.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -16,7 +16,7 @@
     "ean": "4006581205007"
   },
   {
-    "name": "Dallmayr Selection of the Year 2022 Hakuna Matata Coffee beans",
+    "name": "Selection of the Year 2022 Hakuna Matata Coffee beans",
     "img": "../image/products/4008167035503.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -32,7 +32,7 @@
     "ean": "4008167035503"
   },
   {
-    "name": "1kg Movenpick Schümli Coffee Beans",
+    "name": "Movenpick Schümli Coffee Beans",
     "img": "../image/products/m_venpick_sch_mli_bohnen_1kg.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -48,7 +48,7 @@
     "ean": "4006581170060"
   },
   {
-    "name": "250gr Illy Colombia Beans",
+    "name": "Illy Colombia Beans",
     "img": "../image/products/8003753104904.jpg",
     "fields": {
       "brand": "Illy",
@@ -64,7 +64,7 @@
     "ean": "8003753104904"
   },
   {
-    "name": "500 Gr Movenpick Edle Composition Ground Coffee",
+    "name": "Edle Composition Ground Coffee",
     "img": "../image/products/m_venpick_edle_composition_gemalen_500gr.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -80,7 +80,7 @@
     "ean": "4006581012162"
   },
   {
-    "name": "1kg Dallmayr Crema Prodomo Coffee beans",
+    "name": "Crema Prodomo Coffee beans",
     "img": "../image/products/dallmayr_crema_prodomo_bohnen_1kg.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -96,7 +96,7 @@
     "ean": "4008167055105"
   },
   {
-    "name": "1kg Movenpick Caffè Crema Gusto Italiano Intenso Coffee Beans",
+    "name": "Caffè Crema Gusto Italiano Intenso Coffee Beans",
     "img": "../image/products/m_venpick_gusto_italiano_bohnen_1kg.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -112,7 +112,7 @@
     "ean": "4006581017815"
   },
   {
-    "name": "500 gr Movenpick Autentico Ground Coffee",
+    "name": "Autentico Ground Coffee",
     "img": "../image/products/m_venpick_autentico_gemhalen_gemahlen_3.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -128,7 +128,7 @@
     "ean": "4006581012407"
   },
   {
-    "name": "1kg Dallmayr Caffè Crema Perfetto Coffee beans",
+    "name": "Caffè Crema Perfetto Coffee beans",
     "img": "../image/products/dallmayr_caffe_crema_perfetto_bohnen.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -160,7 +160,7 @@
     "ean": "4008167040309"
   },
   {
-    "name": "250gr Illy Monoarabica Ethiopia Beans",
+    "name": "Illy Monoarabica Ethiopia Beans",
     "img": "../image/products/illy_monoarabica_bonen_ethiopia_250gr_1.jpg",
     "fields": {
       "brand": "Illy",
@@ -176,7 +176,7 @@
     "ean": "0000000000101"
   },
   {
-    "name": "500 gr Dallmayr Prodomo Decaffeinated Ground Coffee",
+    "name": "Dallmayr Prodomo Decaffeinated Ground Coffee",
     "img": "../image/products/dallmayr_entkoffeiniert_gemalen.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -192,7 +192,7 @@
     "ean": "4008167113799"
   },
   {
-    "name": "1kg Movenpick El Autentico Caffe Crema Coffee Beans",
+    "name": "Movenpick El Autentico Caffe Crema Coffee Beans",
     "img": "../image/products/m_venpick_autentico_bohnen_1kg.jpg",
     "fields": {
       "brand": "Movenpick",
@@ -208,7 +208,7 @@
     "ean": "4006581801834"
   },
   {
-    "name": "500 gr Dallmayr Classic Ground Coffee",
+    "name": "Dallmayr Classic Ground Coffee",
     "img": "../image/products/dallmayr_classic_500_gram.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -224,7 +224,7 @@
     "ean": "4008167123699"
   },
   {
-    "name": "500 gr Dallmayr Prodomo Naturmild Ground Coffee",
+    "name": "Dallmayr Prodomo Naturmild Ground Coffee",
     "img": "../image/products/dallmayr_prodomo_naturmild_gemalen_500.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -240,7 +240,7 @@
     "ean": "4008167103912"
   },
   {
-    "name": "200 gr Dallmayr Espresso Monaco Ground in cans",
+    "name": "Dallmayr Espresso Monaco Ground in cans",
     "img": "../image/products/311_49.jpg",
     "fields": {
       "brand": "Dallmayr",
@@ -256,7 +256,7 @@
     "ean": "0000000000102"
   },
   {
-    "name": "500 Gr Lavazza DEK Coffee Beans",
+    "name": "Lavazza DEK Coffee Beans",
     "img": "../image/products/8000070010550.jpg",
     "fields": {
       "brand": "Lavazza",
@@ -272,7 +272,7 @@
     "ean": "8000070010550"
   },
   {
-    "name": "1kg Lavazza Expert Aroma Top Coffee Beans",
+    "name": "Lavazza Expert Aroma Top Coffee Beans",
     "img": "../image/products/illy_monoarabica_bonen_ethiopia_250gr_1.jpg",
     "fields": {
       "brand": "Lavazza",
@@ -288,7 +288,7 @@
     "ean": "8000070029620"
   },
   {
-    "name": "1kg Lavazza Gran Riserva Coffee Beans",
+    "name": "Lavazza Gran Riserva Coffee Beans",
     "img": "../image/products/illy_monoarabica_bonen_ethiopia_250gr_1.jpg",
     "fields": {
       "brand": "Lavazza",
@@ -304,7 +304,7 @@
     "ean": "8000070022300"
   },
   {
-    "name": "250gr Lavazza Qualita Oro Ground Coffee",
+    "name": "Lavazza Qualita Oro Ground Coffee",
     "img": "../image/products/8000070012783.jpg",
     "fields": {
       "brand": "Lavazza",
@@ -320,7 +320,7 @@
     "ean": "8000070012783"
   },
   {
-    "name": "36 Coffee Pods Lavazza Intenso",
+    "name": "Coffee Pods Lavazza Intenso",
     "img": "../image/products/8000070026827.jpg",
     "fields": {
       "brand": "Lavazza",
@@ -336,7 +336,7 @@
     "ean": "8000070026827"
   },
   {
-    "name": "36 Coffee Pods Dallmayr Classic",
+    "name": "Coffee Pods Dallmayr Classic",
     "img": "../image/products/8000070026827.jpg",
     "fields": {
       "brand": "Dallmayr",

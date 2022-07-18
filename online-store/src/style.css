@@ -220,7 +220,13 @@ body {
 /* to in extend file - range.css */
 
 /* ------------------------------search-sort------------------------------ */
-.search {
+.filters__form{
+  width: 24vw;
+  display: flex;
+
+}
+ .search {
+  display: block;
   font: inherit;
   line-height: 1.5;
   color: var(--color-yellow-light);

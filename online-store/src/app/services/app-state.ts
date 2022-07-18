@@ -1,8 +1,16 @@
-// import { Data } from "../types/data";
-// import data
-// export class AppState {
+import { Data } from '../types/data';
+import data from '../../assets/data/data.json';
+export class AppState {
+  // private _data: Data;
+  // constructor() {
+  //   this._data = data;
+  // }
+  public static product: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
+  public static displayProduct: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
 
-//   public static product: Data = data;
-//   public static displayProduct: Data
+  // public static checkFilter() {
+  //   if (filter) {
 
-//   public static products: Data;
+  //   }
+  // }
+}

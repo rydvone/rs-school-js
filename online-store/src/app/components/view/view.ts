@@ -5,6 +5,8 @@ import { PageCart } from './page-cart';
 import { PageFilters } from './page-filters';
 import { Products } from './products';
 
+export const drawProducts = new Products();
+
 const HEADER_INNER = `
   <a href="." class="link link_header"><img class="icons icons_header" src="./assets/image/svg/store-logo.svg" alt="Icon Store"></a>
   <h1 class="header__title">Dream Store</h1>
@@ -47,9 +49,7 @@ export class View {
     this._pageBlockMain.blockElement.append(cart.element);
     const filters = new PageFilters();
     this._pageBlockMain.blockElement.append(filters.element);
-    const products = new Products();
-    this._pageBlockMain.blockElement.append(products.element);
-    // const popup = new Popup();
+    this._pageBlockMain.blockElement.append(drawProducts.element);
     this._pageBlockMain.blockElement.append(cartCounter.getPopup);
   }
 }

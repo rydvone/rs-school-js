@@ -1,8 +1,8 @@
 {
-  "name-down": "Name to Down",
   "name-up": "Name to Up",
-  "price-down": "Price to Down",
+  "name-down": "Name to Down",
   "price-up": "Price to Up",
-  "count-down": "Count to Down",
-  "count-up": "Count to Up"
+  "price-down": "Price to Down",
+  "count-up": "Count to Up",
+  "count-down": "Count to Down"
 }
