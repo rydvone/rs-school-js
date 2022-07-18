@@ -316,7 +316,7 @@ body {
   font-weight: bold;
 }
 
-/* ------------------------------overlay------------------------------ */
+/* -------------------------popup-overlay------------------------------ */
 .wrapper__overlay {
   display: none;
 }
@@ -327,7 +327,7 @@ body {
 
 .overlay {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -335,10 +335,10 @@ body {
 }
 
 .cart-description {
-  width: 260px;
-  height: 180px;
+  width: 40vw;
+  height: 30vh;
   background-color: var(--color-grey);
-  border: 2px solid var(--color-yellow);
+  border: 2px solid var(--color-border-light);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -347,27 +347,28 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 0.8em;
+  z-index: 21;
+  padding: 2em 0;
 }
 
 .cart-text {
   font-family: Merriweather;
-  font-size: 28px;
+  color: var(--color-error);
+  font-size: 2rem;
   font-weight: bold;
-  line-height: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  line-height: 1.6;
+  text-align: center;
   position: relative;
 }
 
 .button-close {
-  font-size: 22px;
+  font-size: 1.2rem;
   line-height: 1;
-  width: 80px;
-  height: 50px;
-  background-color: var(--color-grey);
-  border: 2px solid var(--color-yellow);
+  width: 30%;
+  height: 20%;
+  background-color: var(--color-grey-yellow);
+  border: 2px solid var(--color-border-light);
   display: flex;
   justify-content: center;
   align-items: center;

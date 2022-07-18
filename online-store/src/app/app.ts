@@ -1,5 +1,5 @@
-import { Storage } from '../controller/storage';
-import { View } from '../view/view';
+import { Storage } from './services/storage';
+import { View } from './components/view/view';
 
 export default class App {
   // private _controller: AppController;

@@ -1,5 +1,5 @@
 import { ElementTemplate } from '../element/element-template';
-import { Popup } from '../element/popup';
+import { cartCounter } from './page-cart';
 import { PageBlock } from './page-block';
 import { PageCart } from './page-cart';
 import { PageFilters } from './page-filters';
@@ -49,7 +49,7 @@ export class View {
     this._pageBlockMain.blockElement.append(filters.element);
     const products = new Products();
     this._pageBlockMain.blockElement.append(products.element);
-    const popup = new Popup();
-    this._pageBlockMain.blockElement.append(popup.element);
+    // const popup = new Popup();
+    this._pageBlockMain.blockElement.append(cartCounter.getPopup);
   }
 }

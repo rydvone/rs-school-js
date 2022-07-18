@@ -1,5 +1,5 @@
-import { FilterStorage } from '../../types/filter-storage';
-import data from '../../../assets/data/storage.json';
+import { FilterStorage } from '../types/filter-storage';
+import data from '../../assets/data/storage.json';
 export class Storage {
   // private _state: boolean;
   // private _value: string | null;

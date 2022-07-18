@@ -1,6 +1,8 @@
 import { Cart } from '../element/cart';
 import { ElementTemplate } from '../element/element-template';
 
+export const cartCounter = new Cart();
+
 const ELEMENT_NAME = 'section';
 const ELEMENT_NAME_CLASS = 'cart';
 const ELEMENT_H3 = 'h3';
@@ -27,7 +29,6 @@ export class PageCart extends ElementTemplate {
     img.src = `./assets/image/svg/shopping-cart-10.svg`;
     img.alt = `Shopping cart`;
     div.append(img);
-    const cartCounter = new Cart();
     div.append(cartCounter.element);
     fragment.append(div);
     this._cart.append(fragment);

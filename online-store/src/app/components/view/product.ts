@@ -1,7 +1,9 @@
 import { ElementTemplate } from '../element/element-template';
 import { ListProduct } from '../element/list-product';
 import { Data } from '../../types/data';
-import { StorageCart } from '../controller/storege-cart';
+import { cartCounter } from './page-cart';
+
+type Func = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME_CLASS = 'product';
 const ELEMENT_NAME_CLASS_ADDITIONAL = 'product__content';
@@ -13,13 +15,11 @@ const CLASS_ADD = 'selected';
 export class Product extends ElementTemplate {
   private _product: HTMLElement;
   private _list: ListProduct;
-  private _count: StorageCart;
   constructor() {
     super();
     this._list = new ListProduct();
-    this._count = new StorageCart();
     this._product = this.createDiv(ELEMENT_NAME_CLASS);
-    this.click();
+    this.click(this._clickCallback.bind(this));
   }
 
   appendTo(data: Data) {
@@ -58,16 +58,21 @@ export class Product extends ElementTemplate {
     this._product.classList.toggle(CLASS_ADD);
   }
 
-  click() {
-    this._product.addEventListener('click', (ev) => {
-      console.log('e = ', ev);
-      console.log('text = ', this._product.textContent);
-      if (!this._product.classList.contains(CLASS_ADD)) {
-        this._count.value += 1;
-      } else {
-        this._count.value += 0;
-      }
-      this.toggleClass();
-    });
+  private _clickCallback() {
+    // console.log('e = ', ev);
+    if (!this._product.classList.contains(CLASS_ADD)) {
+      cartCounter.incr();
+    } else {
+      cartCounter.decr();
+    }
+    this.toggleClass();
+  }
+
+  click(fn: Func) {
+    this._product.addEventListener('click', fn);
+  }
+
+  unclick(fn: Func) {
+    this._product.removeEventListener('click', fn);
   }
 }

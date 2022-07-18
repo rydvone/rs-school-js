@@ -1,6 +1,6 @@
 import { ElementTemplate } from './element-template';
 
-// type IFunc = (this: void, event: MouseEvent) => void;
+type Func = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME = 'button';
 const ELEMENT_NAME_CLASS = 'button';
@@ -14,7 +14,7 @@ export class Button extends ElementTemplate {
     this._title = title;
     this._button = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
     this.addText(this._title);
-    this.click();
+    this.click(this._clickCallback.bind(this));
     this.addClassReset();
   }
 
@@ -28,14 +28,20 @@ export class Button extends ElementTemplate {
     this._button.textContent = title;
   }
 
-  click() {
-    this._button.addEventListener('click', (ev) => {
-      console.log('e = ', ev);
-      console.log('text = ', this._button.textContent);
-      if (this._title !== 'Filters reset' && this._title !== 'Common reset') {
-        this.toggleClass();
-      }
-    });
+  private _clickCallback(ev: MouseEvent) {
+    console.log('e = ', ev);
+    console.log('text = ', this._button.textContent);
+    if (this._title !== 'Filters reset' && this._title !== 'Common reset') {
+      this.toggleClass();
+    }
+  }
+
+  click(fn: Func) {
+    this._button.addEventListener('click', fn);
+  }
+
+  unclick(fn: Func) {
+    this._button.removeEventListener('click', fn);
   }
 
   addClass() {

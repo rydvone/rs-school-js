@@ -28,12 +28,14 @@ export class Popup extends ElementTemplate {
     this._item.append(overlay);
     const description = this.createDiv(ELEMENT_NAME_CLASS_ADD);
     const text = this.createDiv(ELEMENT_TEXT_CLASS);
+    text.textContent = 'Shopping cart is Full!';
     description.append(text);
     const button = this.createDiv(ELEMENT_BUTTON_CLASS);
+    button.textContent = 'close';
     button.onclick = () => {
       this._item.classList.remove('active');
     };
-    description.append(text);
+    description.append(button);
     this._item.append(description);
   }
 
