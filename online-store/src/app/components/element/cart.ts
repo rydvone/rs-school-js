@@ -13,7 +13,6 @@ export class Cart extends ElementTemplate {
     this._cartElement = this.createDiv(ELEMENT_NAME_CLASS);
     this._value = 0;
     this.value = this._value;
-    console.log('this._value', this._value);
     this.popup = new Popup();
   }
 

@@ -1,6 +1,7 @@
 import { Data } from '../types/data';
 import { AppState } from './app-state';
 import { drawProducts } from '../components/view/view';
+// import { OBJ_SORT_VALUE } from '../components/element/select';
 
 const ARRAY_SORT_VALUE = [
   'name-up',
@@ -12,11 +13,11 @@ const ARRAY_SORT_VALUE = [
 ];
 
 export class Filter {
-  private _a: string;
-  constructor() {
-    this._a = 'a';
-  }
-
+  // private _a: string;
+  // constructor() {
+  //   this._a = 'a';
+  // }
+  // xlsxBS.sort((a, b) => a.country_code.localeCompare(b.country_code));
   sort(val: string) {
     const objData: Data[] = AppState.displayProduct;
     if (val === ARRAY_SORT_VALUE[0]) {
@@ -55,5 +56,21 @@ export class Filter {
     }
 
     drawProducts.appendTo(objData);
+  }
+
+  search(val: string) {
+    const objData: Data[] = AppState.displayProduct;
+    if (val === '') {
+      drawProducts.appendTo(objData);
+      return objData;
+    }
+
+    const search = objData.filter(({ name }) => name.toLowerCase().includes(val.toLowerCase()));
+    if (search.length === 0) {
+      drawProducts.appendToWrong();
+    } else {
+      drawProducts.appendTo(search);
+    }
+    return search;
   }
 }

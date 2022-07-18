@@ -1,10 +1,9 @@
 import { ElementTemplate } from './element-template';
 import { DataOption } from '../../types/data-sort';
-import { Filter } from '../../services/filter';
+import { filterData } from '../../services/app-state';
 
 type Func = (this: void, event: MouseEvent) => void;
 
-export const filterData = new Filter();
 export const OBJ_SORT_VALUE = {
   'name-up': 'Name to Up',
   'name-down': 'Name to Down',
@@ -58,9 +57,7 @@ export class Select extends ElementTemplate {
     filterData.sort(val);
   }
 
-  private _clickCallback(ev: MouseEvent) {
-    console.log('val = ', this._selectElement.value);
-    console.log('e = ', ev);
+  private _clickCallback() {
     this.sort(this._selectElement.value);
   }
 

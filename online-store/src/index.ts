@@ -1,24 +1,23 @@
 import './style.css';
 import './css/range.css';
 import App from './app/app';
-// import initRangeWeight from './ts/components/filters/range/filterRangeFunc';
+// import initRangeWeight from './app/filters/filterRangeFunc';
 
 window.onload = () => {
   console.log('Hello, friend.');
 
-  // initRangeWeight('#range-count-from', '#range-count-to', '.range-count-start', '.range-count-end');
+  // initRangeWeight('#range-count-from', '#range-count-to', '.range-count-from', '.range-count-to');
   // initRangeWeight(
   //   '#range-weight-from',
   //   '#range-weight-to',
-  //   '.range-weight-start',
-  //   '.range-weight-end'
+  //   '.range-weight-from',
+  //   '.range-weight-to'
   // );
   const app = new App();
   app.start();
 
   function setFocus() {
     const searchIn = document.querySelector('.search') as HTMLInputElement;
-    console.log(searchIn);
     searchIn.focus();
   }
   setFocus();

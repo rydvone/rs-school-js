@@ -5,6 +5,8 @@ import { Product } from './product';
 
 const ELEMENT_NAME = 'section';
 const ELEMENT_NAME_CLASS = 'products';
+const ELEMENT_WRONG_CLASS = 'products__wrong';
+const CAPTION_WRONG = 'Wrong filter parametrs';
 
 export class Products extends ElementTemplate {
   private _products: HTMLElement;
@@ -23,6 +25,13 @@ export class Products extends ElementTemplate {
       fragment.append(product.element);
     });
     this._products.append(fragment);
+  }
+
+  appendToWrong() {
+    this.clearNode(this._products);
+    const wrong = this.createDiv(ELEMENT_WRONG_CLASS);
+    wrong.textContent = CAPTION_WRONG;
+    this._products.append(wrong);
   }
 
   get element() {

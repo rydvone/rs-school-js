@@ -1,6 +1,6 @@
 import { ElementTemplate } from './element-template';
 
-type IFunc = (this: void, event: MouseEvent) => void;
+type Func = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_NAME_CLASS = '';
@@ -37,12 +37,12 @@ export class Input extends ElementTemplate {
     this._inputElement.setAttribute('type', inputType);
   }
 
-  click(func: IFunc) {
-    this._inputElement.addEventListener('click', func);
+  click(fn: Func) {
+    this._inputElement.addEventListener('click', fn);
   }
 
-  unClick(func: IFunc) {
-    this._inputElement.removeEventListener('click', func);
+  unClick(fn: Func) {
+    this._inputElement.removeEventListener('click', fn);
   }
 
   get element() {

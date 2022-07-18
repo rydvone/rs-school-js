@@ -1,12 +1,14 @@
-.filters__description__range {
+.filters__description__block {
   display: flex;
   flex-direction: column;
   gap: 1vw;
 }
 
 #range-count-from,
-#range-count-to {
-  width: 80%;
+#range-count-to,
+#range-weight-from,
+#range-weight-to {
+  width: 16vw;
 }
 
 .filters__slider {
@@ -37,9 +39,9 @@
   width: 80%;
 }
 
-input[type=range] {
+/* input[type=range] {
   display: block;
-}
+} */
 
 #range-count-from,
 #range-weight-from {

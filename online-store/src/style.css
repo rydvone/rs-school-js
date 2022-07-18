@@ -264,7 +264,7 @@ body {
 .products {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1vw;
   padding: 1vw;
@@ -320,6 +320,11 @@ body {
 
 .list-block__title {
   font-weight: bold;
+}
+
+.products__wrong {
+  font: italic small-caps bold 4rem cursive; 
+  color: var(--color-error);
 }
 
 /* -------------------------popup-overlay------------------------------ */

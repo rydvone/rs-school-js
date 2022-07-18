@@ -1,6 +1,8 @@
 import { Input } from './input';
+import { filterData } from '../../services/app-state';
 
-type Func = (this: void, event: KeyboardEvent) => void;
+type FuncK = (this: void, event: KeyboardEvent) => void;
+type Func = (this: void, event: Event) => void;
 
 const ELEMENT_CLASS = 'search';
 const ELEMENT_TYPE = 'search';
@@ -13,7 +15,9 @@ export class InputSearch extends Input {
     this.setIdName(ELEMENT_ID);
     this._setSearchAttr();
     this.setClassName(this._inputElement, ELEMENT_CLASS);
-    this.keydown();
+    this.keydown(this._keydownCallback.bind(this));
+    this.change(this._clickCallback.bind(this));
+    this.search(this._inputElement.value);
   }
 
   get value() {
@@ -24,25 +28,41 @@ export class InputSearch extends Input {
     this._inputElement.value = `${val}`;
   }
 
-  keydown() {
-    this._inputElement.addEventListener('keydown', (ev) => {
-      console.log('ev.code', ev.code);
-      console.log('val', this.element.value);
-      if (ev.code === `13` && this.element.value != '') {
-        ev.preventDefault();
-        console.log('ev.code', ev.code);
-      }
-    });
-  }
-
-  unKeydown(func: Func) {
-    this._inputElement.removeEventListener('keydown', func);
-  }
-
   private _setSearchAttr() {
     this._inputElement.placeholder = 'search';
     this._inputElement.autocomplete = 'off';
     this._inputElement.focus();
+  }
+
+  search(val: string) {
+    filterData.search(val);
+  }
+
+  private _clickCallback() {
+    this.search(this._inputElement.value);
+  }
+
+  private _keydownCallback(_ev: KeyboardEvent) {
+    if (_ev.key === 'Enter') {
+      _ev.preventDefault();
+    }
+    this.search(this._inputElement.value);
+  }
+
+  keydown(fn: FuncK) {
+    this._inputElement.addEventListener('keydown', fn);
+  }
+
+  unkeydown(fn: FuncK) {
+    this._inputElement.removeEventListener('keydown', fn);
+  }
+
+  change(fn: Func) {
+    this._inputElement.addEventListener('change', fn);
+  }
+
+  unchange(fn: Func) {
+    this._inputElement.removeEventListener('change', fn);
   }
 
   get element() {
