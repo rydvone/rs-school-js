@@ -8,7 +8,7 @@ Private repository for @rydvone
 
 [migration-to-ts ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/migration-newip-to-ts) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/30)
 
-[online-store ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/online-store) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/30)
+[online-store ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/online-store) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/31)
 
 ****
 ### contact info
