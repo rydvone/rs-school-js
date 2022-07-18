@@ -19,6 +19,7 @@ export class Product extends ElementTemplate {
     this._list = new ListProduct();
     this._count = new StorageCart();
     this._product = this.createDiv(ELEMENT_NAME_CLASS);
+    this.click();
   }
 
   appendTo(data: Data) {
@@ -67,7 +68,6 @@ export class Product extends ElementTemplate {
         this._count.value += 0;
       }
       this.toggleClass();
-
     });
   }
 }
