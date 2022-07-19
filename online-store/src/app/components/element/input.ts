@@ -48,4 +48,10 @@ export class Input extends ElementTemplate {
   get element() {
     return this._inputElement;
   }
+
+  setValueMinMax(val: string, min: string, max: string) {
+    this._inputElement.value = `${val}`;
+    this._inputElement.min = `${min}`;
+    this._inputElement.max = `${max}`;
+  }
 }

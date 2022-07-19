@@ -2,7 +2,7 @@ import { Input } from './input';
 
 const ELEMENT_TYPE = 'range';
 
-export class InputRange extends Input {
+export class InputRange2 extends Input {
   private _value: number;
   constructor() {
     super();
@@ -32,11 +32,5 @@ export class InputRange extends Input {
 
   set max(max: number) {
     this._inputElement.min = `${max}`;
-  }
-
-  setValueMinMax(val: string, min: string, max: string) {
-    this._inputElement.value = `${val}`;
-    this._inputElement.min = `${min}`;
-    this._inputElement.max = `${max}`;
   }
 }

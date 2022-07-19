@@ -20,7 +20,7 @@ const ARRAY_CLASS = [
   'range-weight-start',
   'range-weight-end',
 ];
-// const ARRAY_CLASS = ['range-count-from', 'range-count-to', 'range-weight-from', 'range-weight-to'];
+
 const ELEMENT_FORM = 'form';
 const ELEMENT_FORM_CLASS = 'filters__form';
 

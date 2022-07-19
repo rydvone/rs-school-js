@@ -1,7 +1,7 @@
 import './style.css';
 import './css/range.css';
 import App from './app/app';
-// import initRangeWeight from './app/filters/filterRangeFunc';
+import initRange from './app/filters/filterRangeFunc';
 const HELLO = `
 -------------------------------------------------
 Добрый день. Если будет возможность перепроверить работу ближе к окончанию кросс-чека -- это будет просто отлично. Если нет, то ничего страшного. В любом случае Спасибо.
@@ -21,13 +21,6 @@ window.onload = () => {
   console.log(HELLO);
   console.log(SCORE_LOG);
 
-  // initRangeWeight('#range-count-from', '#range-count-to', '.range-count-from', '.range-count-to');
-  // initRangeWeight(
-  //   '#range-weight-from',
-  //   '#range-weight-to',
-  //   '.range-weight-from',
-  //   '.range-weight-to'
-  // );
   const app = new App();
   app.start();
 
@@ -36,4 +29,7 @@ window.onload = () => {
     searchIn.focus();
   }
   setFocus();
+
+  initRange('#range-count-from', '#range-count-to', '.range-count-start', '.range-count-end');
+  initRange('#range-weight-from', '#range-weight-to', '.range-weight-start', '.range-weight-end');
 };

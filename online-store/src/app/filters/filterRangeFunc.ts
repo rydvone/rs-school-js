@@ -1,11 +1,6 @@
 // import './range.css';
 
-function initRangeWeight(
-  inputFrom: string,
-  inputTo: string,
-  valueStart: string,
-  valueEnd: string
-): void {
+function initRange(inputFrom: string, inputTo: string, valueStart: string, valueEnd: string): void {
   function controlFromRange(
     fromSlider: HTMLInputElement,
     toSlider: HTMLInputElement,
@@ -13,6 +8,12 @@ function initRangeWeight(
   ) {
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
+    if (to > parseInt(toSlider.max) - 10) {
+      toSlider.style.zIndex = '2';
+    }
+    if (to < parseInt(toSlider.max) - 10) {
+      toSlider.style.zIndex = '0';
+    }
     if (from > to) {
       fromSlider.value = `${to}`;
       fromInput.textContent = `${to}`;
@@ -46,6 +47,12 @@ function initRangeWeight(
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
     // setToggleAccessible(toSlider);
+    if (from < parseInt(fromSlider.min) + 10) {
+      toSlider.style.zIndex = '2';
+    }
+    if (from > parseInt(fromSlider.min) + 10) {
+      toSlider.style.zIndex = '0';
+    }
     if (from <= to) {
       toSlider.value = `${to}`;
       toInput.textContent = `${to}`;
@@ -114,4 +121,4 @@ function initRangeWeight(
   rangeCountTo.oninput = () => controlToRange(rangeCountFrom, rangeCountTo, rangeCountEnd);
 }
 
-export default initRangeWeight;
+export default initRange;
