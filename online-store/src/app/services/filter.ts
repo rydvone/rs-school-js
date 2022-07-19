@@ -17,30 +17,13 @@ export class Filter {
   // constructor() {
   //   this._a = 'a';
   // }
-  // xlsxBS.sort((a, b) => a.country_code.localeCompare(b.country_code));
   sort(val: string) {
     const objData: Data[] = AppState.displayProduct;
     if (val === ARRAY_SORT_VALUE[0]) {
-      objData.sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
+      objData.sort((a, b) => a.name.localeCompare(b.name));
     }
     if (val === ARRAY_SORT_VALUE[1]) {
-      objData.sort((a, b) => {
-        if (a.name < b.name) {
-          return 1;
-        }
-        if (a.name > b.name) {
-          return -1;
-        }
-        return 0;
-      });
+      objData.sort((a, b) => b.name.localeCompare(a.name));
     }
     if (val === ARRAY_SORT_VALUE[2]) {
       objData.sort((a, b) => Number(a.fields.price) - Number(b.fields.price));
@@ -62,7 +45,8 @@ export class Filter {
     const objData: Data[] = AppState.displayProduct;
     if (val === '') {
       drawProducts.appendTo(objData);
-      return objData;
+      AppState.displayProduct = objData;
+      return 0;
     }
 
     const search = objData.filter(({ name }) => name.toLowerCase().includes(val.toLowerCase()));
@@ -71,6 +55,43 @@ export class Filter {
     } else {
       drawProducts.appendTo(search);
     }
-    return search;
+    AppState.displayProduct = search;
+  }
+
+  rangeQuantity(min: number, max: number) {
+    const objData: Data[] = AppState.displayProduct;
+    const rangeQuantity = objData.filter(
+      ({ fields }) => parseInt(fields.count) >= min && parseInt(fields.count) <= max
+    );
+    drawProducts.appendTo(rangeQuantity);
+    AppState.displayProduct = rangeQuantity;
+  }
+
+  rangeQuantityMin(val: number) {
+    const objData: Data[] = AppState.displayProduct;
+    const rangeQuantity = objData.filter(({ fields }) => parseInt(fields.count) >= val);
+    drawProducts.appendTo(rangeQuantity);
+    AppState.displayProduct = rangeQuantity;
+  }
+
+  rangeQuantityMax(val: number) {
+    const objData: Data[] = AppState.displayProduct;
+    const rangeQuantity = objData.filter(({ fields }) => parseInt(fields.count) <= val);
+    drawProducts.appendTo(rangeQuantity);
+    AppState.displayProduct = rangeQuantity;
+  }
+
+  rangeWeightMin(val: number) {
+    const objData: Data[] = AppState.displayProduct;
+    const rangeQuantity = objData.filter(({ fields }) => parseInt(fields.weight) >= val);
+    drawProducts.appendTo(rangeQuantity);
+    AppState.displayProduct = rangeQuantity;
+  }
+
+  rangeWeightMax(val: number) {
+    const objData: Data[] = AppState.displayProduct;
+    const rangeQuantity = objData.filter(({ fields }) => parseInt(fields.weight) <= val);
+    drawProducts.appendTo(rangeQuantity);
+    AppState.displayProduct = rangeQuantity;
   }
 }

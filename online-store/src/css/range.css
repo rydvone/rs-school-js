@@ -32,7 +32,7 @@
   border-radius: 1em;
 }
 
-.filters__form {
+.filters__form-range {
   display: flex;
   justify-content: center;
   position: relative;

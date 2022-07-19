@@ -221,20 +221,21 @@ body {
 
 /* ------------------------------search-sort------------------------------ */
 .filters__form{
-  width: 24vw;
+  width: 26vw;
   display: flex;
-
+  justify-content: center;
 }
+
  .search {
   display: block;
+  max-width: 24vw;
   font: inherit;
   line-height: 1.5;
   color: var(--color-yellow-light);
   background: transparent;
-  box-shadow: 0 0 15px 4px rgba(255, 255, 230, 0.06);
-  display: block;
-  padding: 0 10px;
-  border-radius: 5px;
+  box-shadow: 0 0 2vw 0.4vh rgba(255, 255, 230, 0.06);
+  padding: 0 1vh;
+  border-radius: 0.4em;
 }
 
 .search:focus-visible {

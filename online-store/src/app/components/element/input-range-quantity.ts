@@ -7,9 +7,9 @@ const ELEMENT = 'input';
 const ELEMENT_TYPE = 'range';
 const ELEMENT_ID_FROM = 'range-count-from';
 const ELEMENT_CLASS = '';
-const START = '100';
-const END = '1000';
-const STEP = '10';
+const START = '0';
+const END = '50';
+const STEP = '1';
 
 export class InputRangeQuantity extends ElementTemplate {
   protected _elementId: ElementIdQuantity;
@@ -50,7 +50,6 @@ export class InputRangeQuantity extends ElementTemplate {
     this.setIdName(this._elementId);
     if (this._elementId === ELEMENT_ID_FROM) {
       this.setValueMinMax(START, START, END, STEP);
-      this.setClassName(this._item, this._elementId);
     } else {
       this.setValueMinMax(END, START, END, STEP);
     }

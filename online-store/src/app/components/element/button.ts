@@ -1,4 +1,6 @@
+import { AppState } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
+import { drawProducts } from '../../components/view/view';
 
 type Func = (this: void, event: MouseEvent) => void;
 
@@ -29,9 +31,10 @@ export class Button extends ElementTemplate {
   }
 
   private _clickCallback() {
-    if (this._title !== 'Filters reset' && this._title !== 'Common reset') {
-      this.toggleClass();
-    }
+    if (this._title === 'Filters reset' || this._title === 'Common reset') {
+      AppState.resetDisplayProduct();
+      drawProducts.appendTo(AppState.displayProduct);
+    } else this.toggleClass();
   }
 
   click(fn: Func) {

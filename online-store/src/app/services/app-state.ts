@@ -11,9 +11,7 @@ export class AppState {
   public static product: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
   public static displayProduct: Data[] = this.product;
 
-  // public static checkFilter() {
-  //   if (filter) {
-
-  //   }
-  // }
+  public static resetDisplayProduct() {
+    this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));
+  }
 }

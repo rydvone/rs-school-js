@@ -6,10 +6,10 @@ import { InputRangeWeight } from '../element/input-range-weight';
 const ELEMENT_NAME_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
 const ELEMENT_NAME_CLASS_ADD = 'filters__slider';
-const START_QUANTITY = '100';
-const END_QUANTITY = '1000';
-const START_WEIGHT = '10';
-const END_WEIGHT = '1200';
+const START_QUANTITY = '0';
+const END_QUANTITY = '50';
+const START_WEIGHT = '100';
+const END_WEIGHT = '1000';
 const QUANTITY_FROM = 'range-count-from';
 const QUANTITY_TO = 'range-count-to';
 const WEIGHT_FROM = 'range-weight-from';
@@ -22,7 +22,7 @@ const ARRAY_CLASS = [
 ];
 // const ARRAY_CLASS = ['range-count-from', 'range-count-to', 'range-weight-from', 'range-weight-to'];
 const ELEMENT_FORM = 'form';
-const ELEMENT_FORM_CLASS = 'filters__form';
+const ELEMENT_FORM_CLASS = 'filters__form-range';
 
 export class PageFilterRange extends ElementTemplate {
   private _filterValue: HTMLElement;

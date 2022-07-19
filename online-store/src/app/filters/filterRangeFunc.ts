@@ -1,4 +1,5 @@
 // import './range.css';
+import { filterData } from '../services/app-state';
 
 function initRange(inputFrom: string, inputTo: string, valueStart: string, valueEnd: string): void {
   function controlFromRange(
@@ -8,36 +9,22 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
   ) {
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
-    if (to > parseInt(toSlider.max) - 10) {
-      toSlider.style.zIndex = '2';
-    }
-    if (to < parseInt(toSlider.max) - 10) {
-      toSlider.style.zIndex = '0';
-    }
+    console.log('controlFromRange');
+    console.log(from, to);
     if (from > to) {
       fromSlider.value = `${to}`;
       fromInput.textContent = `${to}`;
     } else {
       fromInput.textContent = `${from}`;
     }
+    if (inputFrom === '#range-count-from') {
+      filterData.rangeQuantity(from, to);
+      // filterData.rangeQuantityMin(parseInt(fromInput.textContent));
+    }
+    if (inputFrom === '#range-weight-from') {
+      filterData.rangeWeightMin(parseInt(fromInput.textContent));
+    }
   }
-
-  // function controlToSlider(
-  //   fromSlider: HTMLInputElement,
-  //   toSlider: HTMLInputElement,
-  //   toInput: HTMLInputElement
-  // ) {
-  //   const [from, to] = getParsed(fromSlider, toSlider);
-  //   fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
-  //   setToggleAccessible(toSlider);
-  //   if (from <= to) {
-  //     toSlider.value = `${to}`;
-  //     toInput.value = `${to}`;
-  //   } else {
-  //     toInput.value = `${from}`;
-  //     toSlider.value = `${from}`;
-  //   }
-  // }
 
   function controlToRange(
     fromSlider: HTMLInputElement,
@@ -47,10 +34,10 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
     // setToggleAccessible(toSlider);
-    if (from < parseInt(fromSlider.min) + 10) {
+    if (from < parseInt(toSlider.min) + 10) {
       toSlider.style.zIndex = '2';
     }
-    if (from > parseInt(fromSlider.min) + 10) {
+    if (from > parseInt(toSlider.min) + 10) {
       toSlider.style.zIndex = '0';
     }
     if (from <= to) {
@@ -59,6 +46,13 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
     } else {
       toInput.textContent = `${from}`;
       toSlider.value = `${from}`;
+    }
+    if (inputFrom === '#range-count-from') {
+      filterData.rangeQuantity(from, to);
+      // filterData.rangeQuantityMax(parseInt(toInput.textContent));
+    }
+    if (inputFrom === '#range-weight-from') {
+      filterData.rangeWeightMax(parseInt(toInput.textContent));
     }
   }
 
