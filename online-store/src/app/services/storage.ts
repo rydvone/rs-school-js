@@ -1,21 +1,34 @@
-import { FilterStorage } from '../types/filter-storage';
-import data from '../../assets/data/storage.json';
+// import { FilterStorage } from '../types/filter-storage';
+// import data from '../../assets/data/storage.json';
+
+interface LocalStorage {
+  [key: string]: string;
+  // brand: string[];
+  // product: string[];
+  // country: string[];
+  // type: string[];
+  // rangeQuantity: string[];
+  // rangeWeight: string[];
+  // cartCounter: string[];
+  // search: string[];
+  // sort: string[];
+}
+
+export const LOCAL_STORAGE: LocalStorage = {
+  brand: '',
+  product: '',
+  country: '',
+  type: '',
+  rangeQuantity: '',
+  rangeWeight: '',
+  cartCounter: '',
+  search: '',
+  sort: '',
+};
 export class Storage {
-  // private _state: boolean;
-  // private _value: string | null;
-  // private _key: string;
-  // private _data: { [key: string]: string };
-  // constructor(data: { [key: string]: string }) {
-  // constructor() {
-  // this._data = data;
-  // this._key = key;
-  // this._state = false;
-  // this._value = null;
-  // this.setData(this._key);
-  // }
-  private _data: FilterStorage;
+  private _data: { [key: string]: string };
   constructor() {
-    this._data = data;
+    this._data = LOCAL_STORAGE;
     this._init();
   }
 
@@ -31,7 +44,7 @@ export class Storage {
     });
     window.addEventListener('beforeunload', () => {
       Object.entries(this._data).forEach(([key, value]) => {
-        localStorage.setItem(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
       });
     });
   }

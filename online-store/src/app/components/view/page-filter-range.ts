@@ -52,7 +52,7 @@ export class PageFilterRange extends ElementTemplate {
       this._addNumber(wrapper, END_QUANTITY, ARRAY_CLASS[1]);
     }
     if (this._filterName === 'Weight') {
-      this._addNumber(wrapper, START_QUANTITY, ARRAY_CLASS[2]);
+      this._addNumber(wrapper, START_WEIGHT, ARRAY_CLASS[2]);
       this._addRange(form, ARRAY_CLASS[2], ARRAY_CLASS[2], START_WEIGHT, START_WEIGHT, END_WEIGHT);
       this._addRange(form, ARRAY_CLASS[3], ARRAY_CLASS[3], END_WEIGHT, START_WEIGHT, END_WEIGHT);
       wrapper.append(form);

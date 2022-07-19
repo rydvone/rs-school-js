@@ -29,7 +29,6 @@ export class Button extends ElementTemplate {
   }
 
   private _clickCallback() {
-    console.log('text = ', this._button.textContent);
     if (this._title !== 'Filters reset' && this._title !== 'Common reset') {
       this.toggleClass();
     }
