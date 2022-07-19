@@ -4,12 +4,10 @@ import { Filter } from './filter';
 
 export const filterData = new Filter();
 export class AppState {
-  // private _data: Data;
-  // constructor() {
-  //   this._data = data;
-  // }
   public static product: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
   public static displayProduct: Data[] = this.product;
+
+  public static productSelected: string[] = [];
 
   public static resetDisplayProduct() {
     this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));

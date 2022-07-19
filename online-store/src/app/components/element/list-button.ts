@@ -1,6 +1,6 @@
 import { ElementTemplate } from './element-template';
-import data from '../../../assets/data/data-filter-value.json';
 import { Button } from './button';
+import { FILTER_BY_VALUE } from '../../const/filter-by-value';
 
 const ELEMENT_NAME = 'ul';
 const ELEMENT_NAME_CLASS = 'list-inline';
@@ -14,7 +14,7 @@ export class ListButton extends ElementTemplate {
     super();
     this._typeName = typeName;
     this._list = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
-    this.appendTo(data);
+    this.appendTo(FILTER_BY_VALUE);
   }
 
   appendTo(data: { [key: string]: string[] }) {

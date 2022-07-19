@@ -1,39 +1,48 @@
 // import { Data } from './data';
 
-// export class ProductState {
-//   public name: string;
-//   public img: string;
-//   public fields: { [key: string]: string };
-//   public description: string;
-//   public date: string;
-//   public ean: string;
-//   private _selected: boolean;
+interface Data {
+  name: string;
+  img: string;
+  fields: Fields;
+  description: string;
+  date: string;
+  ean: string;
+}
 
-//   constructor(product: Data) {
-//   this.name = ;
-//   this.img: string;
-//   this.fields: { [key: string]: string };
-//   this.description: string;
-//   this.date: string;
-//   this.ean: string;
-//   this._selected = false;
-//   }
+interface Fields {
+  brand: string;
+  type: string;
+  product: string;
+  weight: string;
+  country: string;
+  price: string;
+  count: string;
+}
 
-//   set selected(val: boolean) {
-//   this.selected = val;
-// }
-// }
+export class ProductState {
+  public name: string;
+  public img: string;
+  public fields: Fields;
+  public description: string;
+  public date: string;
+  public ean: string;
+  private _selected: boolean;
 
-// // public name: string;
-// // public img: string;
-// // public fields: { [key: string]: string };
-// // public description: string;
-// // public date: string;
-// // public ean: string;
-// // "brand": string;
-// // "type": string;
-// // "product": string;
-// // "weight": string,
-// // "country": string;
-// // "price": string,
-// // "count": string
+  constructor(product: Data) {
+    this.name = product.name;
+    this.img = product.img;
+    this.fields = product.fields;
+    this.description = product.description;
+    this.date = product.date;
+    this.ean = product.ean;
+    this._selected = false;
+  }
+
+  set selected(val: boolean) {
+    this.selected = val;
+  }
+
+  get selected() {
+    return this.selected;
+  }
+}

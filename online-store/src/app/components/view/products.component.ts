@@ -20,9 +20,8 @@ export class ProductsComponent extends ElementTemplate {
     this.clearNode(this._products);
     const fragment: DocumentFragment = document.createDocumentFragment();
     data.forEach((el) => {
-      const product = new ProductComponent();
-      console.log(product);
-      product.appendTo(el);
+      const product = new ProductComponent(el);
+      product.appendTo();
       fragment.append(product.element);
     });
     this._products.append(fragment);
