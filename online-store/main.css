@@ -860,10 +860,10 @@ body {
   gap: 1vw;
 }
 
-.range-count-from,
-.range-count-to,
-.range-weight-from,
-.range-weight-to {
+.range-count-start,
+.range-count-end,
+.range-weight-start,
+.range-weight-end {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -889,6 +889,8 @@ body {
   height: 0;
   z-index: 1;
 }
+
+
 
 /* ------------------------------------------------------- */
 /* ------------------------------------------------------- */
@@ -1038,3 +1040,4 @@ input[type="range"] {
   height: 0;
   z-index: 1;
 } */
+
