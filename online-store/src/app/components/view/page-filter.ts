@@ -1,11 +1,8 @@
 import { ElementTemplate } from '../element/element-template';
-// import data from '../../../assets/data/data.json';
-// import dataValue from '../../../assets/data/data-filter-value.json';
-// import { Data } from '../../types/data';
-// import { Product } from './product';
 import { PageFilterButton } from './page-filter-button';
 import { PageFilterForm } from './page-filter-form';
-import { PageFilterRange } from './page-filter-range';
+import { PageRangeQuantity } from './page-range-quantity';
+import { PageRangeWeight } from './page-range-weight';
 
 const ELEMENT_NAME_CLASS = 'filter-container';
 const ELEMENT_H3 = 'h3';
@@ -49,9 +46,9 @@ export class PageFilter extends ElementTemplate {
   }
 
   private _appendToRange(parent: HTMLElement) {
-    const filter = new PageFilterRange('Quantity in stock');
+    const filter = new PageRangeQuantity();
     parent.append(filter.element);
-    const filterAdd = new PageFilterRange('Weight');
+    const filterAdd = new PageRangeWeight();
     parent.append(filterAdd.element);
   }
 

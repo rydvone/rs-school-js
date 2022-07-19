@@ -12,7 +12,7 @@ const ELEMENT_IMG = 'img';
 const ELEMENT_IMG_CLASS = 'product__image';
 const CLASS_ADD = 'selected';
 
-export class Product extends ElementTemplate {
+export class ProductComponent extends ElementTemplate {
   private _product: HTMLElement;
   private _list: ListProduct;
   constructor() {
@@ -54,12 +54,15 @@ export class Product extends ElementTemplate {
     this._product.classList.remove(CLASS_ADD);
   }
 
+  containsClass() {
+    return this._product.classList.contains(CLASS_ADD);
+  }
+
   toggleClass() {
     this._product.classList.toggle(CLASS_ADD);
   }
 
   private _clickCallback() {
-    // console.log('e = ', ev);
     if (!this._product.classList.contains(CLASS_ADD)) {
       cartCounter.incr();
     } else {

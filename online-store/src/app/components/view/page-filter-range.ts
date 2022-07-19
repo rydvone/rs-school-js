@@ -3,7 +3,7 @@ import { InputRangeQuantity } from '../element/input-range-quantity';
 import { ElementIdQuantity, ElementIdWeight } from '../../types/input';
 import { InputRangeWeight } from '../element/input-range-weight';
 
-const ELEMENT_NAME_CLASS = 'filters__description__block';
+const ELEMENT_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
 const ELEMENT_NAME_CLASS_ADD = 'filters__slider';
 const START_QUANTITY = '0';
@@ -31,14 +31,14 @@ export class PageFilterRange extends ElementTemplate {
   constructor(filterName: 'Quantity in stock' | 'Weight') {
     super();
     this._filterName = filterName;
-    this._filterValue = this.createDiv(ELEMENT_NAME_CLASS);
+    this._filterValue = this.createDiv(ELEMENT_CLASS);
     this.appendTo();
   }
 
   appendTo() {
     const title = this.createDiv(ELEMENT_TITLE_CLASS);
-    const titleToVisual = this._filterName[0].toUpperCase() + this._filterName.slice(1);
-    title.textContent = `${titleToVisual}:`;
+    // const titleToVisual = this._filterName[0].toUpperCase() + this._filterName.slice(1);
+    title.textContent = `${this._filterName}:`;
     this._filterValue.append(title);
     const wrapper = this.createDiv(ELEMENT_NAME_CLASS_ADD);
     const form = this.createHTMLElement(ELEMENT_FORM, ELEMENT_FORM_CLASS);

@@ -1,6 +1,6 @@
 import { ElementTemplate } from '../element/element-template';
-import { InputRangeQuantity } from '../element/input-range-quantity';
-import { ElementIdQuantity } from '../../types/input';
+import { InputRangeWeight } from '../element/input-range-weight';
+import { ElementIdWeight } from '../../types/input';
 
 type Func = (this: void, event: MouseEvent) => void;
 
@@ -10,15 +10,15 @@ const TITLE_CONTENT = 'Quantity in stock:';
 const WRAPPER_CLASS = 'filters__slider';
 const ELEMENT_FORM = 'form';
 const FORM_CLASS = 'filters__form-range';
-const RANGE_FROM = 'range-count-from';
-const RANGE_TO = 'range-count-to';
-const RANGE_START = 'range-count-start';
-const RANGE_END = 'range-count-end';
+const RANGE_FROM = 'range-weight-from';
+const RANGE_TO = 'range-weight-to';
+const RANGE_START = 'range-weight-start';
+const RANGE_END = 'range-weight-end';
 
-export class PageRangeQuantity extends ElementTemplate {
+export class PageRangeWeight extends ElementTemplate {
   private _filterBlock: HTMLElement;
-  private _rangeFrom: InputRangeQuantity;
-  private _rangeTo: InputRangeQuantity;
+  private _rangeFrom: InputRangeWeight;
+  private _rangeTo: InputRangeWeight;
 
   constructor() {
     super();
@@ -44,8 +44,8 @@ export class PageRangeQuantity extends ElementTemplate {
     this._filterBlock.append(wrapper);
   }
 
-  createInputRange(idName: ElementIdQuantity) {
-    return new InputRangeQuantity(idName);
+  createInputRange(idName: ElementIdWeight) {
+    return new InputRangeWeight(idName);
   }
 
   appendToDisplayValue(parent: HTMLElement, val: string, className: string) {
@@ -55,7 +55,7 @@ export class PageRangeQuantity extends ElementTemplate {
   }
 
   clickCallback() {
-    // console.log(this);
+    console.log(this);
   }
 
   getInnerBlock() {

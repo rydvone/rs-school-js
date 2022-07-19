@@ -3,9 +3,9 @@ import { cartCounter } from './page-cart';
 import { PageBlock } from './page-block';
 import { PageCart } from './page-cart';
 import { PageFilters } from './page-filters';
-import { Products } from './products';
+import { ProductsComponent } from './products.component';
 
-export const drawProducts = new Products();
+export const drawProducts = new ProductsComponent();
 
 const HEADER_INNER = `
   <a href="." class="link link_header"><img class="icons icons_header" src="./assets/image/svg/store-logo.svg" alt="Icon Store"></a>

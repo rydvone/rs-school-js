@@ -19,10 +19,9 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
     }
     if (inputFrom === '#range-count-from') {
       filterData.rangeQuantity(from, to);
-      // filterData.rangeQuantityMin(parseInt(fromInput.textContent));
     }
     if (inputFrom === '#range-weight-from') {
-      filterData.rangeWeightMin(parseInt(fromInput.textContent));
+      filterData.rangeWeight(from, to);
     }
   }
 
@@ -49,10 +48,9 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
     }
     if (inputFrom === '#range-count-from') {
       filterData.rangeQuantity(from, to);
-      // filterData.rangeQuantityMax(parseInt(toInput.textContent));
     }
     if (inputFrom === '#range-weight-from') {
-      filterData.rangeWeightMax(parseInt(toInput.textContent));
+      filterData.rangeWeight(from, to);
     }
   }
 

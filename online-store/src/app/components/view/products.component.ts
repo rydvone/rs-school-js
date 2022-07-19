@@ -1,26 +1,27 @@
 import { ElementTemplate } from '../element/element-template';
-import data from '../../../assets/data/data.json';
 import { Data } from '../../types/data';
-import { Product } from './product';
+import { ProductComponent } from './product.component';
+import { AppState } from '../../services/app-state';
 
 const ELEMENT_NAME = 'section';
 const ELEMENT_NAME_CLASS = 'products';
 const ELEMENT_WRONG_CLASS = 'products__wrong';
 const CAPTION_WRONG = 'Wrong filter parametrs';
 
-export class Products extends ElementTemplate {
+export class ProductsComponent extends ElementTemplate {
   private _products: HTMLElement;
   constructor() {
     super();
     this._products = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
-    this.appendTo(data);
+    this.appendTo(AppState.displayProduct);
   }
 
   appendTo(data: Data[]) {
     this.clearNode(this._products);
     const fragment: DocumentFragment = document.createDocumentFragment();
     data.forEach((el) => {
-      const product = new Product();
+      const product = new ProductComponent();
+      console.log(product);
       product.appendTo(el);
       fragment.append(product.element);
     });
