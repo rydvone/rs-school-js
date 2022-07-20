@@ -8,7 +8,7 @@
 #range-count-to,
 #range-weight-from,
 #range-weight-to {
-  width: 16vw;
+  width: 80%;
 }
 
 .filters__slider {
@@ -114,6 +114,7 @@ input[type="range"] {
   background-color: #C6C6C6;
   pointer-events: none;
 }
+
 /* 
 #fromSlider {
   height: 0;

@@ -9,8 +9,6 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
   ) {
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
-    console.log('controlFromRange');
-    console.log(from, to);
     if (from > to) {
       fromSlider.value = `${to}`;
       fromInput.textContent = `${to}`;
