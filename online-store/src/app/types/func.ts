@@ -1,0 +1,1 @@
+export type Func = (this: void, event: MouseEvent) => void;

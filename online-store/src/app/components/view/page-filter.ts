@@ -1,4 +1,6 @@
 import { ElementTemplate } from '../element/element-template';
+import { PageBrand } from './page-brand';
+import { PageByBrand } from './page-by-brand';
 import { PageFilterButton } from './page-filter-button';
 import { PageFilterForm } from './page-filter-form';
 import { PageRangeQuantity } from './page-range-quantity';
@@ -59,6 +61,10 @@ export class PageFilter extends ElementTemplate {
     parent.append(sort.element);
     const button = new PageFilterButton('reset');
     parent.append(button.element);
+    const buttonNew = new PageByBrand();
+    parent.append(buttonNew.element);
+    const button3 = new PageBrand();
+    parent.append(button3.element);
   }
 
   get element() {

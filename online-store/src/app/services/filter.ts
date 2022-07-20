@@ -61,11 +61,11 @@ export class Filter {
   rangeQuantity(min: number, max: number) {
     AppState.resetDisplayProduct();
     const objData: Data[] = AppState.displayProduct;
-    const rangeQuantity = objData.filter(
+    const range = objData.filter(
       ({ fields }) => parseInt(fields.count) >= min && parseInt(fields.count) <= max
     );
-    drawProducts.appendTo(rangeQuantity);
-    AppState.displayProduct = rangeQuantity;
+    drawProducts.appendTo(range);
+    AppState.displayProduct = range;
   }
 
   rangeWeight(min: number, max: number) {
@@ -76,5 +76,11 @@ export class Filter {
     );
     drawProducts.appendTo(range);
     AppState.displayProduct = range;
+  }
+
+  type(type: string, val: string) {
+    const objData: Data[] = AppState.displayProduct;
+    const filter = objData.filter(({ fields }) => fields[type] === val);
+    drawProducts.appendTo(filter);
   }
 }
