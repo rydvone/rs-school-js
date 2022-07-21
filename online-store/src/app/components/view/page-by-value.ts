@@ -1,7 +1,7 @@
 import { ElementTemplate } from '../element/element-template';
-import { convertFilterValue } from '../../constants/filter-by-value';
+import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { Button } from '../element/button';
-import { filterData } from '../../services/app-state';
+import { AppState, filterData } from '../../services/app-state';
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';
@@ -40,9 +40,13 @@ export class PageByValue extends ElementTemplate {
       button.click(() => {
         button.toggleClass();
         if (button.containsClass()) {
-          filterData.filterByType(this._filterName, val);
+          AppState.buttonSelected[this._filterName].push(val);
+          filterData.filterByType(this._filterName);
         } else {
-          filterData.filterByType(this._filterName, '0');
+          AppState.buttonSelected[this._filterName] = AppState.buttonSelected[
+            this._filterName
+          ].filter((elIn) => elIn !== val);
+          filterData.filterByType(this._filterName);
         }
       });
       li.append(button.element);

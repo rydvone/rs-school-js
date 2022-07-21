@@ -1,6 +1,7 @@
 import { Data } from '../types/data';
 import { AppState } from './app-state';
 import { drawProducts } from '../components/view/view';
+import { ButtonSelected } from '../types/filter-by-value-interface';
 
 const ARRAY_SORT_VALUE = [
   'name-up',
@@ -74,14 +75,53 @@ export class Filter {
     AppState.displayProduct = range;
   }
 
-  filterByType(type: string, val: string) {
-    AppState.resetDisplayProduct();
+  filterByType(type: string) {
+    // AppState.resetDisplayProduct();
     const objData: Data[] = AppState.displayProduct;
-    if (val === '0') {
+    // const filter = this._multiFilter(objData, AppState.buttonSelected);
+    // return objData.filter(item => {
+    //   // validates all filter criteria
+    //   return filterKeys.every(key => {
+    //     // ignores non-function predicates
+    //     // if (typeof filters[key] !== 'function') return true;
+    //     return filters[key](item[key]);
+    //   });
+    // });
+
+    const filter = objData.filter(({ fields }) =>
+      AppState.buttonSelected[type].includes(fields[type])
+    );
+    // const filterKeys = Object.keys(AppState.buttonSelected);
+    // console.log(AppState.buttonSelected);
+
+    // const filter = objData.filter(({ fields }) => {
+    //   filterKeys.some((key) => {
+    //     // if (!AppState.buttonSelected[key].length) {
+    //     //   return true;
+    //     // }
+    //     console.log('1', AppState.buttonSelected[key]);
+    //     console.log('2', fields[key]);
+    //     console.log('3', !!AppState.buttonSelected[key].includes(fields[key]));
+    //     return AppState.buttonSelected[key].includes(fields[key]);
+    //   });
+    // });
+    // console.log(filter);
+    if (filter.length === 0) {
       drawProducts.appendTo(objData);
     } else {
-      const filter = objData.filter(({ fields }) => fields[type] === val);
       drawProducts.appendTo(filter);
     }
+  }
+
+  private _multiFilter(products: Data[], filter: ButtonSelected) {
+    const filterKeys = Object.keys(filter);
+    return products.filter(({ fields }) => {
+      filterKeys.every((key) => {
+        if (!filter[key].length) {
+          return true;
+        }
+        return filter[key].includes(fields[key]);
+      });
+    });
   }
 }

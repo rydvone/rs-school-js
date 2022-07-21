@@ -1,3 +1,4 @@
+// import { AppState } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
 
 type Func = (this: void, event: MouseEvent) => void;
@@ -26,6 +27,12 @@ export class Button extends ElementTemplate {
   addText(title: string) {
     this._button.textContent = title;
   }
+
+  // checkAndAddSelected() {
+  //   // if (AppState.buttonSelected.includes(this.element.innerText)) {
+  //   //   this.addClass();
+  //   // }
+  // }
 
   click(fn: Func) {
     this._button.addEventListener('click', fn);

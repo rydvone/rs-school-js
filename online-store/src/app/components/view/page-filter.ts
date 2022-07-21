@@ -4,7 +4,7 @@ import { PageByValue } from './page-by-value';
 import { PageFilterForm } from './page-filter-form';
 import { PageRangeQuantity } from './page-range-quantity';
 import { PageRangeWeight } from './page-range-weight';
-import { convertFilterValue } from '../../constants/filter-by-value';
+import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { PageReset } from './page-reset';
 
 const ELEMENT_NAME_CLASS = 'filter-container';
