@@ -53,4 +53,9 @@ export class Cart extends ElementTemplate {
     }
     return this._value;
   }
+
+  clearCount() {
+    this._value = 0;
+    this.value = 0;
+  }
 }

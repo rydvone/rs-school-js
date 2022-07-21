@@ -1,7 +1,6 @@
 import { Data } from '../types/data';
 import { AppState } from './app-state';
 import { drawProducts } from '../components/view/view';
-// import { OBJ_SORT_VALUE } from '../components/element/select';
 
 const ARRAY_SORT_VALUE = [
   'name-up',
@@ -13,10 +12,6 @@ const ARRAY_SORT_VALUE = [
 ];
 
 export class Filter {
-  // private _a: string;
-  // constructor() {
-  //   this._a = 'a';
-  // }
   sort(val: string) {
     const objData: Data[] = AppState.displayProduct;
     if (val === ARRAY_SORT_VALUE[0]) {
@@ -78,9 +73,14 @@ export class Filter {
     AppState.displayProduct = range;
   }
 
-  type(type: string, val: string) {
+  filterByType(type: string, val: string) {
+    AppState.resetDisplayProduct();
     const objData: Data[] = AppState.displayProduct;
-    const filter = objData.filter(({ fields }) => fields[type] === val);
-    drawProducts.appendTo(filter);
+    if (val === '0') {
+      drawProducts.appendTo(objData);
+    } else {
+      const filter = objData.filter(({ fields }) => fields[type] === val);
+      drawProducts.appendTo(filter);
+    }
   }
 }

@@ -26,7 +26,6 @@ export class PageRangeQuantity extends ElementTemplate {
     this._rangeFrom = this.createInputRange(RANGE_FROM);
     this._rangeTo = this.createInputRange(RANGE_TO);
     this.appendTo();
-    this.click(this._rangeFrom.element, this.clickCallback.bind(this));
   }
 
   appendTo() {
@@ -52,10 +51,6 @@ export class PageRangeQuantity extends ElementTemplate {
     const el = this.createDiv(className);
     el.textContent = val;
     parent.append(el);
-  }
-
-  clickCallback() {
-    // console.log(this);
   }
 
   getInnerBlock() {

@@ -12,4 +12,12 @@ export class AppState {
   public static resetDisplayProduct() {
     this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));
   }
+
+  public static clearProductSelected() {
+    this.productSelected.length = 0;
+  }
+
+  public static clearFilterSelected() {
+    this.productSelected.length = 0;
+  }
 }

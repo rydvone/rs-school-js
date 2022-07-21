@@ -1,6 +1,4 @@
-import { AppState } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
-import { drawProducts } from '../../components/view/view';
 
 type Func = (this: void, event: MouseEvent) => void;
 
@@ -16,7 +14,6 @@ export class Button extends ElementTemplate {
     this._title = title;
     this._button = this.createHTMLElement(ELEMENT_NAME, ELEMENT_NAME_CLASS);
     this.addText(this._title);
-    this.click(this._clickCallback.bind(this));
     this.addClassReset();
   }
 
@@ -30,19 +27,16 @@ export class Button extends ElementTemplate {
     this._button.textContent = title;
   }
 
-  private _clickCallback() {
-    if (this._title === 'Filters reset' || this._title === 'Common reset') {
-      AppState.resetDisplayProduct();
-      drawProducts.appendTo(AppState.displayProduct);
-    } else this.toggleClass();
-  }
-
   click(fn: Func) {
     this._button.addEventListener('click', fn);
   }
 
   unclick(fn: Func) {
     this._button.removeEventListener('click', fn);
+  }
+
+  containsClass() {
+    return this._button.classList.contains('selected');
   }
 
   addClass() {

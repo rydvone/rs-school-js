@@ -1,15 +1,15 @@
 import { ElementTemplate } from '../element/element-template';
-import { PageBrand } from './page-brand';
-import { PageByBrand } from './page-by-brand';
-import { PageFilterButton } from './page-filter-button';
+// import { PageBrand } from './page-brand';
+import { PageByValue } from './page-by-value';
 import { PageFilterForm } from './page-filter-form';
 import { PageRangeQuantity } from './page-range-quantity';
 import { PageRangeWeight } from './page-range-weight';
+import { convertFilterValue } from '../../constants/filter-by-value';
+import { PageReset } from './page-reset';
 
 const ELEMENT_NAME_CLASS = 'filter-container';
 const ELEMENT_H3 = 'h3';
 const ELEMENT_NAME_CLASS_ADDITIONAL = 'filters__description';
-const ARRAY_BUTTON_TYPE: string[] = ['brand', 'product', 'country', 'type'];
 
 export class PageFilter extends ElementTemplate {
   private _value: HTMLElement;
@@ -41,8 +41,8 @@ export class PageFilter extends ElementTemplate {
   }
 
   private _appendToValue(parent: HTMLElement) {
-    ARRAY_BUTTON_TYPE.forEach((el) => {
-      const filter = new PageFilterButton(el);
+    Object.keys(convertFilterValue).forEach((key) => {
+      const filter = new PageByValue(key);
       parent.append(filter.element);
     });
   }
@@ -59,12 +59,14 @@ export class PageFilter extends ElementTemplate {
     parent.append(search.element);
     const sort = new PageFilterForm('Sort by');
     parent.append(sort.element);
-    const button = new PageFilterButton('reset');
+    const button = new PageReset();
     parent.append(button.element);
-    const buttonNew = new PageByBrand();
-    parent.append(buttonNew.element);
-    const button3 = new PageBrand();
-    parent.append(button3.element);
+    // const button = new PageFilterButton('reset');
+    // parent.append(button.element);
+    // const buttonNew = new PageFilterButton('brand');
+    // parent.append(buttonNew.element);
+    // const button3 = new PageBrand();
+    // parent.append(button3.element);
   }
 
   get element() {

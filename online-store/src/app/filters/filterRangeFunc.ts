@@ -1,4 +1,3 @@
-// import './range.css';
 import { filterData } from '../services/app-state';
 
 function initRange(inputFrom: string, inputTo: string, valueStart: string, valueEnd: string): void {
@@ -30,7 +29,6 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
   ) {
     const [from, to] = getParsed(fromSlider, toSlider);
     fillSlider(fromSlider, toSlider, '#C6C6C6', '#fff395', toSlider);
-    // setToggleAccessible(toSlider);
     if (from < parseInt(toSlider.min) + 10) {
       toSlider.style.zIndex = '2';
     }
@@ -78,34 +76,11 @@ function initRange(inputFrom: string, inputTo: string, valueStart: string, value
     ${sliderColor} 100%)`;
   }
 
-  // function setToggleAccessible(currentTarget: HTMLInputElement) {
-  //   const toSlider = document.querySelector('#toSlider') as HTMLInputElement;
-  //   if (Number(currentTarget.value) <= 0) {
-  //     toSlider.style.zIndex = `${2}`;
-  //   } else {
-  //     toSlider.style.zIndex = `${0}`;
-  //   }
-  // }
-
-  // const fromSlider = document.querySelector('#fromSlider') as HTMLInputElement;
-  // console.log(fromSlider);
-  // const toSlider = document.querySelector('#toSlider') as HTMLInputElement;
-  // const fromInput = document.querySelector('#fromInput') as HTMLInputElement;
-  // const toInput = document.querySelector('#toInput') as HTMLInputElement;
-  // fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
-  // setToggleAccessible(toSlider);
-
   const rangeCountFrom = document.querySelector(inputFrom) as HTMLInputElement;
   const rangeCountTo = document.querySelector(inputTo) as HTMLInputElement;
   const rangeCountStart = document.querySelector(valueStart) as HTMLInputElement;
   const rangeCountEnd = document.querySelector(valueEnd) as HTMLInputElement;
   fillSlider(rangeCountFrom, rangeCountTo, '#C6C6C6', '#fff395', rangeCountTo);
-  // setToggleAccessible(rangeCountTo);
-
-  // fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-  // toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-  // fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-  // toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
 
   rangeCountFrom.oninput = () => controlFromRange(rangeCountFrom, rangeCountTo, rangeCountStart);
   rangeCountTo.oninput = () => controlToRange(rangeCountFrom, rangeCountTo, rangeCountEnd);

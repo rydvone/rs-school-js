@@ -17,14 +17,18 @@ export class ProductsComponent extends ElementTemplate {
   }
 
   appendTo(data: Data[]) {
-    this.clearNode(this._products);
-    const fragment: DocumentFragment = document.createDocumentFragment();
-    data.forEach((el) => {
-      const product = new ProductComponent(el);
-      product.appendTo();
-      fragment.append(product.element);
-    });
-    this._products.append(fragment);
+    if (data.length === 0) {
+      this.appendToWrong();
+    } else {
+      this.clearNode(this._products);
+      const fragment: DocumentFragment = document.createDocumentFragment();
+      data.forEach((el) => {
+        const product = new ProductComponent(el);
+        product.appendTo();
+        fragment.append(product.element);
+      });
+      this._products.append(fragment);
+    }
   }
 
   appendToWrong() {

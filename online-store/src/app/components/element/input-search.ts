@@ -39,7 +39,14 @@ export class InputSearch extends Input {
   }
 
   private _clickCallback() {
-    this.search(this._inputElement.value);
+    // const onClear = () => {
+    //   this.value = '0';
+    //   console.log('ooooooooooo');
+    // };
+
+    // this._inputElement.addEventListener('search', onClear.bind(this));
+    this.search('0');
+    // setTimeout(() => this._inputElement.removeEventListener('search', onClear.bind(this)));
   }
 
   private _keydownCallback(_ev: KeyboardEvent) {
@@ -58,7 +65,7 @@ export class InputSearch extends Input {
   }
 
   change(fn: Func) {
-    this._inputElement.addEventListener('change', fn);
+    this._inputElement.addEventListener('search', fn);
   }
 
   unchange(fn: Func) {

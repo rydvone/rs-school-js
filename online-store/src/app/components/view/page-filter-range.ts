@@ -37,7 +37,6 @@ export class PageFilterRange extends ElementTemplate {
 
   appendTo() {
     const title = this.createDiv(ELEMENT_TITLE_CLASS);
-    // const titleToVisual = this._filterName[0].toUpperCase() + this._filterName.slice(1);
     title.textContent = `${this._filterName}:`;
     this._filterValue.append(title);
     const wrapper = this.createDiv(ELEMENT_NAME_CLASS_ADD);

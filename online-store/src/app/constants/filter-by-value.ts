@@ -3,7 +3,6 @@ export const filterByValue = {
   product: ['Beans', 'Pods', 'Ground'],
   country: ['CH', 'DE', 'IT'],
   type: ['Espresso'],
-  reset: ['Filters reset', 'Common reset'],
 };
 
 export const convertFilterValue = {
@@ -25,9 +24,5 @@ export const convertFilterValue = {
   },
   type: {
     Espresso: 'Espresso',
-  },
-  reset: {
-    resetFilters: 'Filters reset',
-    resetCommon: 'Common reset',
   },
 };
