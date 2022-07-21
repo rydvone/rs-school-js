@@ -41,12 +41,12 @@ export class PageByValue extends ElementTemplate {
         button.toggleClass();
         if (button.containsClass()) {
           AppState.buttonSelected[this._filterName].push(val);
-          filterData.filterByType(this._filterName);
+          filterData.filterByType();
         } else {
           AppState.buttonSelected[this._filterName] = AppState.buttonSelected[
             this._filterName
           ].filter((elIn) => elIn !== val);
-          filterData.filterByType(this._filterName);
+          filterData.filterByType();
         }
       });
       li.append(button.element);

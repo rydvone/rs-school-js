@@ -75,39 +75,11 @@ export class Filter {
     AppState.displayProduct = range;
   }
 
-  filterByType(type: string) {
-    // AppState.resetDisplayProduct();
+  filterByType() {
     const objData: Data[] = AppState.displayProduct;
-    // const filter = this._multiFilter(objData, AppState.buttonSelected);
-    // return objData.filter(item => {
-    //   // validates all filter criteria
-    //   return filterKeys.every(key => {
-    //     // ignores non-function predicates
-    //     // if (typeof filters[key] !== 'function') return true;
-    //     return filters[key](item[key]);
-    //   });
-    // });
-
-    const filter = objData.filter(({ fields }) =>
-      AppState.buttonSelected[type].includes(fields[type])
-    );
-    // const filterKeys = Object.keys(AppState.buttonSelected);
-    // console.log(AppState.buttonSelected);
-
-    // const filter = objData.filter(({ fields }) => {
-    //   filterKeys.some((key) => {
-    //     // if (!AppState.buttonSelected[key].length) {
-    //     //   return true;
-    //     // }
-    //     console.log('1', AppState.buttonSelected[key]);
-    //     console.log('2', fields[key]);
-    //     console.log('3', !!AppState.buttonSelected[key].includes(fields[key]));
-    //     return AppState.buttonSelected[key].includes(fields[key]);
-    //   });
-    // });
-    // console.log(filter);
+    const filter = this._multiFilter(objData, AppState.buttonSelected);
     if (filter.length === 0) {
-      drawProducts.appendTo(objData);
+      drawProducts.appendToWrong();
     } else {
       drawProducts.appendTo(filter);
     }
@@ -116,7 +88,7 @@ export class Filter {
   private _multiFilter(products: Data[], filter: ButtonSelected) {
     const filterKeys = Object.keys(filter);
     return products.filter(({ fields }) => {
-      filterKeys.every((key) => {
+      return filterKeys.every((key) => {
         if (!filter[key].length) {
           return true;
         }
