@@ -18,7 +18,8 @@ export class InputRangeWeight extends ElementTemplate {
   constructor(elementId: ElementIdWeight) {
     super();
     this._elementId = elementId;
-    this._item = this.createHTMLElement(ELEMENT, ELEMENT_CLASS) as HTMLInputElement;
+    this._item = document.createElement(ELEMENT);
+    this.setClassName(this._item, ELEMENT_CLASS);
     this._init();
   }
 

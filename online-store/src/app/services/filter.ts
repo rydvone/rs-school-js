@@ -44,13 +44,14 @@ export class Filter {
       return 0;
     }
 
-    const search = objData.filter(({ name }) => name.toLowerCase().includes(val.toLowerCase()));
+    const search = objData.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
     if (search.length === 0) {
       drawProducts.appendToWrong();
     } else {
       drawProducts.appendTo(search);
     }
-    AppState.displayProduct = search;
+    // drawProducts.appendTo(search);
+    // AppState.displayProduct = search;
   }
 
   rangeQuantity(min: number, max: number) {

@@ -9,11 +9,11 @@ export class ElementTemplate {
     return this.createHTMLElement('div', className);
   }
 
-  setClassName(el: HTMLElement | HTMLInputElement, className: string) {
+  setClassName(el: HTMLElement, className: string) {
     el.className = className;
   }
 
-  addClassName(el: HTMLElement | HTMLInputElement, className: string) {
+  addClassName(el: HTMLElement, className: string) {
     el.classList.add(className);
   }
 

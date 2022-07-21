@@ -13,10 +13,8 @@ export class Input extends ElementTemplate {
   constructor() {
     super();
     this._type = 'text';
-    this._inputElement = this.createHTMLElement(
-      ELEMENT_NAME,
-      ELEMENT_NAME_CLASS
-    ) as HTMLInputElement;
+    this._inputElement = document.createElement(ELEMENT_NAME);
+    this.setClassName(this._inputElement, ELEMENT_NAME_CLASS);
   }
 
   appendTo() {

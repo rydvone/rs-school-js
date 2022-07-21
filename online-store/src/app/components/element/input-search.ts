@@ -16,6 +16,7 @@ export class InputSearch extends Input {
     this._setSearchAttr();
     this.setClassName(this._inputElement, ELEMENT_CLASS);
     this.keydown(this._keydownCallback.bind(this));
+    this.keyup(this._keyupCallback.bind(this));
     this.change(this._clickCallback.bind(this));
     this.search(this._inputElement.value);
   }
@@ -39,20 +40,21 @@ export class InputSearch extends Input {
   }
 
   private _clickCallback() {
-    // const onClear = () => {
-    //   this.value = '0';
-    //   console.log('ooooooooooo');
-    // };
+    const onClear = () => {
+      this.search('');
+    };
 
-    // this._inputElement.addEventListener('search', onClear.bind(this));
-    this.search('0');
-    // setTimeout(() => this._inputElement.removeEventListener('search', onClear.bind(this)));
+    this._inputElement.addEventListener('search', onClear.bind(this));
+    setTimeout(() => this._inputElement.removeEventListener('search', onClear.bind(this)));
   }
 
   private _keydownCallback(_ev: KeyboardEvent) {
     if (_ev.key === 'Enter') {
       _ev.preventDefault();
     }
+  }
+
+  private _keyupCallback() {
     this.search(this._inputElement.value);
   }
 
@@ -62,6 +64,14 @@ export class InputSearch extends Input {
 
   unkeydown(fn: FuncK) {
     this._inputElement.removeEventListener('keydown', fn);
+  }
+
+  keyup(fn: FuncK) {
+    this._inputElement.addEventListener('keyup', fn);
+  }
+
+  unkeyup(fn: FuncK) {
+    this._inputElement.removeEventListener('keyup', fn);
   }
 
   change(fn: Func) {

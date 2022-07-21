@@ -33,7 +33,9 @@ export class ProductComponent extends ElementTemplate {
     fragment.append(h3);
     const div = this.createDiv(ELEMENT_NAME_CLASS_ADDITIONAL);
 
-    const img = this.createHTMLElement(ELEMENT_IMG, ELEMENT_IMG_CLASS) as HTMLImageElement;
+    const img = document.createElement(ELEMENT_IMG);
+    this.setClassName(img, ELEMENT_IMG_CLASS);
+
     img.src = `./assets/image/products/${this._data.ean}.jpg`;
     img.alt = `${this._data.name}`;
     div.append(img);
