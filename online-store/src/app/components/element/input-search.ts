@@ -36,7 +36,6 @@ export class InputSearch extends Input {
 
   search(val: string) {
     AppState.searchSelected = val;
-    console.log(AppState.searchSelected);
     filterData.callFilter();
   }
 
