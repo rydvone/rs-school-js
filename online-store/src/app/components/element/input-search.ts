@@ -1,5 +1,5 @@
 import { Input } from './input';
-import { filterData } from '../../services/app-state';
+import { AppState, filterData } from '../../services/app-state';
 
 type FuncK = (this: void, event: KeyboardEvent) => void;
 type Func = (this: void, event: Event) => void;
@@ -36,7 +36,9 @@ export class InputSearch extends Input {
   }
 
   search(val: string) {
-    filterData.search(val);
+    AppState.searchSelected = val;
+    console.log(AppState.searchSelected);
+    filterData.search();
   }
 
   private _clickCallback() {

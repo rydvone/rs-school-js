@@ -2,7 +2,7 @@ import { ElementTemplate } from './element-template';
 import { DataOption } from '../../types/data-sort';
 import { filterData } from '../../services/app-state';
 
-type Func = (this: void, event: MouseEvent) => void;
+type Func = (this: void, event: Event) => void;
 
 export const OBJ_SORT_VALUE = {
   'name-up': 'Name to Up',
@@ -62,11 +62,11 @@ export class Select extends ElementTemplate {
   }
 
   click(fn: Func) {
-    this._selectElement.addEventListener('click', fn);
+    this._selectElement.addEventListener('change', fn);
   }
 
   unclick(fn: Func) {
-    this._selectElement.removeEventListener('click', fn);
+    this._selectElement.removeEventListener('change', fn);
   }
 
   private _addList() {

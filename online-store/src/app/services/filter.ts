@@ -15,7 +15,12 @@ const ARRAY_SORT_VALUE = [
 export class Filter {
   sort(val: string) {
     const objData: Data[] = AppState.displayProduct;
-    const filterData = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
+    const filterData = this._multiFilter(
+      objData,
+      AppState.buttonSelected,
+      AppState.rangeSelected,
+      AppState.searchSelected
+    );
     if (val === ARRAY_SORT_VALUE[0]) {
       filterData.sort((a, b) => a.name.localeCompare(b.name));
     }
@@ -38,8 +43,20 @@ export class Filter {
     drawProducts.appendTo(filterData);
   }
 
-  search(val: string) {
-    // const objData: Data[] = AppState.displayProduct;
+  search() {
+    const objData: Data[] = AppState.displayProduct;
+    const filter = this._multiFilter(
+      objData,
+      AppState.buttonSelected,
+      AppState.rangeSelected,
+      AppState.searchSelected
+    );
+    if (filter.length === 0) {
+      drawProducts.appendToWrong();
+    } else {
+      drawProducts.appendTo(filter);
+    }
+
     // if (val === '') {
     //   drawProducts.appendTo(objData);
     //   AppState.displayProduct = objData;
@@ -47,13 +64,13 @@ export class Filter {
     // }
 
     // const search = objData.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    const search = this._searchFilter(val);
+    // const search = this._searchFilter('val');
 
-    if (search.length === 0) {
-      drawProducts.appendToWrong();
-    } else {
-      drawProducts.appendTo(search);
-    }
+    // if (search.length === 0) {
+    //   drawProducts.appendToWrong();
+    // } else {
+    //   drawProducts.appendTo(search);
+    // }
     // drawProducts.appendTo(search);
     // AppState.displayProduct = search;
   }
@@ -87,7 +104,12 @@ export class Filter {
     // );
     // drawProducts.appendTo(range);
     // AppState.displayProduct = range;
-    const filter = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
+    const filter = this._multiFilter(
+      objData,
+      AppState.buttonSelected,
+      AppState.rangeSelected,
+      AppState.searchSelected
+    );
     if (filter.length === 0) {
       drawProducts.appendToWrong();
     } else {
@@ -97,7 +119,12 @@ export class Filter {
 
   filterByType() {
     const objData: Data[] = AppState.displayProduct;
-    const filter = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
+    const filter = this._multiFilter(
+      objData,
+      AppState.buttonSelected,
+      AppState.rangeSelected,
+      AppState.searchSelected
+    );
     if (filter.length === 0) {
       drawProducts.appendToWrong();
     } else {
@@ -105,10 +132,15 @@ export class Filter {
     }
   }
 
-  private _multiFilter(products: Data[], filterValue: ButtonSelected, filterRange: RangeSelected) {
+  private _multiFilter(
+    products: Data[],
+    filterValue: ButtonSelected,
+    filterRange: RangeSelected,
+    searchStr: string
+  ) {
     const filterValueKeys = Object.keys(filterValue);
     const filterRangeKeys = Object.keys(filterRange);
-    return products.filter(({ fields }) => {
+    return products.filter(({ fields, name }) => {
       return (
         filterValueKeys.every((key) => {
           if (!filterValue[key].length) {
@@ -122,17 +154,19 @@ export class Filter {
             return true;
           }
           return parseInt(fields[key]) >= min && parseInt(fields[key]) <= max;
-        })
+        }) &&
+        name.toLowerCase().indexOf(searchStr.toLowerCase()) > -1
       );
     });
   }
 
-  private _searchFilter(val: string) {
-    const filtered = this._multiFilter(
-      AppState.displayProduct,
-      AppState.buttonSelected,
-      AppState.rangeSelected
-    );
-    return filtered.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-  }
+  // private _searchFilter(val: string) {
+  //   const filtered = this._multiFilter(
+  //     AppState.displayProduct,
+  //     AppState.buttonSelected,
+  //     AppState.rangeSelected,
+  //     AppState.searchSelected
+  //   );
+  //   return filtered.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+  // }
 }

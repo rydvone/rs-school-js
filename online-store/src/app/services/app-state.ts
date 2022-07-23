@@ -14,6 +14,7 @@ export class AppState {
   public static productSelected: string[] = [];
   public static buttonSelected: ButtonSelected = buttonSelectedConstant;
   public static rangeSelected: RangeSelected = rangeSelectedConstant;
+  public static searchSelected = '';
 
   public static resetDisplayProduct() {
     this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));
