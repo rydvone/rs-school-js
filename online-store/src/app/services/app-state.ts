@@ -1,16 +1,19 @@
 import { Data } from '../types/data';
 import data from '../../assets/data/data.json';
 import { Filter } from './filter';
-import { ButtonSelected } from '../types/filter-by-value-interface';
-import { buttonSelectedConstant } from '../constants/filter-by-value-constant';
+import { ButtonSelected, RangeSelected } from '../types/selected';
+import { buttonSelectedConstant, rangeSelectedConstant } from '../constants/selected-constant';
 
 export const filterData = new Filter();
 export class AppState {
   public static product: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
   public static displayProduct: Data[] = this.product;
 
+  // public static buttonInstance:
+
   public static productSelected: string[] = [];
   public static buttonSelected: ButtonSelected = buttonSelectedConstant;
+  public static rangeSelected: RangeSelected = rangeSelectedConstant;
 
   public static resetDisplayProduct() {
     this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));

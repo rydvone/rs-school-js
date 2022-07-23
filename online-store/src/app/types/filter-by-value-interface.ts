@@ -13,11 +13,3 @@ export interface ConvertFilterValue {
   country: { [key: string]: string };
   type: { [key: string]: string };
 }
-
-// export interface ButtonSelected {
-//   brand: string[];
-//   product: string[];
-//   country: string[];
-//   type: string[];
-// }
-export interface ButtonSelected { [key: string]: string[] }

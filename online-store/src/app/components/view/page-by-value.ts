@@ -37,17 +37,19 @@ export class PageByValue extends ElementTemplate {
     Object.entries(data).forEach(([el, val]) => {
       const li = this.createHTMLElement(LI_NAME, LI_CLASS);
       const button = new Button(el);
+      if (AppState.buttonSelected[this._filterName].includes(val)) {
+        button.addClass();
+      }
       button.click(() => {
         button.toggleClass();
         if (button.containsClass()) {
           AppState.buttonSelected[this._filterName].push(val);
-          filterData.filterByType();
         } else {
           AppState.buttonSelected[this._filterName] = AppState.buttonSelected[
             this._filterName
           ].filter((elIn) => elIn !== val);
-          filterData.filterByType();
         }
+        filterData.filterByType();
       });
       li.append(button.element);
       fragment.append(li);

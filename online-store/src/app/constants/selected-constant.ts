@@ -26,3 +26,15 @@ export const convertFilterValue = {
     Espresso: 'Espresso',
   },
 };
+
+export const buttonSelectedConstant = {
+  brand: [],
+  product: [],
+  country: [],
+  type: [],
+};
+
+export const rangeSelectedConstant = {
+  count: [],
+  weight: [],
+};

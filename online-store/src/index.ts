@@ -1,7 +1,7 @@
 import './style.css';
 import './css/range.css';
 import App from './app/app';
-import initRange from './app/filters/filterRangeFunc';
+// import initRange from './app/filters/filterRangeFunc';
 const HELLO = `
 -------------------------------------------------
 Возможно я оценку и завысил. Сам уже не знаю. 
@@ -72,6 +72,6 @@ window.onload = () => {
   }
   setFocus();
 
-  initRange('#range-count-from', '#range-count-to', '.range-count-start', '.range-count-end');
-  initRange('#range-weight-from', '#range-weight-to', '.range-weight-start', '.range-weight-end');
+  // initRange('#range-count-from', '#range-count-to', '.range-count-start', '.range-count-end');
+  // initRange('#range-weight-from', '#range-weight-to', '.range-weight-start', '.range-weight-end');
 };

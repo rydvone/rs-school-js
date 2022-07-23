@@ -1,9 +1,9 @@
 import { ElementTemplate } from './element-template';
 import { ElementIdWeight } from '../../types/input';
 
-type Func = (this: void, event: MouseEvent) => void;
+type Func = (this: void, event: Event) => void;
 
-const ELEMENT = 'input';
+const ELEMENT_NAME = 'input';
 const ELEMENT_TYPE = 'range';
 const ELEMENT_ID_FROM = 'range-weight-from';
 // const ELEMENT_ID_TO = 'range-weight-to';
@@ -18,7 +18,7 @@ export class InputRangeWeight extends ElementTemplate {
   constructor(elementId: ElementIdWeight) {
     super();
     this._elementId = elementId;
-    this._item = document.createElement(ELEMENT);
+    this._item = document.createElement(ELEMENT_NAME);
     this.setClassName(this._item, ELEMENT_CLASS);
     this._init();
   }
@@ -36,11 +36,11 @@ export class InputRangeWeight extends ElementTemplate {
   }
 
   click(fn: Func) {
-    this._item.addEventListener('click', fn);
+    this._item.addEventListener('input', fn);
   }
 
   unClick(fn: Func) {
-    this._item.removeEventListener('click', fn);
+    this._item.removeEventListener('input', fn);
   }
 
   get element() {
@@ -75,10 +75,10 @@ export class InputRangeWeight extends ElementTemplate {
   }
 
   get value() {
-    return this._item.value;
+    return parseInt(this._item.value);
   }
 
-  set value(val: string) {
-    this._item.value = val;
+  set value(val: number) {
+    this._item.value = `${val}`;
   }
 }

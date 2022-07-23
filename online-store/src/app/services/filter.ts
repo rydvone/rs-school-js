@@ -1,7 +1,7 @@
 import { Data } from '../types/data';
 import { AppState } from './app-state';
 import { drawProducts } from '../components/view/view';
-import { ButtonSelected } from '../types/filter-by-value-interface';
+import { ButtonSelected, KeyRangeSelected } from '../types/selected';
 
 const ARRAY_SORT_VALUE = [
   'name-up',
@@ -38,14 +38,16 @@ export class Filter {
   }
 
   search(val: string) {
-    const objData: Data[] = AppState.displayProduct;
-    if (val === '') {
-      drawProducts.appendTo(objData);
-      AppState.displayProduct = objData;
-      return 0;
-    }
+    // const objData: Data[] = AppState.displayProduct;
+    // if (val === '') {
+    //   drawProducts.appendTo(objData);
+    //   AppState.displayProduct = objData;
+    //   return 0;
+    // }
 
-    const search = objData.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    // const search = objData.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    const search = this._searchFilter(val);
+
     if (search.length === 0) {
       drawProducts.appendToWrong();
     } else {
@@ -75,6 +77,17 @@ export class Filter {
     AppState.displayProduct = range;
   }
 
+  filterByRange(key: KeyRangeSelected) {
+    AppState.resetDisplayProduct();
+    const objData: Data[] = AppState.displayProduct;
+    const [min, max] = AppState.rangeSelected[key];
+    const range = objData.filter(
+      ({ fields }) => parseInt(fields[key]) >= min && parseInt(fields[key]) <= max
+    );
+    drawProducts.appendTo(range);
+    AppState.displayProduct = range;
+  }
+
   filterByType() {
     const objData: Data[] = AppState.displayProduct;
     const filter = this._multiFilter(objData, AppState.buttonSelected);
@@ -95,5 +108,10 @@ export class Filter {
         return filter[key].includes(fields[key]);
       });
     });
+  }
+
+  private _searchFilter(val: string) {
+    const filtered = this._multiFilter(AppState.displayProduct, AppState.buttonSelected);
+    return filtered.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
   }
 }

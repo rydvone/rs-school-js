@@ -3,7 +3,7 @@ import { ElementTemplate } from './element-template';
 type Func = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_NAME = 'input';
-const ELEMENT_NAME_CLASS = '';
+const ELEMENT_CLASS = '';
 const ELEMENT_FORM = 'form';
 const ELEMENT_FORM_CLASS = 'filters__form';
 
@@ -14,7 +14,7 @@ export class Input extends ElementTemplate {
     super();
     this._type = 'text';
     this._inputElement = document.createElement(ELEMENT_NAME);
-    this.setClassName(this._inputElement, ELEMENT_NAME_CLASS);
+    this.setClassName(this._inputElement, ELEMENT_CLASS);
   }
 
   appendTo() {

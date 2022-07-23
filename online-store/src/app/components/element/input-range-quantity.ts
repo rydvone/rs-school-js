@@ -1,9 +1,9 @@
 import { ElementTemplate } from './element-template';
 import { ElementIdQuantity } from '../../types/input';
 
-type Func = (this: void, event: MouseEvent) => void;
+type Func = (this: void, event: Event) => void;
 
-const ELEMENT = 'input';
+const ELEMENT_NAME = 'input';
 const ELEMENT_TYPE = 'range';
 const ELEMENT_ID_FROM = 'range-count-from';
 const ELEMENT_CLASS = '';
@@ -17,8 +17,19 @@ export class InputRangeQuantity extends ElementTemplate {
   constructor(elementId: ElementIdQuantity) {
     super();
     this._elementId = elementId;
-    this._item = this.createHTMLElement(ELEMENT, ELEMENT_CLASS) as HTMLInputElement;
+    this._item = document.createElement(ELEMENT_NAME);
+    this.setClassName(this._item, ELEMENT_CLASS);
     this._init();
+  }
+
+  private _init() {
+    this.setType(ELEMENT_TYPE);
+    this.setIdName(this._elementId);
+    if (this._elementId === ELEMENT_ID_FROM) {
+      this.setValueMinMax(START, START, END, STEP);
+    } else {
+      this.setValueMinMax(END, START, END, STEP);
+    }
   }
 
   getIdName() {
@@ -34,25 +45,15 @@ export class InputRangeQuantity extends ElementTemplate {
   }
 
   click(fn: Func) {
-    this._item.addEventListener('click', fn);
+    this._item.addEventListener('input', fn);
   }
 
   unClick(fn: Func) {
-    this._item.removeEventListener('click', fn);
+    this._item.removeEventListener('input', fn);
   }
 
   get element() {
     return this._item;
-  }
-
-  private _init() {
-    this.setType(ELEMENT_TYPE);
-    this.setIdName(this._elementId);
-    if (this._elementId === ELEMENT_ID_FROM) {
-      this.setValueMinMax(START, START, END, STEP);
-    } else {
-      this.setValueMinMax(END, START, END, STEP);
-    }
   }
 
   setValueMinMax(val: string, min: string, max: string, step?: string) {
@@ -73,10 +74,10 @@ export class InputRangeQuantity extends ElementTemplate {
   }
 
   get value() {
-    return this._item.value;
+    return parseInt(this._item.value);
   }
 
-  set value(val: string) {
-    this._item.value = val;
+  set value(val: number) {
+    this._item.value = `${val}`;
   }
 }

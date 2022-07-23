@@ -2,10 +2,11 @@ import { ElementTemplate } from '../element/element-template';
 // import { PageBrand } from './page-brand';
 import { PageByValue } from './page-by-value';
 import { PageFilterForm } from './page-filter-form';
-import { PageRangeQuantity } from './page-range-quantity';
-import { PageRangeWeight } from './page-range-weight';
+// import { PageRangeQuantity } from './page-range-quantity';
+import { PageRangeWeight } from './page-by-range-weight';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { PageReset } from './page-reset';
+import { PageRangeQuantity } from './page-by-range-quantity';
 
 const ELEMENT_NAME_CLASS = 'filter-container';
 const ELEMENT_H3 = 'h3';
