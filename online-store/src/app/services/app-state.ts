@@ -9,8 +9,6 @@ export class AppState {
   public static product: Data[] = <Data[]>JSON.parse(JSON.stringify(data));
   public static displayProduct: Data[] = this.product;
 
-  // public static buttonInstance:
-
   public static productSelected: string[] = [];
   public static buttonSelected: ButtonSelected = buttonSelectedConstant;
   public static rangeSelected: RangeSelected = rangeSelectedConstant;

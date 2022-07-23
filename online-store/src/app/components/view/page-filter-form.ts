@@ -2,7 +2,6 @@ import { ElementTemplate } from '../element/element-template';
 import { InputSearch } from '../element/input-search';
 import { Select } from '../element/select';
 
-// const ELEMENT_NAME = 'filters__description__block';
 const ELEMENT_NAME_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
 

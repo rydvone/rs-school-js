@@ -28,12 +28,6 @@ export class Button extends ElementTemplate {
     this._button.textContent = title;
   }
 
-  // checkAndAddSelected() {
-  //   // if (AppState.buttonSelected.includes(this.element.innerText)) {
-  //   //   this.addClass();
-  //   // }
-  // }
-
   click(fn: Func) {
     this._button.addEventListener('click', fn);
   }

@@ -6,14 +6,6 @@ const ELEMENT_NAME_CLASS_ADD = 'cart-description';
 const ELEMENT_BUTTON_CLASS = 'button-close';
 const ELEMENT_TEXT_CLASS = 'cart-text';
 const CLASS_ADD = 'active';
-// const INNER_HTML = `
-// <div class="wrapper__overlay">
-//   <div class="overlay"></div>
-//   <div class="cart-description">
-//     <div class="cart-text"></div>
-//     <div class="button-close">close</div>
-// </div>
-// </div>`;
 
 export class Popup extends ElementTemplate {
   private _item: HTMLElement;

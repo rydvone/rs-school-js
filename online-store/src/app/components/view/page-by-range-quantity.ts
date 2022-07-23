@@ -1,4 +1,4 @@
-import { FilterRangeHandler } from '../../filters/range-handler';
+import { FilterRangeHandler } from '../../services/range-handler';
 import { AppState } from '../../services/app-state';
 import { ElementTemplate } from '../element/element-template';
 import { InputRangeQuantity } from '../element/input-range-quantity';

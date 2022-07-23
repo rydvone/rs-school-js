@@ -6,7 +6,6 @@ type Func = (this: void, event: Event) => void;
 const ELEMENT_NAME = 'input';
 const ELEMENT_TYPE = 'range';
 const ELEMENT_ID_FROM = 'range-weight-from';
-// const ELEMENT_ID_TO = 'range-weight-to';
 const ELEMENT_CLASS = '';
 const START = '100';
 const END = '1000';

@@ -62,12 +62,6 @@ export class PageFilter extends ElementTemplate {
     parent.append(sort.element);
     const button = new PageReset();
     parent.append(button.element);
-    // const button = new PageFilterButton('reset');
-    // parent.append(button.element);
-    // const buttonNew = new PageFilterButton('brand');
-    // parent.append(buttonNew.element);
-    // const button3 = new PageBrand();
-    // parent.append(button3.element);
   }
 
   get element() {

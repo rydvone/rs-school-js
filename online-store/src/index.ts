@@ -71,7 +71,4 @@ window.onload = () => {
     searchIn.focus();
   }
   setFocus();
-
-  // initRange('#range-count-from', '#range-count-to', '.range-count-start', '.range-count-end');
-  // initRange('#range-weight-from', '#range-weight-to', '.range-weight-start', '.range-weight-end');
 };

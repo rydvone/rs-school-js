@@ -1,9 +1,7 @@
-import { FilterRangeHandler } from '../../filters/range-handler';
+import { FilterRangeHandler } from '../../services/range-handler';
 import { AppState, filterData } from '../../services/app-state';
 import { ElementTemplate } from '../element/element-template';
 import { InputRangeWeight } from '../element/input-range-weight';
-
-// type Func = (this: void, event: MouseEvent) => void;
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';
