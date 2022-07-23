@@ -46,7 +46,7 @@ export class PageRangeQuantity extends ElementTemplate {
       AppState.rangeSelected[KEY] = this._rangeHandler
         .getParsed(this._rangeFrom.element, this._rangeTo.element)
         .slice();
-      filterData.filterByRange(KEY);
+      filterData.filterByRange();
     });
     this._rangeTo.click(() => {
       this._rangeHandler.controlToRange(
@@ -57,7 +57,7 @@ export class PageRangeQuantity extends ElementTemplate {
       AppState.rangeSelected[KEY] = this._rangeHandler
         .getParsed(this._rangeFrom.element, this._rangeTo.element)
         .slice();
-      filterData.filterByRange(KEY);
+      filterData.filterByRange();
     });
   }
 

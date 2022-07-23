@@ -1,7 +1,7 @@
 import { Data } from '../types/data';
 import { AppState } from './app-state';
 import { drawProducts } from '../components/view/view';
-import { ButtonSelected, KeyRangeSelected } from '../types/selected';
+import { ButtonSelected, RangeSelected } from '../types/selected';
 
 const ARRAY_SORT_VALUE = [
   'name-up',
@@ -15,26 +15,27 @@ const ARRAY_SORT_VALUE = [
 export class Filter {
   sort(val: string) {
     const objData: Data[] = AppState.displayProduct;
+    const filterData = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
     if (val === ARRAY_SORT_VALUE[0]) {
-      objData.sort((a, b) => a.name.localeCompare(b.name));
+      filterData.sort((a, b) => a.name.localeCompare(b.name));
     }
     if (val === ARRAY_SORT_VALUE[1]) {
-      objData.sort((a, b) => b.name.localeCompare(a.name));
+      filterData.sort((a, b) => b.name.localeCompare(a.name));
     }
     if (val === ARRAY_SORT_VALUE[2]) {
-      objData.sort((a, b) => Number(a.fields.price) - Number(b.fields.price));
+      filterData.sort((a, b) => Number(a.fields.price) - Number(b.fields.price));
     }
     if (val === ARRAY_SORT_VALUE[3]) {
-      objData.sort((a, b) => Number(b.fields.price) - Number(a.fields.price));
+      filterData.sort((a, b) => Number(b.fields.price) - Number(a.fields.price));
     }
     if (val === ARRAY_SORT_VALUE[4]) {
-      objData.sort((a, b) => Number(a.fields.count) - Number(b.fields.count));
+      filterData.sort((a, b) => Number(a.fields.count) - Number(b.fields.count));
     }
     if (val === ARRAY_SORT_VALUE[5]) {
-      objData.sort((a, b) => Number(b.fields.count) - Number(a.fields.count));
+      filterData.sort((a, b) => Number(b.fields.count) - Number(a.fields.count));
     }
 
-    drawProducts.appendTo(objData);
+    drawProducts.appendTo(filterData);
   }
 
   search(val: string) {
@@ -57,40 +58,36 @@ export class Filter {
     // AppState.displayProduct = search;
   }
 
-  rangeQuantity(min: number, max: number) {
-    AppState.resetDisplayProduct();
-    const objData: Data[] = AppState.displayProduct;
-    const range = objData.filter(
-      ({ fields }) => parseInt(fields.count) >= min && parseInt(fields.count) <= max
-    );
-    drawProducts.appendTo(range);
-    AppState.displayProduct = range;
-  }
+  // rangeQuantity(min: number, max: number) {
+  //   AppState.resetDisplayProduct();
+  //   const objData: Data[] = AppState.displayProduct;
+  //   const range = objData.filter(
+  //     ({ fields }) => parseInt(fields.count) >= min && parseInt(fields.count) <= max
+  //   );
+  //   drawProducts.appendTo(range);
+  //   AppState.displayProduct = range;
+  // }
 
-  rangeWeight(min: number, max: number) {
-    AppState.resetDisplayProduct();
-    const objData: Data[] = AppState.displayProduct;
-    const range = objData.filter(
-      ({ fields }) => parseInt(fields.weight) >= min && parseInt(fields.weight) <= max
-    );
-    drawProducts.appendTo(range);
-    AppState.displayProduct = range;
-  }
+  // rangeWeight(min: number, max: number) {
+  //   AppState.resetDisplayProduct();
+  //   const objData: Data[] = AppState.displayProduct;
+  //   const range = objData.filter(
+  //     ({ fields }) => parseInt(fields.weight) >= min && parseInt(fields.weight) <= max
+  //   );
+  //   drawProducts.appendTo(range);
+  //   AppState.displayProduct = range;
+  // }
 
-  filterByRange(key: KeyRangeSelected) {
-    AppState.resetDisplayProduct();
+  filterByRange() {
+    // AppState.resetDisplayProduct();
     const objData: Data[] = AppState.displayProduct;
-    const [min, max] = AppState.rangeSelected[key];
-    const range = objData.filter(
-      ({ fields }) => parseInt(fields[key]) >= min && parseInt(fields[key]) <= max
-    );
-    drawProducts.appendTo(range);
-    AppState.displayProduct = range;
-  }
-
-  filterByType() {
-    const objData: Data[] = AppState.displayProduct;
-    const filter = this._multiFilter(objData, AppState.buttonSelected);
+    // const [min, max] = AppState.rangeSelected[key];
+    // const range = objData.filter(
+    //   ({ fields }) => parseInt(fields[key]) >= min && parseInt(fields[key]) <= max
+    // );
+    // drawProducts.appendTo(range);
+    // AppState.displayProduct = range;
+    const filter = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
     if (filter.length === 0) {
       drawProducts.appendToWrong();
     } else {
@@ -98,20 +95,44 @@ export class Filter {
     }
   }
 
-  private _multiFilter(products: Data[], filter: ButtonSelected) {
-    const filterKeys = Object.keys(filter);
+  filterByType() {
+    const objData: Data[] = AppState.displayProduct;
+    const filter = this._multiFilter(objData, AppState.buttonSelected, AppState.rangeSelected);
+    if (filter.length === 0) {
+      drawProducts.appendToWrong();
+    } else {
+      drawProducts.appendTo(filter);
+    }
+  }
+
+  private _multiFilter(products: Data[], filterValue: ButtonSelected, filterRange: RangeSelected) {
+    const filterValueKeys = Object.keys(filterValue);
+    const filterRangeKeys = Object.keys(filterRange);
     return products.filter(({ fields }) => {
-      return filterKeys.every((key) => {
-        if (!filter[key].length) {
-          return true;
-        }
-        return filter[key].includes(fields[key]);
-      });
+      return (
+        filterValueKeys.every((key) => {
+          if (!filterValue[key].length) {
+            return true;
+          }
+          return filterValue[key].includes(fields[key]);
+        }) &&
+        filterRangeKeys.every((key) => {
+          const [min, max] = filterRange[key];
+          if (!filterRange[key].length) {
+            return true;
+          }
+          return parseInt(fields[key]) >= min && parseInt(fields[key]) <= max;
+        })
+      );
     });
   }
 
   private _searchFilter(val: string) {
-    const filtered = this._multiFilter(AppState.displayProduct, AppState.buttonSelected);
+    const filtered = this._multiFilter(
+      AppState.displayProduct,
+      AppState.buttonSelected,
+      AppState.rangeSelected
+    );
     return filtered.filter(({ name }) => name.toLowerCase().indexOf(val.toLowerCase()) > -1);
   }
 }
