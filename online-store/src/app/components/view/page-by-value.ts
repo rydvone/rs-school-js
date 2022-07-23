@@ -49,7 +49,7 @@ export class PageByValue extends ElementTemplate {
             this._filterName
           ].filter((elIn) => elIn !== val);
         }
-        filterData.filterByType();
+        filterData.callFilter();
       });
       li.append(button.element);
       fragment.append(li);
