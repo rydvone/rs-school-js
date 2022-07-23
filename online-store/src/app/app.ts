@@ -2,7 +2,6 @@ import { Storage } from './services/storage';
 import { View } from './components/view/view';
 
 export default class App {
-  // private _controller: AppController;
   private _storage: Storage;
   private _view: View;
 
@@ -13,5 +12,10 @@ export default class App {
 
   start() {
     this._view.buildPage();
+    this._init();
+  }
+
+  private _init() {
+    document.getElementById('search')?.focus();
   }
 }

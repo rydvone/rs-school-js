@@ -24,6 +24,7 @@ export class PageFilterForm extends ElementTemplate {
     if (this._filterName === 'Search') {
       const filter = new InputSearch();
       this._filterValue.append(filter.appendTo());
+      filter.element.focus();
     }
     if (this._filterName === 'Sort by') {
       const filter = new Select();

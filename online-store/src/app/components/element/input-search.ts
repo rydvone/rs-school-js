@@ -32,7 +32,6 @@ export class InputSearch extends Input {
   private _setSearchAttr() {
     this._inputElement.placeholder = 'search';
     this._inputElement.autocomplete = 'off';
-    this._inputElement.focus();
   }
 
   search(val: string) {
