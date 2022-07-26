@@ -1,7 +1,12 @@
 import { ElementTemplate } from '../element/element-template';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
-import { Button } from '../element/button';
+// import { Button } from '../element/button';
 import { AppState, filterData } from '../../services/app-state';
+import { Buttons } from '../element/buttons';
+
+type KeyType = 'brand' | 'product' | 'country' | 'type';
+
+export const buttonsByValue = new Buttons();
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';
@@ -9,8 +14,6 @@ const UL_NAME = 'ul';
 const UL_CLASS = 'list-inline';
 const LI_NAME = 'li';
 const LI_CLASS = 'list-inline__item';
-
-type KeyType = 'brand' | 'product' | 'country' | 'type';
 
 export class PageByValue extends ElementTemplate {
   private _item: HTMLElement;
@@ -36,7 +39,7 @@ export class PageByValue extends ElementTemplate {
     const fragment: DocumentFragment = document.createDocumentFragment();
     Object.entries(data).forEach(([el, val]) => {
       const li = this.createHTMLElement(LI_NAME, LI_CLASS);
-      const button = new Button(el);
+      const button = buttonsByValue.createButton(el);
       if (AppState.buttonSelected[this._filterName].includes(val)) {
         button.addClass();
       }

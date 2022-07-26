@@ -22,7 +22,7 @@ export class AppState {
     this.productSelected.length = 0;
   }
 
-  public static clearBrandSelected() {
+  public static clearButtonSelected() {
     Object.keys(this.buttonSelected).forEach((key) => (this.buttonSelected[key].length = 0));
   }
 

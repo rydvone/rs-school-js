@@ -5,6 +5,7 @@ import { AppState } from '../../services/app-state';
 import { drawProducts } from './view';
 import { cartCounter } from './page-cart';
 // import { filterData } from '../../services/app-state';
+import { buttonsByValue } from './page-by-value';
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';
@@ -39,6 +40,11 @@ export class PageReset extends ElementTemplate {
       button.click(() => {
         if (button.element.textContent === 'Filters reset') {
           AppState.resetDisplayProduct();
+          AppState.clearButtonSelected();
+          buttonsByValue.element.forEach((el) => {
+            el.element;
+            console.log(el.removeClassSelected());
+          });
           drawProducts.appendTo(AppState.displayProduct);
         } else {
           AppState.resetDisplayProduct();

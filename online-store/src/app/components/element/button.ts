@@ -44,7 +44,7 @@ export class Button extends ElementTemplate {
     this._button.classList.add('selected');
   }
 
-  removeClass() {
+  removeClassSelected() {
     this._button.classList.remove('selected');
   }
 
