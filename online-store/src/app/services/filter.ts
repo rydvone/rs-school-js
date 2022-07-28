@@ -13,14 +13,9 @@ const ARRAY_SORT_VALUE = [
 ];
 
 export class Filter {
-  sort(val: string) {
-    const objData: Data[] = AppState.displayProduct;
-    const filter = this._multiFilter(
-      objData,
-      AppState.buttonSelected,
-      AppState.rangeSelected,
-      AppState.searchSelected
-    );
+  sort(filter: Data[]) {
+    const val = AppState.selectSelected;
+
     if (val === ARRAY_SORT_VALUE[0]) {
       filter.sort((a, b) => a.name.localeCompare(b.name));
     }
@@ -40,7 +35,8 @@ export class Filter {
       filter.sort((a, b) => Number(b.fields.count) - Number(a.fields.count));
     }
 
-    drawProducts.appendTo(filter);
+    // drawProducts.appendTo(filter);
+    return filter;
   }
 
   callFilter() {
@@ -51,11 +47,8 @@ export class Filter {
       AppState.rangeSelected,
       AppState.searchSelected
     );
-    if (filter.length === 0) {
-      drawProducts.appendToWrong();
-    } else {
-      drawProducts.appendTo(filter);
-    }
+    const filterSort = this.sort(filter);
+    drawProducts.appendTo(filterSort);
   }
 
   private _multiFilter(

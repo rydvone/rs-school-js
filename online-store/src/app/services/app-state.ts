@@ -10,6 +10,7 @@ export class AppState {
   public static displayProduct: Data[] = this.product;
 
   public static productSelected: string[] = [];
+  public static selectSelected = '';
   public static buttonSelected: ButtonSelected = buttonSelectedConstant;
   public static rangeSelected: RangeSelected = rangeSelectedConstant;
   public static searchSelected = '';
@@ -20,6 +21,18 @@ export class AppState {
 
   public static clearProductSelected() {
     this.productSelected.length = 0;
+  }
+
+  public static clearSelectSelected() {
+    this.selectSelected = '';
+  }
+
+  public static clearSearchSelected() {
+    this.searchSelected = '';
+  }
+
+  public static clearRangeSelected() {
+    Object.keys(this.rangeSelected).forEach((el) => (this.rangeSelected[el].length = 0));
   }
 
   public static clearButtonSelected() {

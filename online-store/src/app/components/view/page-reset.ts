@@ -1,11 +1,15 @@
 import { ElementTemplate } from '../element/element-template';
 import { reset } from '../../constants/reset-button';
 import { Button } from '../element/button';
-import { AppState } from '../../services/app-state';
+import { AppState, filterData } from '../../services/app-state';
 import { drawProducts } from './view';
 import { cartCounter } from './page-cart';
 // import { filterData } from '../../services/app-state';
 import { buttonsByValue } from './page-by-value';
+import { inputBySearch } from './page-filter-form';
+import { elementsByRange } from './page-filter';
+// import { sliders } from './page-by-range';
+// import { inputBySearch } from './page-filter-form';
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';
@@ -41,11 +45,15 @@ export class PageReset extends ElementTemplate {
         if (button.element.textContent === 'Filters reset') {
           AppState.resetDisplayProduct();
           AppState.clearButtonSelected();
+          AppState.clearSearchSelected();
+          AppState.clearRangeSelected();
           buttonsByValue.element.forEach((el) => {
             el.element;
-            console.log(el.removeClassSelected());
+            el.removeClassSelected();
           });
-          drawProducts.appendTo(AppState.displayProduct);
+          inputBySearch.createInput();
+          elementsByRange.appendTo();
+          filterData.callFilter();
         } else {
           AppState.resetDisplayProduct();
           AppState.clearProductSelected();

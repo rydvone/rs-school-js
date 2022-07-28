@@ -12,10 +12,6 @@ export class Buttons {
     return item;
   }
 
-  get numberButtons() {
-    return this._buttons.length;
-  }
-
   get element() {
     return this._buttons;
   }

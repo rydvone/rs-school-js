@@ -2,6 +2,8 @@ import { ElementTemplate } from '../element/element-template';
 import { InputSearch } from '../element/input-search';
 import { Select } from '../element/select';
 
+export const inputBySearch = new InputSearch();
+
 const ELEMENT_NAME_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
 
@@ -22,8 +24,8 @@ export class PageFilterForm extends ElementTemplate {
     title.textContent = `${titleToVisual}:`;
     this._filterValue.append(title);
     if (this._filterName === 'Search') {
-      const filter = new InputSearch();
-      this._filterValue.append(filter.appendTo());
+      const filter = inputBySearch;
+      this._filterValue.append(filter.elementForm);
       filter.element.focus();
     }
     if (this._filterName === 'Sort by') {

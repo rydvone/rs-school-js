@@ -22,7 +22,8 @@
 .range-count-start,
 .range-count-end,
 .range-weight-start,
-.range-weight-end {
+.range-weight-end,
+.range-value {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,10 +3,14 @@ import { ElementTemplate } from '../element/element-template';
 import { PageByValue } from './page-by-value';
 import { PageFilterForm } from './page-filter-form';
 // import { PageRangeQuantity } from './page-range-quantity';
-import { PageRangeWeight } from './page-by-range-weight';
+// import { PageRangeWeight } from './page-by-range-weight';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { PageReset } from './page-reset';
-import { PageRangeQuantity } from './page-by-range-quantity';
+// import { PageRangeQuantity } from './page-by-range-quantity';
+import { PageByRange } from './page-by-range';
+// import { ETitleRangeBlock } from '../../types/input';
+
+export const elementsByRange = new PageByRange();
 
 const ELEMENT_NAME_CLASS = 'filter-container';
 const ELEMENT_H3 = 'h3';
@@ -49,10 +53,10 @@ export class PageFilter extends ElementTemplate {
   }
 
   private _appendToRange(parent: HTMLElement) {
-    const filter = new PageRangeQuantity();
-    parent.append(filter.element);
-    const filterAdd = new PageRangeWeight();
-    parent.append(filterAdd.element);
+    const filter = elementsByRange.element;
+    elementsByRange.appendTo();
+
+    parent.append(filter);
   }
 
   private _appendToSearch(parent: HTMLElement) {

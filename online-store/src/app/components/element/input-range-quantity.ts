@@ -1,7 +1,6 @@
 import { ElementTemplate } from './element-template';
 import { ElementIdQuantity } from '../../types/input';
-
-type Func = (this: void, event: Event) => void;
+import { FuncEvent } from '../../types/func';
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_TYPE = 'range';
@@ -12,11 +11,11 @@ const END = '50';
 const STEP = '1';
 
 export class InputRangeQuantity extends ElementTemplate {
-  protected _elementId: ElementIdQuantity;
+  protected _uniqName: ElementIdQuantity;
   private _item: HTMLInputElement;
-  constructor(elementId: ElementIdQuantity) {
+  constructor(uniqName: ElementIdQuantity) {
     super();
-    this._elementId = elementId;
+    this._uniqName = uniqName;
     this._item = document.createElement(ELEMENT_NAME);
     this.setClassName(this._item, ELEMENT_CLASS);
     this._init();
@@ -24,8 +23,8 @@ export class InputRangeQuantity extends ElementTemplate {
 
   private _init() {
     this.setType(ELEMENT_TYPE);
-    this.setIdName(this._elementId);
-    if (this._elementId === ELEMENT_ID_FROM) {
+    this.setIdName(this._uniqName);
+    if (this._uniqName === ELEMENT_ID_FROM) {
       this.setValueMinMax(START, START, END, STEP);
     } else {
       this.setValueMinMax(END, START, END, STEP);
@@ -44,11 +43,11 @@ export class InputRangeQuantity extends ElementTemplate {
     this._item.setAttribute('type', inputType);
   }
 
-  click(fn: Func) {
+  click(fn: FuncEvent) {
     this._item.addEventListener('input', fn);
   }
 
-  unClick(fn: Func) {
+  unClick(fn: FuncEvent) {
     this._item.removeEventListener('input', fn);
   }
 

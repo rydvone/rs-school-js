@@ -1,6 +1,6 @@
 import { ElementTemplate } from './element-template';
 import { DataOption } from '../../types/data-sort';
-import { filterData } from '../../services/app-state';
+import { AppState, filterData } from '../../services/app-state';
 
 type Func = (this: void, event: Event) => void;
 
@@ -34,7 +34,7 @@ export class Select extends ElementTemplate {
     this._setIdName(ELEMENT_NAME_ID);
     this._addList();
     this.click(this._clickCallback.bind(this));
-    this.sort(this.value);
+    this.sort();
   }
 
   getIdName() {
@@ -53,12 +53,18 @@ export class Select extends ElementTemplate {
     this._selectElement.value = `${val}`;
   }
 
-  sort(val: string) {
-    filterData.sort(val);
+  sort() {
+    if (AppState.selectSelected) {
+      filterData.callFilter();
+    } else {
+      AppState.selectSelected = this._selectElement.value;
+      this.sort();
+    }
   }
 
   private _clickCallback() {
-    this.sort(this._selectElement.value);
+    AppState.selectSelected = this._selectElement.value;
+    this.sort();
   }
 
   click(fn: Func) {

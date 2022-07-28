@@ -1,5 +1,3 @@
-// import { filterData } from '../services/app-state';
-
 export class FilterRangeHandler {
   private _inputFrom: HTMLInputElement;
   private _inputTo: HTMLInputElement;
@@ -12,28 +10,22 @@ export class FilterRangeHandler {
   public controlFromRange(
     sliderFrom: HTMLInputElement,
     sliderTo: HTMLInputElement,
-    fromInput: HTMLElement
+    valueFrom: HTMLElement
   ) {
     const [from, to] = this.getParsed(sliderFrom, sliderTo);
     this.fillSlider(sliderFrom, sliderTo, sliderTo);
     if (from > to) {
       sliderFrom.value = `${to}`;
-      fromInput.textContent = `${to}`;
+      valueFrom.textContent = `${to}`;
     } else {
-      fromInput.textContent = `${from}`;
+      valueFrom.textContent = `${from}`;
     }
-    // if (this._inputFrom === '#range-count-from') {
-    //   filterData.rangeQuantity(from, to);
-    // }
-    // if (inputFrom === '#range-weight-from') {
-    //   filterData.rangeWeight(from, to);
-    // }
   }
 
   public controlToRange(
     sliderFrom: HTMLInputElement,
     sliderTo: HTMLInputElement,
-    toInput: HTMLElement
+    valueTo: HTMLElement
   ) {
     const [from, to] = this.getParsed(sliderFrom, sliderTo);
     this.fillSlider(sliderFrom, sliderTo, sliderTo);
@@ -45,17 +37,11 @@ export class FilterRangeHandler {
     }
     if (from <= to) {
       sliderTo.value = `${to}`;
-      toInput.textContent = `${to}`;
+      valueTo.textContent = `${to}`;
     } else {
-      toInput.textContent = `${from}`;
+      valueTo.textContent = `${from}`;
       sliderTo.value = `${from}`;
     }
-    // if (inputFrom === '#range-count-from') {
-    //   filterData.rangeQuantity(from, to);
-    // }
-    // if (inputFrom === '#range-weight-from') {
-    //   filterData.rangeWeight(from, to);
-    // }
   }
 
   public getParsed(currentFrom: HTMLInputElement, currentTo: HTMLInputElement) {
@@ -65,7 +51,6 @@ export class FilterRangeHandler {
   }
 
   public fillSlider(from: HTMLInputElement, to: HTMLInputElement, sliderToStyle: HTMLInputElement) {
-    // '#c6c6c6', '#fff395'
     const SLIDERCOLOR = '#c7c7c7';
     const RANGECOLOR = '#fff395';
     const rangeDistance = Number(to.max) - Number(to.min);

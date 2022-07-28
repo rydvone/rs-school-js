@@ -1,25 +1,58 @@
-import { Input } from './input';
+// import { Input } from './input';
 import { AppState, filterData } from '../../services/app-state';
+import { ElementTemplate } from './element-template';
 
 type FuncK = (this: void, event: KeyboardEvent) => void;
 type Func = (this: void, event: Event) => void;
 
-const ELEMENT_CLASS = 'search';
-const ELEMENT_TYPE = 'search';
-const ELEMENT_ID = 'search';
+const ELEMENT_NAME = 'input';
+const ELEMENT_ALL = 'search';
+const ELEMENT_AUTOCOMPLETE = 'search';
+const ELEMENT_FORM = 'form';
+const ELEMENT_FORM_CLASS = 'filters__form';
 
-export class InputSearch extends Input {
+export class InputSearch extends ElementTemplate {
+  protected _inputElement: HTMLInputElement;
+  protected _form: HTMLElement;
   constructor() {
     super();
-    this.setType(ELEMENT_TYPE);
-    this.setIdName(ELEMENT_ID);
-    this._setSearchAttr();
-    this.setClassName(this._inputElement, ELEMENT_CLASS);
+    this._form = this.createHTMLElement(ELEMENT_FORM, ELEMENT_FORM_CLASS);
+    this._inputElement = this.createInput();
     this.keydown(this._keydownCallback.bind(this));
     this.keyup(this._keyupCallback.bind(this));
     this.change(this._clickCallback.bind(this));
-    this.search(this._inputElement.value);
+    // this.search(this._inputElement.value);
   }
+
+  createInput() {
+    this.clearNode(this._form);
+    const item = document.createElement(ELEMENT_NAME);
+    this._init(item);
+    this._form.append(item);
+    return item;
+  }
+
+  private _init(item: HTMLInputElement) {
+    item.id = ELEMENT_ALL;
+    item.setAttribute('type', ELEMENT_ALL);
+    item.placeholder = ELEMENT_ALL;
+    item.autocomplete = ELEMENT_AUTOCOMPLETE;
+    this.setClassName(item, ELEMENT_ALL);
+    item.value = AppState.searchSelected;
+  }
+
+  // private _setIdName(idName: string) {
+  //   this._inputElement.id = idName;
+  // }
+
+  // private _setType(inputType: string) {
+  //   this._inputElement.setAttribute('type', inputType);
+  // }
+
+  // private _setSearchAttr() {
+  //   this._inputElement.placeholder = ELEMENT_ALL;
+  //   this._inputElement.autocomplete = ELEMENT_AUTOCOMPLETE;
+  // }
 
   get value() {
     return this._inputElement.value;
@@ -27,11 +60,6 @@ export class InputSearch extends Input {
 
   set value(val: string) {
     this._inputElement.value = `${val}`;
-  }
-
-  private _setSearchAttr() {
-    this._inputElement.placeholder = 'search';
-    this._inputElement.autocomplete = 'off';
   }
 
   search(val: string) {
@@ -79,10 +107,14 @@ export class InputSearch extends Input {
   }
 
   unchange(fn: Func) {
-    this._inputElement.removeEventListener('change', fn);
+    this._inputElement.removeEventListener('search', fn);
   }
 
   get element() {
     return this._inputElement;
+  }
+
+  get elementForm() {
+    return this._form;
   }
 }
