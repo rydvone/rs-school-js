@@ -1,4 +1,3 @@
-// import { Input } from './input';
 import { AppState, filterData } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
 
@@ -21,7 +20,6 @@ export class InputSearch extends ElementTemplate {
     this.keydown(this._keydownCallback.bind(this));
     this.keyup(this._keyupCallback.bind(this));
     this.change(this._clickCallback.bind(this));
-    // this.search(this._inputElement.value);
   }
 
   createInput() {
@@ -51,7 +49,6 @@ export class InputSearch extends ElementTemplate {
 
   search(val: string) {
     AppState.searchSelected = val;
-    AppState.setSearchSelected();
     filterData.callFilter();
   }
 

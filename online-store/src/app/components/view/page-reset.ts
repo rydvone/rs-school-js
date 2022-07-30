@@ -2,15 +2,10 @@ import { ElementTemplate } from '../element/element-template';
 import { reset } from '../../constants/reset-button';
 import { Button } from '../element/button';
 import { AppState, filterData } from '../../services/app-state';
-// import { drawProducts } from './view';
-// import { cartCounter } from './page-cart';
-// import { filterData } from '../../services/app-state';
 import { buttonsByValue } from './page-by-value';
 import { inputBySearch, inputBySelect } from './page-filter-form';
 import { elementsByRange } from './page-filter';
 import { cartCounter } from './page-cart';
-// import { sliders } from './page-by-range';
-// import { inputBySearch } from './page-filter-form';
 
 const ELEMENT_CLASS = 'filters__description__block';
 const TITLE_CLASS = 'filters__title';

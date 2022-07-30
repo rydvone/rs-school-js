@@ -41,50 +41,6 @@ export class AppState {
     localStorage.setItem('button', JSON.stringify(this.buttonSelected));
   }
 
-  public static setProductSelected() {
-    localStorage.setItem('product', JSON.stringify(this.productSelected));
-  }
-  public static setSelectSelected() {
-    localStorage.setItem('select', JSON.stringify(this.selectSelected));
-  }
-  public static setSearchSelected() {
-    localStorage.setItem('search', JSON.stringify(this.searchSelected));
-  }
-  public static setRangeSelected() {
-    localStorage.setItem('range', JSON.stringify(this.rangeSelected));
-  }
-  public static setButtonSelected() {
-    localStorage.setItem('button', JSON.stringify(this.buttonSelected));
-  }
-
-  // public static resetDisplayProduct() {
-  //   this.displayProduct = <Data[]>JSON.parse(JSON.stringify(this.product));
-  // }
-
-  // public static clearProductSelected() {
-  //   this.productSelected.length = 0;
-  // }
-
-  // public static clearSelectSelected() {
-  //   this.selectSelected = '';
-  // }
-
-  // public static clearSearchSelected() {
-  //   this.searchSelected = '';
-  // }
-
-  // public static clearRangeSelected() {
-  //   Object.keys(this.rangeSelected).forEach((el) => (this.rangeSelected[el].length = 0));
-  // }
-
-  // public static clearButtonSelected() {
-  //   Object.keys(this.buttonSelected).forEach((key) => (this.buttonSelected[key].length = 0));
-  // }
-
-  // public static clearFilterSelected() {
-  //   this.productSelected.length = 0;
-  // }
-
   public static resetFilterSelected() {
     this.searchSelected = '';
     Object.keys(this.buttonSelected).forEach((key) => (this.buttonSelected[key].length = 0));

@@ -1,6 +1,5 @@
 import { ElementTemplate } from '../element/element-template';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
-// import { Button } from '../element/button';
 import { AppState, filterData } from '../../services/app-state';
 import { Buttons } from '../element/buttons';
 

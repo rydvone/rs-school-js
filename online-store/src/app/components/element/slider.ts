@@ -1,6 +1,4 @@
 import { ElementTemplate } from './element-template';
-// import { convertFilterRange } from '../../constants/filter-by-range-constant';
-// import { FuncEvent } from '../../types/func';
 import { KeyConvertFilterRange } from '../../types/input';
 import { FilterRangeHandler } from '../../services/range-handler';
 import { InputRange } from './input-range';
@@ -32,7 +30,6 @@ export class Slider extends ElementTemplate {
       AppState.rangeSelected[this._itemType] = rangeHandler
         .getParsed(item.elementFrom, item.elementTo)
         .slice();
-      AppState.setRangeSelected();
       filterData.callFilter();
     });
     item.clickTo(() => {
@@ -40,7 +37,6 @@ export class Slider extends ElementTemplate {
       AppState.rangeSelected[this._itemType] = rangeHandler
         .getParsed(item.elementFrom, item.elementTo)
         .slice();
-      AppState.setRangeSelected();
       filterData.callFilter();
     });
 

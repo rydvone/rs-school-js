@@ -80,7 +80,6 @@ export class ProductComponent extends ElementTemplate {
     } else {
       AppState.productSelected = AppState.productSelected.filter((el) => el !== this._data.ean);
     }
-    AppState.setProductSelected();
   }
 
   private _clickCallback() {

@@ -1,4 +1,3 @@
-// import { AppState } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
 
 type Func = (this: void, event: MouseEvent) => void;

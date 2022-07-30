@@ -35,7 +35,6 @@ export class Filter {
       filter.sort((a, b) => Number(b.fields.count) - Number(a.fields.count));
     }
 
-    // drawProducts.appendTo(filter);
     return filter;
   }
 

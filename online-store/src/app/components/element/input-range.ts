@@ -3,7 +3,6 @@ import { convertFilterRange } from '../../constants/filter-by-range-constant';
 import { FuncEvent } from '../../types/func';
 import { KeyConvertFilterRange, KeyCount, KeyWeight } from '../../types/input';
 import { AppState } from '../../services/app-state';
-// import { RangeSelected } from '../../types/selected';
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_TYPE = 'range';
@@ -32,9 +31,6 @@ export class InputRange extends ElementTemplate {
   }
 
   init() {
-    // if (localStorage.range) {
-    //   AppState.rangeSelected = <RangeSelected>JSON.parse(localStorage.getItem('range') || '');
-    // }
     let [from, to] = AppState.rangeSelected[this._itemType];
     if (!AppState.rangeSelected[this._itemType].length) {
       [from, to] = [convertFilterRange[this._itemType].min, convertFilterRange[this._itemType].max];
