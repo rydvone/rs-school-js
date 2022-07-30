@@ -1,3 +1,4 @@
+import { AppState } from '../../services/app-state';
 import { ElementTemplate } from './element-template';
 import { Popup } from './popup';
 
@@ -12,8 +13,15 @@ export class Cart extends ElementTemplate {
     super();
     this._cartElement = this.createDiv(ELEMENT_NAME_CLASS);
     this._value = 0;
-    this.value = this._value;
+    this.update();
     this.popup = new Popup();
+  }
+
+  update() {
+    AppState.checkLocalStorage();
+    this.value = AppState.productSelected.length;
+    this._value = AppState.productSelected.length;
+    this.checkFull();
   }
 
   get getPopup() {

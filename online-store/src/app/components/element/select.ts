@@ -34,7 +34,6 @@ export class Select extends ElementTemplate {
     this._setIdName(ELEMENT_NAME_ID);
     this._addList();
     this.click(this._clickCallback.bind(this));
-    this.sort();
   }
 
   getIdName() {
@@ -55,10 +54,12 @@ export class Select extends ElementTemplate {
 
   sort() {
     if (AppState.selectSelected) {
+      this._selectElement.value = AppState.selectSelected;
       filterData.callFilter();
     } else {
+      this._selectElement.value = 'name-up';
       AppState.selectSelected = this._selectElement.value;
-      this.sort();
+      filterData.callFilter();
     }
   }
 
@@ -90,6 +91,7 @@ export class Select extends ElementTemplate {
   }
 
   appendTo() {
+    this.sort();
     const form = this.createHTMLElement(ELEMENT_FORM, ELEMENT_FORM_CLASS);
     form.append(this._selectElement);
     return form;

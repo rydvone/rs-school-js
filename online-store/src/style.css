@@ -479,6 +479,12 @@ body {
     padding: 2vw;
   }
 
+  .product__image {
+    width: 14vw;
+    min-height: 10vw;
+    height: 14vw;
+  }
+
 }
 
 @media (max-width: 419.98px) {
@@ -497,6 +503,13 @@ body {
 
   .product {
     width: 82vw;
+    padding: 5vw;
+  }
+
+  .product__image {
+    width: 28vw;
+    min-height: 20vw;
+    height: 28vw;
   }
 
 }

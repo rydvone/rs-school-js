@@ -3,6 +3,7 @@ import { InputSearch } from '../element/input-search';
 import { Select } from '../element/select';
 
 export const inputBySearch = new InputSearch();
+export const inputBySelect = new Select();
 
 const ELEMENT_NAME_CLASS = 'filters__description__block';
 const ELEMENT_TITLE_CLASS = 'filters__title';
@@ -29,13 +30,9 @@ export class PageFilterForm extends ElementTemplate {
       filter.element.focus();
     }
     if (this._filterName === 'Sort by') {
-      const filter = new Select();
+      const filter = inputBySelect;
       this._filterValue.append(filter.appendTo());
     }
-  }
-
-  getInnerBlock() {
-    return this._filterValue.innerHTML;
   }
 
   get element() {

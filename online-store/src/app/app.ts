@@ -1,12 +1,11 @@
-import { Storage } from './services/storage';
+// import { Storage } from './services/storage';
 import { View } from './components/view/view';
+import { AppState } from './services/app-state';
 
 export default class App {
-  private _storage: Storage;
   private _view: View;
 
   constructor() {
-    this._storage = new Storage();
     this._view = new View();
   }
 
@@ -17,5 +16,6 @@ export default class App {
 
   private _init() {
     document.getElementById('search')?.focus();
+    window.addEventListener('beforeunload', () => AppState.setLocalStorage());
   }
 }

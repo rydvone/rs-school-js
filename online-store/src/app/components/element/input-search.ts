@@ -41,19 +41,6 @@ export class InputSearch extends ElementTemplate {
     item.value = AppState.searchSelected;
   }
 
-  // private _setIdName(idName: string) {
-  //   this._inputElement.id = idName;
-  // }
-
-  // private _setType(inputType: string) {
-  //   this._inputElement.setAttribute('type', inputType);
-  // }
-
-  // private _setSearchAttr() {
-  //   this._inputElement.placeholder = ELEMENT_ALL;
-  //   this._inputElement.autocomplete = ELEMENT_AUTOCOMPLETE;
-  // }
-
   get value() {
     return this._inputElement.value;
   }
@@ -64,6 +51,7 @@ export class InputSearch extends ElementTemplate {
 
   search(val: string) {
     AppState.searchSelected = val;
+    AppState.setSearchSelected();
     filterData.callFilter();
   }
 

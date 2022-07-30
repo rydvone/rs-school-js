@@ -1,14 +1,9 @@
 import { ElementTemplate } from '../element/element-template';
-// import { PageBrand } from './page-brand';
 import { PageByValue } from './page-by-value';
 import { PageFilterForm } from './page-filter-form';
-// import { PageRangeQuantity } from './page-range-quantity';
-// import { PageRangeWeight } from './page-by-range-weight';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { PageReset } from './page-reset';
-// import { PageRangeQuantity } from './page-by-range-quantity';
 import { PageByRange } from './page-by-range';
-// import { ETitleRangeBlock } from '../../types/input';
 
 export const elementsByRange = new PageByRange();
 

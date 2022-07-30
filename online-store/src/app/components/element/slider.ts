@@ -23,8 +23,8 @@ export class Slider extends ElementTemplate {
   drawSlider() {
     this.clearNode(this._slider);
     const item = this.createInputRange(this._itemType);
-    const rangeFromValue = this.createRangeValue(item.elementFrom.min, RANGE_VALUE_CLASS);
-    const rangeToValue = this.createRangeValue(item.elementFrom.max, RANGE_VALUE_CLASS);
+    const rangeFromValue = this.createRangeValue(item.elementFrom.value, RANGE_VALUE_CLASS);
+    const rangeToValue = this.createRangeValue(item.elementTo.value, RANGE_VALUE_CLASS);
     const rangeHandler = new FilterRangeHandler(item.elementFrom, item.elementTo);
 
     item.clickFrom(() => {
@@ -32,7 +32,7 @@ export class Slider extends ElementTemplate {
       AppState.rangeSelected[this._itemType] = rangeHandler
         .getParsed(item.elementFrom, item.elementTo)
         .slice();
-
+      AppState.setRangeSelected();
       filterData.callFilter();
     });
     item.clickTo(() => {
@@ -40,6 +40,7 @@ export class Slider extends ElementTemplate {
       AppState.rangeSelected[this._itemType] = rangeHandler
         .getParsed(item.elementFrom, item.elementTo)
         .slice();
+      AppState.setRangeSelected();
       filterData.callFilter();
     });
 

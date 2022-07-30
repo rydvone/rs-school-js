@@ -2,12 +2,13 @@ import { ElementTemplate } from '../element/element-template';
 import { reset } from '../../constants/reset-button';
 import { Button } from '../element/button';
 import { AppState, filterData } from '../../services/app-state';
-import { drawProducts } from './view';
-import { cartCounter } from './page-cart';
+// import { drawProducts } from './view';
+// import { cartCounter } from './page-cart';
 // import { filterData } from '../../services/app-state';
 import { buttonsByValue } from './page-by-value';
-import { inputBySearch } from './page-filter-form';
+import { inputBySearch, inputBySelect } from './page-filter-form';
 import { elementsByRange } from './page-filter';
+import { cartCounter } from './page-cart';
 // import { sliders } from './page-by-range';
 // import { inputBySearch } from './page-filter-form';
 
@@ -43,10 +44,7 @@ export class PageReset extends ElementTemplate {
       const button = new Button(el);
       button.click(() => {
         if (button.element.textContent === 'Filters reset') {
-          AppState.resetDisplayProduct();
-          AppState.clearButtonSelected();
-          AppState.clearSearchSelected();
-          AppState.clearRangeSelected();
+          AppState.resetFilterSelected();
           buttonsByValue.element.forEach((el) => {
             el.element;
             el.removeClassSelected();
@@ -55,10 +53,16 @@ export class PageReset extends ElementTemplate {
           elementsByRange.appendTo();
           filterData.callFilter();
         } else {
-          AppState.resetDisplayProduct();
-          AppState.clearProductSelected();
+          AppState.clearLocalStorage();
+          buttonsByValue.element.forEach((el) => {
+            el.element;
+            el.removeClassSelected();
+          });
+          elementsByRange.appendTo();
+          inputBySearch.createInput();
+          inputBySelect.sort();
           cartCounter.clearCount();
-          drawProducts.appendTo(AppState.displayProduct);
+          filterData.callFilter();
         }
       });
       li.append(button.element);
