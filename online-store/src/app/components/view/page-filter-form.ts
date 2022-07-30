@@ -1,3 +1,4 @@
+import { ETitles } from '../../types/titles';
 import { ElementTemplate } from '../element/element-template';
 import { InputSearch } from '../element/input-search';
 import { Select } from '../element/select';
@@ -24,12 +25,12 @@ export class PageFilterForm extends ElementTemplate {
     const titleToVisual = this._filterName[0].toUpperCase() + this._filterName.slice(1);
     title.textContent = `${titleToVisual}:`;
     this._filterValue.append(title);
-    if (this._filterName === 'Search') {
+    if (this._filterName === ETitles.titleBySearch) {
       const filter = inputBySearch;
       this._filterValue.append(filter.elementForm);
       filter.element.focus();
     }
-    if (this._filterName === 'Sort by') {
+    if (this._filterName === ETitles.titleBySort) {
       const filter = inputBySelect;
       this._filterValue.append(filter.appendTo());
     }

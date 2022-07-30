@@ -4,6 +4,7 @@ import { PageFilterForm } from './page-filter-form';
 import { convertFilterValue } from '../../constants/filter-by-value-constant';
 import { PageReset } from './page-reset';
 import { PageByRange } from './page-by-range';
+import { ETitles } from '../../types/titles';
 
 export const elementsByRange = new PageByRange();
 
@@ -27,13 +28,13 @@ export class PageFilter extends ElementTemplate {
     h3.textContent = `${this._filterName}`;
     fragment.append(h3);
     const div = this.createDiv(ELEMENT_NAME_CLASS_ADDITIONAL);
-    if (this._filterName === 'Filters by value') {
+    if (this._filterName === ETitles.titleByValue) {
       this._appendToValue(div);
     }
-    if (this._filterName === 'Filters by range') {
+    if (this._filterName === ETitles.titleByRange) {
       this._appendToRange(div);
     }
-    if (this._filterName === 'Search and Sorting') {
+    if (this._filterName === ETitles.titleBySearchSort) {
       this._appendToSearch(div);
     }
     fragment.append(div);
