@@ -1,0 +1,28 @@
+@import './css/normalize.css';
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-background-light);
+  font-family: sans-serif;
+}
+
+/* ------------------------------header------------------------------ */
+
+/* ------------------------------main------------------------------ */
+
+/* ------------------------------footer------------------------------ */
