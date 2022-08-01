@@ -23,17 +23,20 @@ export class Item extends ElementTemplate {
 
   renderItem() {
     const car = this.createCar();
+    car.element.addEventListener('click', (e: Event) => console.log(e));
     const flag = this.createFlag();
 
     return `
-    ${car.getOuter(car.elementSVG)}
-    ${flag.getOuter(car.elementSVG)}
     <div class="item">
-      <div class="item__control"></div>
-      <div class="item__track">
-        <div class="item__car">${car.getOuter(car.getItem('red'))}</div>
-        <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
-      </div>
+      <div class="item__edit"></div>
+      <div class="item__wrapper">
+        <div class="item__title"></div>
+        <div class="item__control"></div>
+        <div class="item__track">
+          <div class="item__car">${car.getOuter(car.getItem('red'))}</div>
+          <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
+        </div>    
+      </div>      
     </div>
     `;
   }
