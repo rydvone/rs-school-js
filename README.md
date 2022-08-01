@@ -10,6 +10,8 @@ Private repository for @rydvone
 
 [online-store ](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/online-store) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/31)
 
+[async-race](https://rolling-scopes-school.github.io/rydvone-JSFE2022Q1/async-race) ---> [pull request](https://github.com/rolling-scopes-school/rydvone-JSFE2022Q1/pull/32)
+
 ****
 ### contact info
  **email:**      rydvone@gmail.com  
