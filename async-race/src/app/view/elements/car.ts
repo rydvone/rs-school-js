@@ -1,5 +1,5 @@
-import { ElementTemplate } from "./element-template";
-import { ARR_COLORS } from "../../const/colors";
+import { ElementTemplate } from './element-template';
+import { ARR_COLORS } from '../../const/colors';
 
 const ELEMENT = 'svg';
 const ELEMENT_CLASS = 'svg-element';
@@ -34,8 +34,8 @@ export class CarElement extends ElementTemplate {
   }
 
   private _init() {
-    this._itemSVG.innerHTML = ELEMENT_INNER;
     this._itemSVG.innerHTML = ELEMENT_INNER_SECOND;
+    this._itemSVG.innerHTML = ELEMENT_INNER;
     this._item.innerHTML = ITEM_INNER;
   }
 
@@ -50,7 +50,7 @@ export class CarElement extends ElementTemplate {
     return this.getItem(random);
   }
 
-  get element() {
+  get elementSVG() {
     return this._itemSVG;
   }
 }

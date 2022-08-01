@@ -36,6 +36,10 @@ export class ElementTemplate {
     return el.innerHTML;
   }
 
+  getOuter(el: HTMLElement) {
+    return el.outerHTML;
+  }
+
   clearInner(el: HTMLElement) {
     el.innerHTML = '';
   }

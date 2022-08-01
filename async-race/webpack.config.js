@@ -39,7 +39,13 @@ const config = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
       },
-      
+      {
+        test: /\.svg$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/cars/[name][ext]',
+        },
+      },
     ],
   },
   plugins: [
@@ -50,18 +56,17 @@ const config = {
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
     new CopyPlugin({
-        patterns: [
-            {
-                from: './src/assets/',
-                to: 'assets',
-                noErrorOnMissing: true,
-            },
-        ],
+      patterns: [
+        {
+          from: './src/assets/',
+          to: 'assets',
+          noErrorOnMissing: true,
+        },
+      ],
     }),
-
   ],
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 };
 
