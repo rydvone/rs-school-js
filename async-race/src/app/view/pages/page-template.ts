@@ -1,4 +1,4 @@
-import { Item } from './item';
+import { Item } from '../garage/item';
 import { SVGElement } from '../elements/svg-template';
 import { Switch } from './switch';
 import { ElementTemplate } from '../elements/element-template';

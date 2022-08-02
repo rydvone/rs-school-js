@@ -1,5 +1,5 @@
 import { ElementTemplate } from './element-template';
-import { ARR_COLORS } from '../../const/colors';
+// import { ARR_COLORS } from '../../const/colors';
 
 const ELEMENT = 'svg';
 const ITEM_CLASS = 'icons_cars';
@@ -19,14 +19,13 @@ export class CarElement extends ElementTemplate {
   }
 
   getItem(color: string) {
-    this._item.setAttribute(ITEM_ATTRIBUTE, color);
+    this._item.setAttribute(ITEM_ATTRIBUTE, `#${color}`);
     return this._item;
   }
 
   getItemRandom() {
-    const colors = ARR_COLORS;
-    const random = colors[Math.floor(Math.random() * colors.length)];
-    return this.getItem(random);
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return this.getItem(randomColor);
   }
 
   get element() {

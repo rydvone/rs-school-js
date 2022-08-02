@@ -33,7 +33,7 @@ export class Item extends ElementTemplate {
         <div class="item__title"></div>
         <div class="item__control"></div>
         <div class="item__track">
-          <div class="item__car" id="item__car-1">${car.getOuter(car.getItem('red'))}</div>
+          <div class="item__car" id="item__car-1">${car.getOuter(car.getItemRandom())}</div>
           <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
         </div>    
       </div>      
