@@ -15,7 +15,7 @@ export class SwitchButton extends Button {
 
   checkSelected() {
     if (TEMP === this._content) {
-      // this.element.disabled = true;
+      this.element.disabled = true;
       console.log('truesss');
     } else {
       this.addClass();
@@ -23,8 +23,6 @@ export class SwitchButton extends Button {
   }
 
   // clickHandler() {
-  //   console.log('11');
-
   //   if (this.containsClass()) {
   //     console.log('change state to cCONTENT and rewrite page');
   //     this.element.disabled = true;

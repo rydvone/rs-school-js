@@ -1,5 +1,5 @@
 import { ElementTemplate } from './element-template';
-// import { TFuncMouse } from '../../types/func';
+import { TFuncMouse } from '../../types/func';
 
 const ELEMENT_NAME = 'button';
 const ELEMENT_CLASS = 'button';
@@ -17,13 +17,13 @@ export class Button extends ElementTemplate {
     this._button.textContent = title;
   }
 
-  // click(fn: TFuncMouse) {
-  //   this._button.addEventListener('click', fn);
-  // }
+  click(fn: TFuncMouse) {
+    this._button.addEventListener('click', fn);
+  }
 
-  // unclick(fn: TFuncMouse) {
-  //   this._button.removeEventListener('click', fn);
-  // }
+  unclick(fn: TFuncMouse) {
+    this._button.removeEventListener('click', fn);
+  }
 
   containsClass() {
     return this._button.classList.contains(ELEMENT_CLASS_ADD);

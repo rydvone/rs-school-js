@@ -20,16 +20,13 @@ export class Switch extends ElementTemplate {
   }
 
   appendTo() {
-    console.log('append');
-
     const element = this.createSwitch();
     element.forEach((el) => {
       console.log('el.forEach', el);
-      // el.click(() => {
-      //   console.log(`change state to ${el.element.innerHTML}`);
-      //   this.createSwitch();
-      // });
-      el.element.addEventListener('click', (e: Event) => console.log(e));
+      el.click(() => {
+        console.log(`change state to ${el.element.innerHTML}`);
+        this.createSwitch();
+      });
       this._item.append(el.element);
     });
   }

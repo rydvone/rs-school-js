@@ -66,10 +66,11 @@ v129.825c26.312,19.609,58.249,30.328,90.841,30.328c1.781,0,3.562-0.031,5.344-0.0
 </symbol>`;
 
 export class SVGElement extends ElementTemplate {
-  private _itemSVG: HTMLElement;
+  private _itemSVG: Element;
   constructor() {
     super();
-    this._itemSVG = this.createNode(ELEMENT, ELEMENT_CLASS);
+    this._itemSVG = document.createElementNS('http://www.w3.org/2000/svg', ELEMENT);
+    this._itemSVG.classList.add(ELEMENT_CLASS);
     this._init();
   }
 
