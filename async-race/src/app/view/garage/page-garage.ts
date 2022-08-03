@@ -1,6 +1,10 @@
 import { Item } from '../garage/item';
 import { ElementTemplate } from '../elements/element-template';
 import { Edit } from './edit';
+import { ButtonsEditEdit } from '../elements/buttons-edit-edit';
+
+export const editComponent = new Edit();
+export const buttonEditEdit = new ButtonsEditEdit();
 
 const ELEMENT_CLASS = 'garage';
 const ELEMENT_CLASS_VISUAL = 'none';
@@ -21,12 +25,10 @@ export class PageGarage extends ElementTemplate {
   }
 
   buildPage() {
-    const edit = new Edit();
-    edit.appendTo();
+    editComponent.appendTo();
     const items = new Item();
 
-    console.log('appendBUILD');
-    this._item.append(edit.element);
+    this._item.append(editComponent.element);
     this._item.append(items.addRender());
     return this._item;
   }

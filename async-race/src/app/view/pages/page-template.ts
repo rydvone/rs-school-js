@@ -45,7 +45,6 @@ export class PageTemplate extends ElementTemplate {
   }
 
   appendToTemplate(el: HTMLElement) {
-    console.log('appendTemp');
     this._main.append(switchComponents.element);
     el.prepend(this._header);
     el.append(this._main);

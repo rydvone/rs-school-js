@@ -1,5 +1,4 @@
 import { Button } from './button';
-// import { TFuncMouse } from '../../types/func';
 
 const TEMP = 'to Winner';
 
@@ -15,10 +14,9 @@ export class SwitchButton extends Button {
 
   checkSelected() {
     if (TEMP === this._content) {
-      this.element.disabled = true;
-      console.log('truesss');
-    } else {
       this.addClass();
+    } else {
+      this.element.disabled = true;
     }
   }
 

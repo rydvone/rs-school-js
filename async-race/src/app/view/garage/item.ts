@@ -42,7 +42,6 @@ export class Item extends ElementTemplate {
     this._item.innerHTML = this.renderItem();
     return this._item;
   }
-  // const windowInnerWidth = window.innerWidth
 
   get element() {
     return this._item;

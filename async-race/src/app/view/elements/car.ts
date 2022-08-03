@@ -1,3 +1,4 @@
+import { randomizer } from '../../services/services';
 import { ElementTemplate } from './element-template';
 // import { ARR_COLORS } from '../../const/colors';
 
@@ -24,7 +25,8 @@ export class CarElement extends ElementTemplate {
   }
 
   getItemRandom() {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const randomColor = randomizer.randomColor();
+    // const randomTitleCar = randomizer.randomTitleCar();
     return this.getItem(randomColor);
   }
 

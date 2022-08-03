@@ -70,22 +70,6 @@ export class ItemControl extends ElementTemplate {
 
   }
 
-  // renderItem() {
-  //   return `
-  //   <div class="item">
-  //     <div class="item__edit"></div>
-  //       <div class="item__title"></div>
-  //     <div class="item__wrapper">
-  //       <div class="item__control"></div>
-  //       <div class="item__track">
-  //         <div class="item__car"></div>
-  //         <div class="item__finish-flag">${ELEMENT_CLASS}</div>
-  //       </div>
-  //     </div>
-  //   </div>
-  //   `;
-  // }
-
   get element() {
     return this._item;
   }
