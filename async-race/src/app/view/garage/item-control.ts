@@ -50,7 +50,7 @@ export class ItemControl extends ElementTemplate {
     const button = this.createButtons(EDIT_NAME);
     button.forEach((el) => {
       el.click(() => {
-        console.log(`change state to ${el.element.innerHTML}`);
+        // console.log(`change state to ${el.element.innerHTML}`);
         if (el.element.innerHTML === BUTTON_START) {
           console.log('to Start function');
         } else {
