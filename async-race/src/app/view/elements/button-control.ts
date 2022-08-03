@@ -1,9 +1,8 @@
 import { Button } from './button';
-// import { TFuncMouse } from '../../types/func';
 
 const TEMP = 'A';
 
-export class ButtonItemControl extends Button {
+export class ButtonControl extends Button {
   private _content: string;
   constructor(content: string) {
     super();

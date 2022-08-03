@@ -22,8 +22,6 @@ export class Item extends ElementTemplate {
 
   renderItem() {
     const car = this.createCar();
-    // check click listener
-    // this._item.addEventListener('click', (e: Event) => console.log(e));
 
     const flag = this.createFlag();
 

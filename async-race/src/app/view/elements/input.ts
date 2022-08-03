@@ -3,7 +3,7 @@ import { TFuncEvent } from '../../types/func';
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_CLASS = 'input';
-const ELEMENT_TYPE = 'text';
+// const ELEMENT_TYPE = 'text';
 const ELEMENT_AUTOCOMPLETE = 'off';
 
 export class Input extends ElementTemplate {
@@ -12,13 +12,13 @@ export class Input extends ElementTemplate {
     super();
     this._item = document.createElement(ELEMENT_NAME);
     this._item.className = ELEMENT_CLASS;
-    this._item.type = ELEMENT_TYPE;
   }
-
-  setAttribute(nameId: string , nameName: string, namePlaceholder: string) {
-    this._item.id = nameId;
-    this._item.name = nameName;
-    this._item.placeholder = namePlaceholder;
+  
+  setAttribute(itemId: string , itemType: string, itemPlaceholder: string) {
+    this._item.type = itemType;
+    this._item.id = itemId;
+    this._item.name = itemId;
+    this._item.placeholder = itemPlaceholder;
     this._item.autocomplete = ELEMENT_AUTOCOMPLETE;
   }
 

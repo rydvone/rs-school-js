@@ -108,11 +108,40 @@ body {
   /* align-items: flex-start; */
 }
 
+/* -----------------------------garage------------------------------ */
+.garage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10vw;
+  /* align-items: flex-start; */
+}
+
+.garage.none {
+  display: none;
+}
+
 /* -----------------------------switch------------------------------ */
 .switch {
   display: flex;
   gap: 1vh;
   padding: 1em;
+}
+
+/* ------------------------------edit------------------------------ */
+.edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding: 1em;
+}
+
+.edit__edit,
+.edit__control {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  gap: 1vh;
 }
 
 /* ------------------------------cars------------------------------ */

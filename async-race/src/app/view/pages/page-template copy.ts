@@ -1,9 +1,7 @@
-// import { Item } from '../garage/item';
+import { Item } from '../garage/item';
 import { SVGElement } from '../elements/svg-template';
 import { Switch } from './switch';
 import { ElementTemplate } from '../elements/element-template';
-
-const switchComponents = new Switch();
 
 const HEADER_INNER = `
     <h1 class="header__title"><a href="." class="link link_header">Async Race</a></h1>
@@ -25,18 +23,19 @@ const FOOTER_ELEMENT = 'footer';
 const MAIN_ELEMENT = 'main';
 
 export class PageTemplate extends ElementTemplate {
+  private _body: HTMLElement;
   private _header: HTMLElement;
   private _footer: HTMLElement;
   private _main: HTMLElement;
   constructor() {
     super();
+    this._body = document.body;
     this._header = this.createNode(HEADER_ELEMENT, HEADER_ELEMENT);
     this._footer = this.createNode(FOOTER_ELEMENT, FOOTER_ELEMENT);
     this._main = this.createNode(MAIN_ELEMENT, MAIN_ELEMENT);
     this._addInnerHTML();
-    switchComponents.appendTo();
-    // this.appendToTemplate(this._body);
-    // this.buildPage();
+    this.appendToTemplate(this._body);
+    this.buildPage();
   }
 
   private _addInnerHTML() {
@@ -45,8 +44,8 @@ export class PageTemplate extends ElementTemplate {
   }
 
   appendToTemplate(el: HTMLElement) {
-    console.log('appendTemp');
-    this._main.append(switchComponents.element);
+    // console.log('appendTemp');
+
     el.prepend(this._header);
     el.append(this._main);
     el.append(new SVGElement().elementSVG);
@@ -54,31 +53,31 @@ export class PageTemplate extends ElementTemplate {
     return el;
   }
 
-  // buildPage() {
-  //   // const body = document.body;
-  //   const switcher = new Switch();
-  //   // const svg = new SVGElement();
-  //   const items = new Item();
-  //   // items.addRender();
+  buildPage() {
+    // const body = document.body;
+    const switcher = new Switch();
+    // const svg = new SVGElement();
+    const items = new Item();
+    // items.addRender();
 
-  //   // items.element.addEventListener('click', (e: Event) => console.log(e));
-  //   // const itemInner = items.renderItem();
-  //   // ${itemInner}
-  //   // this._body.innerHTML = `
-  //   // ${svg.getOuter(svg.elementSVG)}
-  //   // ${items.renderItem()}
-  //   // `;
-  //   console.log('appendBUILD');
-  //   this._main.append(switcher.element);
-  //   this._main.append(items.addRender());
+    // items.element.addEventListener('click', (e: Event) => console.log(e));
+    // const itemInner = items.renderItem();
+    // ${itemInner}
+    // this._body.innerHTML = `
+    // ${svg.getOuter(svg.elementSVG)}
+    // ${items.renderItem()}
+    // `;
+    console.log('appendBUILD');
+    this._main.append(switcher.element);
+    this._main.append(items.addRender());
 
-  //   const carss = document.getElementById('item__car-1');
-  //   if (!carss) {
-  //     console.log('element dont found');
-  //   } else {
-  //     carss.addEventListener('click', (e: Event) => console.log(e));
-  //   }
-  // }
+    const carss = document.getElementById('item__car-1');
+    if (!carss) {
+      console.log('element dont found');
+    } else {
+      carss.addEventListener('click', (e: Event) => console.log(e));
+    }
+  }
 
   get elementMain() {
     return this._main;

@@ -1,13 +1,13 @@
-import { ButtonItemControl } from './button-item-control';
+import { ButtonControl } from './button-control';
 
 export class ButtonsItemControl {
-  private _buttons: ButtonItemControl[];
+  private _buttons: ButtonControl[];
   constructor() {
     this._buttons = [];
   }
 
   createButton(content: string) {
-    const item = new ButtonItemControl(content);
+    const item = new ButtonControl(content);
     this._buttons.push(item);
     return item;
   }

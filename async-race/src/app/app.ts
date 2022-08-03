@@ -1,10 +1,10 @@
-import { PageTemplate } from './view/pages/page-template';
+import { View } from './view/view';
 
 export default class App {
-  private _view: PageTemplate;
+  private _view: View;
 
   constructor() {
-    this._view = new PageTemplate();
+    this._view = new View();
   }
 
   start() {
