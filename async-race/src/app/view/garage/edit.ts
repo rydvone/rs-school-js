@@ -2,12 +2,15 @@ import { ButtonEditControlConst } from '../../const/edit-const';
 import { ButtonsEditControl } from '../elements/buttons-edit-control';
 import { EditEdit } from '../elements/edit-edit';
 import { ElementTemplate } from '../elements/element-template';
+import { Input } from '../elements/input';
 
 const ELEMENT_CLASS = 'edit';
 const CONTROL_CLASS = 'edit__control';
 const ARR_EDIT_CONTROL = ['create', 'update'];
 
 const editButtonsControl = new ButtonsEditControl();
+export const inputEditCreate: { [key: string]: Input } = {};
+export const inputEditUpdate: { [key: string]: Input } = {};
 
 export class Edit extends ElementTemplate {
   private _item: HTMLElement;
@@ -18,7 +21,11 @@ export class Edit extends ElementTemplate {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
     this._editCreate = this.createEditCreate();
+    inputEditCreate.text = this._editCreate.inputText;
+    inputEditCreate.color = this._editCreate.inputColor;
     this._editUpdate = this.createEditUpdate();
+    inputEditUpdate.text = this._editCreate.inputText;
+    inputEditUpdate.color = this._editCreate.inputColor;
     this._editControl = this.createEditControl();
   }
 
