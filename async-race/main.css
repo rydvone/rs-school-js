@@ -404,6 +404,19 @@ body {
   color: #ffffff;
 }
 
+.button {
+  cursor: pointer;
+}
+
+.button.selected:hover {
+  cursor: pointer;
+  background-color: #c6d3c1;
+}
+
+.button.selected {
+  background-color: var(--color-selected);
+}
+
 /* ------------------------------header------------------------------ */
 .header {
   display: flex;
@@ -411,6 +424,7 @@ body {
   gap: 4vw;
   font: var(--font-container);
   color: var(--color-font-main);
+  font: italic small-caps bold 1rem cursive;
   background-color: var(--color-background-dark);
   padding: 1vh 6vh;
   border-top: 1em solid var(--color-background-light);
@@ -421,7 +435,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: brightness(0%) contrast(200%) saturate(0%) invert(100%);
 }
 
 .icons_header {
@@ -435,6 +448,51 @@ body {
 }
 
 /* ------------------------------main------------------------------ */
+.main {
+  /* min-height: 50vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1vw;
+  margin: 0 0 auto;
+  padding: 1vh;
+  /* align-items: flex-start; */
+}
+
+/* -----------------------------garage------------------------------ */
+.garage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1vw;
+  /* align-items: flex-start; */
+}
+
+.garage.none {
+  display: none;
+}
+
+/* -----------------------------switch------------------------------ */
+.switch {
+  display: flex;
+  gap: 1vh;
+  padding: 1em;
+}
+
+/* ------------------------------edit------------------------------ */
+.edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding: 1em;
+}
+
+.edit__edit,
+.edit__control {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1vh;
+}
 
 /* ------------------------------cars------------------------------ */
 .svg-element {
@@ -443,20 +501,59 @@ body {
   visibility: hidden;
 }
 
-.icons_cars {
-  width: 10vh;
+.icons_cars,
+.icons_flag {
+  width: 8vh;
   height: 8vh;
   display: block;
   padding: 0.5em;
-  /* width: 50px; 
-  height: 50px;
-  margin: .5em; */
+}
+
+.icons_flag {
+  width: 5vh;
+  height: 5vh;
 }
 
 /* ------------------------------item------------------------------ */
-.item {
+.items {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4vh;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  padding: 0 1vh;
+  border-bottom: 0.2em dashed var(--color-grey-dark);
+}
+
+.item__edit {
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+}
+
+.item__title {
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+
+.item__control {
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+
+.item__wrapper {
+  width: 100%;
+  display: flex;
   align-items: center;
 }
 
@@ -467,12 +564,31 @@ body {
   align-items: center;
 }
 
+/* -----------------------------winners------------------------------ */
+.winners {
+  padding: 0 0 0 3vw;
+}
+
+.winners.none {
+  display: none;
+}
+
+.tr-head {
+  display: flex;
+  gap: 2vw;
+  background-color: var( --color-yellow-light);
+}
+
+.th,
+.td {
+  padding: 0.2vw 1.5vw;
+}
+
 /* ------------------------------footer------------------------------ */
 .footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* font: italic small-caps bold 1rem cursive; */
   color: #ffffdd;
   background-color: var(--color-background-dark);
   padding: 0.1vh 6vh;
@@ -483,7 +599,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
