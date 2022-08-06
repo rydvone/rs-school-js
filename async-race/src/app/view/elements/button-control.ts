@@ -1,6 +1,6 @@
 import { Button } from './button';
 
-const TEMP = 'A';
+// const TEMP = 'A';
 
 export class ButtonControl extends Button {
   private _content: string;
@@ -8,14 +8,14 @@ export class ButtonControl extends Button {
     super();
     this._content = content;
     this.element.textContent = this._content;
-    this.checkSelected();
+    // this.checkSelected();
   }
 
-  checkSelected() {
-    if (TEMP === this._content) {
-      // this.element.disabled = true;
-    } else {
-      this.addClass();
-    }
-  }
+  // checkSelected() {
+  //   if (TEMP === this._content) {
+  //     // this.element.disabled = true;
+  //   } else {
+  //     this.addClassSelected();
+  //   }
+  // }
 }

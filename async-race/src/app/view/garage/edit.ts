@@ -8,7 +8,7 @@ const ELEMENT_CLASS = 'edit';
 const CONTROL_CLASS = 'edit__control';
 const ARR_EDIT_CONTROL = ['create', 'update'];
 
-const editButtonsControl = new ButtonsEditControl();
+export const buttonEditControl = new ButtonsEditControl();
 export const inputEditCreate: { [key: string]: Input } = {};
 export const inputEditUpdate: { [key: string]: Input } = {};
 
@@ -44,7 +44,7 @@ export class Edit extends ElementTemplate {
   createEditControl() {
     const fragment = document.createDocumentFragment();
     Object.keys(ButtonEditControlConst).forEach((key) => {
-      const item = editButtonsControl.createButton(key);
+      const item = buttonEditControl.createButton(key);
       fragment.append(item.element);
     });
     const control = this.createDiv(CONTROL_CLASS);

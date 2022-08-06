@@ -34,9 +34,6 @@ export class PageTemplate extends ElementTemplate {
     this._footer = this.createNode(FOOTER_ELEMENT, FOOTER_ELEMENT);
     this._main = this.createNode(MAIN_ELEMENT, MAIN_ELEMENT);
     this._addInnerHTML();
-    switchComponents.appendTo();
-    // this.appendToTemplate(this._body);
-    // this.buildPage();
   }
 
   private _addInnerHTML() {
@@ -52,32 +49,6 @@ export class PageTemplate extends ElementTemplate {
     el.append(this._footer);
     return el;
   }
-
-  // buildPage() {
-  //   // const body = document.body;
-  //   const switcher = new Switch();
-  //   // const svg = new SVGElement();
-  //   const items = new Item();
-  //   // items.addRender();
-
-  //   // items.element.addEventListener('click', (e: Event) => console.log(e));
-  //   // const itemInner = items.renderItem();
-  //   // ${itemInner}
-  //   // this._body.innerHTML = `
-  //   // ${svg.getOuter(svg.elementSVG)}
-  //   // ${items.renderItem()}
-  //   // `;
-  //   console.log('appendBUILD');
-  //   this._main.append(switcher.element);
-  //   this._main.append(items.addRender());
-
-  //   const carss = document.getElementById('item__car-1');
-  //   if (!carss) {
-  //     console.log('element dont found');
-  //   } else {
-  //     carss.addEventListener('click', (e: Event) => console.log(e));
-  //   }
-  // }
 
   get elementMain() {
     return this._main;

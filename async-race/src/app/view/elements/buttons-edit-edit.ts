@@ -11,12 +11,10 @@ export class ButtonsEditEdit {
   addButton() {
     let item = editComponent.editCreate.button;
     let content = item.element.innerHTML;
-    console.log(content);
     this._buttons[content] = item;
     item = editComponent.editUpdate.button;
     content = item.element.innerHTML;
     this._buttons[content] = item;
-    console.log(this._buttons);
     return item;
   }
 

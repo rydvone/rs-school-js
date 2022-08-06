@@ -3,7 +3,7 @@ export interface IStorage {
   cars: number[];
   carsCount: number;
   winnersPage: number;
-  winners: number[];
+  winners: IWinners[];
   winnersCount: number;
   animation: {};
   view: EView;
@@ -22,9 +22,13 @@ export enum ESortBy {
 }
 
 export interface IItemCar {
-  title: string,
-  color: string,
-  winnerCount: number,
-  timeBest: number,
-  id: number,
+  title: string;
+  color: string;
+  winnerCount: number;
+  timeBest: number;
+  id: number;
+}
+
+interface IWinners {
+  [k: string]: number;
 }

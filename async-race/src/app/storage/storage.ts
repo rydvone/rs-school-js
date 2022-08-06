@@ -1,4 +1,4 @@
-import { ESortBy, EView, IItemCar, IStorage } from "../types/storage-types";
+import { ESortBy, EView, IItemCar, IStorage } from '../types/storage-types';
 
 export const ItemCar: IItemCar = {
   title: 'car cool',
@@ -6,7 +6,7 @@ export const ItemCar: IItemCar = {
   winnerCount: 0,
   timeBest: 0,
   id: 9999,
-}
+};
 
 export const ItemsCar: IItemCar[] = [];
 
@@ -21,4 +21,4 @@ export const Storage: IStorage = {
   view: EView.garage,
   sortBy: ESortBy.time,
   sortOrder: null,
-}
+};

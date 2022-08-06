@@ -1,5 +1,5 @@
 import { ElementTemplate } from './element-template';
-import { TFuncEvent } from '../../types/func';
+import { TFuncEvent } from '../../types/func-types';
 
 const ELEMENT_NAME = 'input';
 const ELEMENT_CLASS = 'input';

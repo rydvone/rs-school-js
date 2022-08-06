@@ -1,5 +1,6 @@
 import { ElementTemplate } from './element-template';
-import { TFuncMouse } from '../../types/func';
+import { TFuncMouse } from '../../types/func-types';
+import { IButtonsStore } from '../../types/buttons-store-types';
 
 const ELEMENT_NAME = 'button';
 const ELEMENT_CLASS = 'button';
@@ -29,7 +30,7 @@ export class Button extends ElementTemplate {
     return this._button.classList.contains(ELEMENT_CLASS_ADD);
   }
 
-  addClass() {
+  addClassSelected() {
     this._button.classList.add(ELEMENT_CLASS_ADD);
   }
 
@@ -39,6 +40,19 @@ export class Button extends ElementTemplate {
 
   toggleClass() {
     this._button.classList.toggle(ELEMENT_CLASS_ADD);
+  }
+
+  stateSelected(key: string) {
+    console.log('steteButton', key);
+  }
+
+  selected(key: string, store: IButtonsStore) {
+    Object.keys(store).forEach((el) => {
+      store[el].removeClassSelected();
+      if (key === el) {
+        store[el].addClassSelected();
+      }
+    });
   }
 
   get element() {

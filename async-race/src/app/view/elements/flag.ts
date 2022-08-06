@@ -1,7 +1,7 @@
 import { ElementTemplate } from './element-template';
 
 const ELEMENT = 'svg';
-const ITEM_CLASS = 'icons_cars';
+const ITEM_CLASS = 'icons_flag';
 const ITEM_ATTRIBUTE = 'fill';
 const ITEM_COLOR = 'darkred';
 const ITEM_INNER = `<use xlink:href="#finish-1"></use>`;

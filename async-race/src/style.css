@@ -101,10 +101,13 @@ body {
 
 /* ------------------------------main------------------------------ */
 .main {
+  /* min-height: 50vh; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 10vw;
+  gap: 1vw;
+  margin: 0 0 auto;
+  padding: 1vh;
   /* align-items: flex-start; */
 }
 
@@ -113,7 +116,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 10vw;
+  gap: 1vw;
   /* align-items: flex-start; */
 }
 
@@ -140,7 +143,6 @@ body {
 .edit__control {
   display: flex;
   justify-content: flex-start;
-  /* align-items: center; */
   gap: 1vh;
 }
 
@@ -151,32 +153,59 @@ body {
   visibility: hidden;
 }
 
-.icons_cars {
-  width: 10vh;
+.icons_cars,
+.icons_flag {
+  width: 8vh;
   height: 8vh;
   display: block;
   padding: 0.5em;
+}
+
+.icons_flag {
+  width: 5vh;
+  height: 5vh;
 }
 
 /* ------------------------------item------------------------------ */
 .items {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4vh;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  padding: 0 1vh;
+  border-bottom: 0.2em dashed var(--color-grey-dark);
+}
+
+.item__edit {
+  display: flex;
+  flex-direction: row;
+  gap: 1vh;
+}
+
+.item__title {
+  display: flex;
   align-items: center;
   gap: 1vh;
 }
 
-.item {
+.item__control {
   display: flex;
-  flex-direction: column;
-  /* justify-content: flex-start; */
   align-items: center;
-  border-bottom: 0.2em dashed var(--color-grey-dark);
+  gap: 1vh;
 }
 
 .item__wrapper {
+  width: 100%;
   display: flex;
-  /* justify-content: flex-start; */
   align-items: center;
 }
 
@@ -185,6 +214,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* -----------------------------winners------------------------------ */
+.winners {
+  padding: 0 0 0 3vw;
+}
+
+.winners.none {
+  display: none;
+}
+
+.tr-head {
+  display: flex;
+  gap: 2vw;
+  background-color: var( --color-yellow-light);
+}
+
+.th,
+.td {
+  padding: 0.2vw 1.5vw;
 }
 
 /* ------------------------------footer------------------------------ */
