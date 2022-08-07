@@ -1,4 +1,5 @@
-import { IStorageItem, StorageItem } from '../../storage/storage-item';
+import { StorageItem } from '../../storage/storage';
+import { IStorageItem } from '../../types/storage-types';
 import { CarElement } from '../elements/car';
 import { ElementTemplate } from '../elements/element-template';
 import { FlagElement } from '../elements/flag';
@@ -11,17 +12,17 @@ const WRAPPER_CLASS = 'item__wrapper';
 
 export class Item extends ElementTemplate {
   private _item: HTMLElement;
-  private _itemEdit: ItemEdit;
+  // private _itemEdit: ItemEdit;
   private _data: IStorageItem;
   constructor() {
     super();
     this._data = { ...StorageItem };
     this._item = this.createDiv(ELEMENT_CLASS);
-    this._itemEdit = this.createEdit();
+    // this._itemEdit = this.createEdit();
   }
 
-  createEdit(title = 'opel') {
-    const item = new ItemEdit(title);
+  createEdit(data: IStorageItem) {
+    const item = new ItemEdit(data);
     return item;
   }
 
@@ -54,15 +55,15 @@ export class Item extends ElementTemplate {
     `;
   }
 
-  drawItem(content: string, color: string, id: number) {
-    this._data.name = content;
-    this._data.color = color;
-    this._data.id = id;
+  drawItem(data: IStorageItem) {
+    this._data.name = data.name;
+    this._data.color = data.color;
+    this._data.id = data.id;
 
-    this._item.append(this.createEdit(content).element);
+    this._item.append(this.createEdit(data).element);
     const wrapper = this.createDiv(WRAPPER_CLASS);
     wrapper.append(this.createControl().element);
-    wrapper.insertAdjacentHTML('beforeend', `${this.renderTrack(color, id)}`);
+    wrapper.insertAdjacentHTML('beforeend', `${this.renderTrack(this._data.color, this._data.id)}`);
     this._item.append(wrapper);
     return this._item;
   }

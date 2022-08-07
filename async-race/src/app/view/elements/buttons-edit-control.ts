@@ -1,14 +1,15 @@
-import { ButtonEditControlConst } from '../../const/edit-const';
-import { ButtonControl } from './button-control';
+import { ButtonEditConst } from '../../const/edit-const';
+import { Button } from './button';
 
 export class ButtonsEditControl {
-  private _buttons: { [key: string]: ButtonControl };
+  private _buttons: { [key: string]: Button };
   constructor() {
     this._buttons = {};
   }
 
   createButton(content: string) {
-    const item = new ButtonControl(ButtonEditControlConst[content]);
+    const item = new Button();
+    item.addContent(ButtonEditConst[content]);
     this._buttons[content] = item;
     return item;
   }

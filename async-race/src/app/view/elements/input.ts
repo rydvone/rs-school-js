@@ -12,8 +12,8 @@ const ELEMENT_PLACEHOLDER = 'write title';
 const ELEMENT_AUTOCOMPLETE = 'off';
 const ELEMENT_REQUIRED = true;
 const ELEMENT_MIN = 2;
-const ELEMENT_MAX = 14;
-const ELEMENT_SIZE = 16;
+const ELEMENT_MAX = 20;
+const ELEMENT_SIZE = 21;
 
 export class Input extends ElementTemplate {
   private _item: HTMLInputElement;

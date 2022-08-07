@@ -1,8 +1,15 @@
-import { Button } from '../elements/button';
+import { api } from '../../services/services';
+import { StorageItemUpdate } from '../../storage/storage';
+import { IButtonsNoStateStore } from '../../types/buttons-store-types';
+import { IStorageItem } from '../../types/storage-types';
 import { ButtonNoState } from '../elements/button-no-state';
+// import { ButtonsItemControl } from '../elements/buttons-item-control';
 import { ElementTemplate } from '../elements/element-template';
+// import { inputEditUpdate } from './edit';
+import { editComponent } from './page-garage';
 
-export const itemEditButtons: { [key: string]: Button } = {};
+// export const icButtons = new ButtonsItemControl();
+export const itemEditButtons: IButtonsNoStateStore = {};
 
 const ELEMENT_CLASS = 'item__edit';
 const TITLE_CLASS = 'item__title';
@@ -11,12 +18,12 @@ const EDIT_NAME = ['select', 'remove'];
 export class ItemEdit extends ElementTemplate {
   private _item: HTMLElement;
   private _itemTitle: HTMLElement;
-  private _title: string;
-  constructor(title: string) {
+  private _data: IStorageItem;
+  constructor(data: IStorageItem) {
     super();
-    this._title = title;
+    this._data = data;
     this._item = this.createDiv(ELEMENT_CLASS);
-    this._itemTitle = this.createTitle(title);
+    this._itemTitle = this.createTitle(data.name);
     this.createButtons(EDIT_NAME);
     this.appendTo();
     this.handlerEdit();
@@ -43,14 +50,24 @@ export class ItemEdit extends ElementTemplate {
   }
 
   handlerSelect() {
-    console.log('slect');
+    console.log(StorageItemUpdate);
+    StorageItemUpdate.name = this._data.name;
+    StorageItemUpdate.color = this._data.color;
+    StorageItemUpdate.id = this._data.id;
+    editComponent.createEditUpdate(this._data.name, this._data.color, this._data.id);
+    console.log(StorageItemUpdate);
+  }
+
+  handlerRemove() {
+    const crCar = async () => await api.deleteCar(this._data.id);
+    crCar().catch((err) => console.log(err));
+    const gCars = async () => await api.getCars(1);
+    gCars().catch((err) => console.log(err));
   }
 
   handlerEdit() {
     itemEditButtons[EDIT_NAME[0]].click(this.handlerSelect.bind(this));
-    itemEditButtons[EDIT_NAME[1]].click(() => {
-      console.log('remove');
-    });
+    itemEditButtons[EDIT_NAME[1]].click(this.handlerRemove.bind(this));
   }
 
   get element() {

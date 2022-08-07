@@ -12,9 +12,11 @@ export class EditEdit extends ElementTemplate {
   private _inputText: Input;
   private _inputColor: Input;
   private _key: string;
+  private _id: number;
   constructor(key: string) {
     super();
     this._key = key;
+    this._id = -1;
     this._item = this.createDiv(ELEMENT_CLASS);
     this._button = new Button();
     this._button.addContent(this._key);
@@ -50,5 +52,9 @@ export class EditEdit extends ElementTemplate {
 
   get inputColor() {
     return this._inputColor;
+  }
+
+  get elementId() {
+    return this._id;
   }
 }

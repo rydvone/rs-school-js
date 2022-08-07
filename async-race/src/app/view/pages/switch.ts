@@ -12,6 +12,7 @@ export class Switch extends ElementTemplate {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
     this._item.append(this.createSwitch());
+    // this.appendTo();
   }
 
   createSwitch() {

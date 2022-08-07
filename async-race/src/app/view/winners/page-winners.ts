@@ -49,16 +49,6 @@ export class PageWinners extends ElementTemplate {
     const page = this.createNode(H3, H3);
     page.innerHTML = `<strong>Page #${count}`;
     return page;
-    // const flag = this.createFlag();
-    // return `
-    //   <div class="item__wrapper">
-    //     <div class="item__control"></div>
-    //     <div class="item__track">
-    //       <div class="item__car" id="item__car-${id}">${car.getOuter(car.getItem(color))}</div>
-    //       <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
-    //     </div>
-    //   </div>
-    // `;
   }
 
   renderTable() {

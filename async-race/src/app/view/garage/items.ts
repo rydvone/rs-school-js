@@ -1,4 +1,6 @@
-import { IStorageItem, StorageItems } from '../../storage/storage-item';
+import { Storage } from '../../storage/storage';
+import { IStorageItem } from '../../types/storage-types';
+// import { CarElement } from '../elements/car';
 import { ElementTemplate } from '../elements/element-template';
 import { Item } from './item';
 
@@ -10,7 +12,7 @@ export class Items extends ElementTemplate {
   constructor() {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
-    this.drawItems(StorageItems);
+    this.drawItems(Storage.cars);
   }
 
   drawItems(data: IStorageItem[]) {
@@ -21,7 +23,8 @@ export class Items extends ElementTemplate {
       const fragment: DocumentFragment = document.createDocumentFragment();
       data.forEach((el) => {
         const item = new Item();
-        item.drawItem(el.name, el.color, el.id);
+        // item.drawItem(el.name, el.color, el.id);
+        item.drawItem(el);
         fragment.append(item.element);
       });
       this._item.append(fragment);

@@ -34,6 +34,9 @@ export class PageTemplate extends ElementTemplate {
     this._footer = this.createNode(FOOTER_ELEMENT, FOOTER_ELEMENT);
     this._main = this.createNode(MAIN_ELEMENT, MAIN_ELEMENT);
     this._addInnerHTML();
+    // switchComponents.appendTo();
+    // this.appendToTemplate(this._body);
+    // this.buildPage();
   }
 
   private _addInnerHTML() {

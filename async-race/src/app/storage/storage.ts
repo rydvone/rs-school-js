@@ -1,6 +1,21 @@
-import { ESortBy, EView, IItemCar, IStorage } from '../types/storage-types';
+import { ESortBy, EView, IItemWiner, IStorage } from '../types/storage-types';
+import { IStorageItem } from '../types/storage-types';
 
-export const ItemCar: IItemCar = {
+export const StorageItems: IStorageItem[] = [];
+
+export const StorageItem: IStorageItem = {
+  name: '',
+  color: '#c0c0c0',
+  id: 9999,
+};
+
+export const StorageItemUpdate: IStorageItem = {
+  name: '',
+  color: '#c0c0c0',
+  id: -1,
+};
+
+export const ItemCar: IItemWiner = {
   title: 'car cool',
   color: '#c0c0c0',
   winnerCount: 0,
@@ -8,7 +23,7 @@ export const ItemCar: IItemCar = {
   id: 9999,
 };
 
-export const ItemsCar: IItemCar[] = [];
+export const ItemsCar: IItemWiner[] = [];
 
 export const Storage: IStorage = {
   carsPage: 1,
@@ -17,7 +32,7 @@ export const Storage: IStorage = {
   winnersPage: 1,
   winners: [],
   winnersCount: 0,
-  animation: {},
+  animation: [],
   view: EView.garage,
   sortBy: ESortBy.time,
   sortOrder: null,

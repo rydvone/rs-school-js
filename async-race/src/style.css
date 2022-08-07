@@ -101,14 +101,18 @@ body {
 
 /* ------------------------------main------------------------------ */
 .main {
-  /* min-height: 50vh; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1vw;
   margin: 0 0 auto;
   padding: 1vh;
-  /* align-items: flex-start; */
+}
+
+.h2,
+.h3 {
+  margin: 0;
+  padding: .5vh 0;
 }
 
 /* -----------------------------garage------------------------------ */
@@ -144,6 +148,11 @@ body {
   display: flex;
   justify-content: flex-start;
   gap: 1vh;
+}
+
+.edit__edit.inactive {
+  pointer-events: none;
+  opacity: 0.7; 
 }
 
 /* ------------------------------cars------------------------------ */
@@ -218,7 +227,7 @@ body {
 
 /* -----------------------------winners------------------------------ */
 .winners {
-  padding: 0 0 0 3vw;
+  padding: 0 5vw;
 }
 
 .winners.none {
@@ -229,11 +238,6 @@ body {
   display: flex;
   gap: 2vw;
   background-color: var( --color-yellow-light);
-}
-
-.th,
-.td {
-  padding: 0.2vw 1.5vw;
 }
 
 /* ------------------------------footer------------------------------ */
