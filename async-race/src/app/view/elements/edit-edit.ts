@@ -3,6 +3,7 @@ import { Button } from './button';
 import { Input } from './input';
 
 const ELEMENT_CLASS = 'edit__edit';
+const BUTTON_CLASS = 'button_edit';
 const COLOR = '#e66465';
 const TYPE = ['text', 'color'];
 
@@ -20,6 +21,7 @@ export class EditEdit extends ElementTemplate {
     this._item = this.createDiv(ELEMENT_CLASS);
     this._button = new Button();
     this._button.addContent(this._key);
+    this._button.addClassName(this.button.element, BUTTON_CLASS);
     this._inputText = this.createInput(TYPE[0]);
     this._inputColor = this.createInput(TYPE[1]);
   }

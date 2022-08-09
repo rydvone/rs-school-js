@@ -4,7 +4,7 @@ import { PageWinners } from '../winners/page-winners';
 import { buttonSwitch } from './switch';
 
 const garageComponent = new PageGarage();
-const winnersComponent = new PageWinners();
+export const winnersComponent = new PageWinners();
 
 const SECTION = 'section';
 const PAGE_GARAGE = 'garage';

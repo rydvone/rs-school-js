@@ -1,4 +1,11 @@
-import { ESortBy, EView, IItemWiner, IStorage } from '../types/storage-types';
+import {
+  ESortBy,
+  ESortOrder,
+  EView,
+  IGetWinners,
+  IItemWinner,
+  IStorage,
+} from '../types/storage-types';
 import { IStorageItem } from '../types/storage-types';
 
 export const StorageItems: IStorageItem[] = [];
@@ -15,7 +22,7 @@ export const StorageItemUpdate: IStorageItem = {
   id: -1,
 };
 
-export const ItemCar: IItemWiner = {
+export const ItemCar: IItemWinner = {
   title: 'car cool',
   color: '#c0c0c0',
   winnerCount: 0,
@@ -23,9 +30,9 @@ export const ItemCar: IItemWiner = {
   id: 9999,
 };
 
-export const ItemsCar: IItemWiner[] = [];
+export const ItemsCar: IItemWinner[] = [];
 
-export const Storage: IStorage = {
+export const storage: IStorage = {
   carsPage: 1,
   cars: [],
   carsCount: 0,
@@ -34,6 +41,31 @@ export const Storage: IStorage = {
   winnersCount: 0,
   animation: [],
   view: EView.garage,
-  sortBy: ESortBy.time,
-  sortOrder: null,
+  sortBy: ESortBy.id,
+  sortOrder: ESortOrder.up,
 };
+
+export const pageGetWinners: IGetWinners = {
+  page: 1,
+  limit: 10,
+  sort: 'id',
+  order: 'ASC',
+};
+
+export const tableWinners: ItableWinners = {
+  number: 1,
+  color: '#c0c0c0',
+  title: 'Car Name',
+  wins: -1,
+  time: -1,
+  id: -1,
+};
+
+export interface ItableWinners {
+  number: number;
+  color: string;
+  title: string;
+  wins: number;
+  time: number;
+  id: number;
+}

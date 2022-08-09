@@ -1,6 +1,8 @@
 import { IButtonsStore } from '../types/buttons-store-types';
 import { buttonSwitch } from '../view/pages/switch';
 import { pageRenderComponent } from '../view/view';
+import { storage } from '../storage/storage';
+import { apiWinners } from './services';
 
 export class HandlerSwitch {
   constructor() {
@@ -28,9 +30,13 @@ export class HandlerSwitch {
 
     const itemAdd = buttonSwitch[itemKey[1]];
     itemAdd.click(() => {
-      console.log('click', itemKey[0]);
+      console.log('click', itemKey[1]);
       this.selected(itemKey[1], buttonSwitch);
       pageRenderComponent.visualPage(itemKey[1]);
+
+      const gWinners = async () =>
+        await apiWinners.getWinners(storage.winnersPage, storage.sortBy, storage.sortOrder);
+      gWinners().catch((err) => console.log(err));
     });
   }
 }

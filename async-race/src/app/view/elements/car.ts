@@ -26,7 +26,6 @@ export class CarElement extends ElementTemplate {
 
   getItemRandom() {
     const randomColor = randomizer.randomColor();
-    // const randomTitleCar = randomizer.randomTitleCar();
     return this.getItem(randomColor);
   }
 

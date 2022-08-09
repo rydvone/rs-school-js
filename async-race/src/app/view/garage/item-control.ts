@@ -31,12 +31,12 @@ export class ItemControl extends ElementTemplate {
     this._item.append(itemControlButtons[EDIT_NAME[1]].element);
   }
 
-  handlerSelect() {
+  handlerStart() {
     console.log('sstarttt');
   }
 
   handler() {
-    itemControlButtons[EDIT_NAME[0]].click(this.handlerSelect.bind(this));
+    itemControlButtons[EDIT_NAME[0]].click(this.handlerStart.bind(this));
     itemControlButtons[EDIT_NAME[1]].click(() => {
       console.log('stooop');
     });

@@ -1,4 +1,4 @@
-import { SwitchConst } from '../../const/switch-const';
+import { SwitchConst } from '../../const/button-const';
 import { Button } from '../elements/button';
 import { ElementTemplate } from '../elements/element-template';
 
@@ -12,7 +12,6 @@ export class Switch extends ElementTemplate {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
     this._item.append(this.createSwitch());
-    // this.appendTo();
   }
 
   createSwitch() {

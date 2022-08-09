@@ -7,8 +7,8 @@ export interface IStorage {
   winnersCount: number;
   animation: number[];
   view: EView;
-  sortBy: 'time';
-  sortOrder: null;
+  sortBy: ESortBy;
+  sortOrder: ESortOrder;
 }
 
 export interface IStorageItem {
@@ -31,16 +31,17 @@ export enum EView {
 }
 
 export enum ESortBy {
+  id = 'id',
+  count = 'wins',
   time = 'time',
-  count = 'count win',
 }
 
 export enum ESortOrder {
-  up = 'up',
-  down = 'down',
+  up = 'ASC',
+  down = 'DESC',
 }
 
-export interface IItemWiner {
+export interface IItemWinner {
   title: string;
   color: string;
   winnerCount: number;
@@ -48,6 +49,25 @@ export interface IItemWiner {
   id: number;
 }
 
-interface IWinners {
+export interface IWinners {
   [k: string]: number;
 }
+
+export interface IGetWinners {
+  page: number;
+  limit: number;
+  sort: string;
+  order: string;
+}
+
+export interface IStartDrive {
+  velocity: number;
+  distance: number;
+}
+
+// export interface IGetWinners {
+//   page: number;
+//   limit: number;
+//   sort: 'id' | ' wins' | 'time';
+//   order: 'ASC' | 'DESC';
+// }

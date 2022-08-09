@@ -1,7 +1,6 @@
 // import { IGetCars } from '../types/storage-types';
-import { api } from './services';
-
-// type TPromise = () => Promise<void>;
+import { storage } from '../storage/storage';
+import { apiGarage, apiWinners } from './services';
 
 export class HandlerApi {
   constructor() {
@@ -9,7 +8,10 @@ export class HandlerApi {
   }
 
   handler() {
-    const t = async () => await api.getCars(1);
-    t().catch((err) => console.log(err));
+    apiGarage.getCars(1).catch((err) => console.log(err));
+
+    apiWinners
+      .getWinners(storage.winnersPage, storage.sortBy, storage.sortOrder)
+      .catch((err) => console.log(err));
   }
 }

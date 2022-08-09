@@ -1,4 +1,4 @@
-import { ButtonEditConst } from '../../const/edit-const';
+import { ButtonEditConst } from '../../const/button-const';
 import { Button } from './button';
 
 export class ButtonsEditControl {

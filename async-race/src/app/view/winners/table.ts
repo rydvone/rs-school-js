@@ -8,51 +8,50 @@ const ELEMENT_CLASS = 'table';
 const TR = 'tr';
 const TH = 'th';
 const TR_HEAD_CLASS = 'tr-head';
+const TR_BODY = 'tbody';
 const TH_CONTROL = 'th_control';
-
 const BUTTON_FOR_SORT = ['Wins', 'Best Time'];
-
-// const TH_HEAD_CLASS = 'tr-head';
-// const CONTROL_CLASS = 'edit__control';
-// const ARR_EDIT_CONTROL = ['create', 'update'];
 
 export class Table extends ElementTemplate {
   private _item: HTMLElement;
   private _itemHeader: HTMLElement;
+  private _itemBody: HTMLElement;
   private _numbers: number;
-  // private _editCreate: EditEdit;
-  // private _editUpdate: EditEdit;
-  // private _editControl: HTMLElement;
+
   constructor() {
     super();
     this._numbers = 0;
     this._item = this.createNode(ELEMENT, ELEMENT_CLASS);
     this._itemHeader = this.createHeader();
     this._item.append(this._itemHeader);
-    // this._editCreate = this.createEditCreate();
-    // inputEditCreate.text = this._editCreate.inputText;
-    // inputEditCreate.color = this._editCreate.inputColor;
-    // this._editUpdate = this.createEditUpdate();
-    // inputEditUpdate.text = this._editCreate.inputText;
-    // inputEditUpdate.color = this._editCreate.inputColor;
-    // this._editControl = this.createEditControl();
+    this._itemBody = this.createNode(TR_BODY, TR_BODY);
+    this._item.append(this._itemBody);
   }
 
-  // renderTrack(color: string, id: number) {
-  //   const car = this.createCar();
-
-  //   const flag = this.createFlag();
-
-  //   return `
-  //     <div class="item__wrapper">
-  //       <div class="item__control"></div>
-  //       <div class="item__track">
-  //         <div class="item__car" id="item__car-${id}">${car.getOuter(car.getItem(color))}</div>
-  //         <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
-  //       </div>
-  //     </div>
-  //   `;
+  // renderTable(winners: { [key: string]: string }) {
+  //   console.log(winners);
+  //   const key = Object.keys(winners);
+  //   key.reduce((acc, cur) => acc + `<td>${winners[cur]}<td>`, '');
   // }
+
+  renderTable(winners: { [key: string]: string }[]) {
+    this._itemBody.innerHTML = '';
+    winners.forEach((el, ind) => {
+      this._itemBody.insertAdjacentHTML('beforeend', `${this.buildRow(el, ind + 1)}`);
+    });
+  }
+
+  buildRow(el: { [key: string]: string }, ind: number) {
+    return `
+      <tr>
+        <td>${ind}</td>
+        <td>${el.car}</td>
+        <td>${el.names}/<td>
+        <td>${el.wins}</td>
+        <td>${el.time}</td>
+      </tr>`;
+  }
+
   createHeader() {
     const tr = this.createNode(TR, TR_HEAD_CLASS);
     Object.keys(TableHeaderConst).forEach((key) => {
@@ -67,12 +66,6 @@ export class Table extends ElementTemplate {
       }
     });
     return tr;
-  }
-
-  appendTo() {
-    this._item.append(this._itemHeader);
-    // this._item.append(this._editUpdate.element);
-    // this._item.append(this._editControl);
   }
 
   get element() {

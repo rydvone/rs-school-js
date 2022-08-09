@@ -1,9 +1,12 @@
-// import { Item } from '../garage/item';
 import { SVGElement } from '../elements/svg-template';
 import { Switch } from './switch';
 import { ElementTemplate } from '../elements/element-template';
+import { Pagination } from './pagination';
+import { Popup } from './popup';
 
-const switchComponents = new Switch();
+const switchComponent = new Switch();
+export const paginationComponent = new Pagination();
+export const popup = new Popup();
 
 const HEADER_INNER = `
     <h1 class="header__title"><a href="." class="link link_header">Async Race</a></h1>
@@ -34,9 +37,6 @@ export class PageTemplate extends ElementTemplate {
     this._footer = this.createNode(FOOTER_ELEMENT, FOOTER_ELEMENT);
     this._main = this.createNode(MAIN_ELEMENT, MAIN_ELEMENT);
     this._addInnerHTML();
-    // switchComponents.appendTo();
-    // this.appendToTemplate(this._body);
-    // this.buildPage();
   }
 
   private _addInnerHTML() {
@@ -45,9 +45,10 @@ export class PageTemplate extends ElementTemplate {
   }
 
   appendToTemplate(el: HTMLElement) {
-    this._main.append(switchComponents.element);
+    this._main.append(switchComponent.element);
     el.prepend(this._header);
     el.append(this._main);
+    el.append(popup.element);
     el.append(new SVGElement().elementSVG);
     el.append(this._footer);
     return el;

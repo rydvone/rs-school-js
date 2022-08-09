@@ -1,5 +1,6 @@
 // import { Item } from '../garage/item';
 import { ElementTemplate } from '../elements/element-template';
+import { paginationComponent } from '../pages/page-template';
 import { Table } from './table';
 
 const ELEMENT_CLASS = 'winners';
@@ -17,11 +18,13 @@ export class PageWinners extends ElementTemplate {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
     this._fragment = document.createDocumentFragment();
-    this._itemTitle = this.renderTitle();
-    this._itemPage = this.renderPage();
-    this._itemTable = this.renderTable();
+    this._itemTitle = this.createNode(H2, H2);
+    this._itemPage = this.createNode(H3, H3);
+    this._itemTable = this.createTable();
 
     this.buildPage();
+    this.renderTitle();
+    this.renderPage();
   }
 
   checkPage(key: string) {
@@ -36,27 +39,27 @@ export class PageWinners extends ElementTemplate {
     this._item.append(this._itemTitle);
     this._item.append(this._itemPage);
     this._item.append(this._itemTable.element);
+    this._item.append(paginationComponent.elementWinners);
     return this._item;
   }
 
   renderTitle(count = 0) {
-    const title = this.createNode(H2, H2);
-    title.textContent = `Winners (${count})`;
-    return title;
+    this._itemTitle.textContent = `Garage (${count})`;
   }
 
   renderPage(count = 1) {
-    const page = this.createNode(H3, H3);
-    page.innerHTML = `<strong>Page #${count}`;
-    return page;
+    this._itemPage.innerHTML = `<strong>Page #${count}`;
   }
 
-  renderTable() {
-    const table = new Table();
-    return table;
+  createTable() {
+    return new Table();
   }
 
-  get elementn() {
+  get element() {
     return this._item;
+  }
+
+  get elementTable() {
+    return this._itemTable;
   }
 }

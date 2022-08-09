@@ -1,21 +1,14 @@
 import { buttonEditEdit } from '../view/garage/page-garage';
-// import { buttonEditEdit, editComponent, itemsComponent } from '../view/garage/page-garage';
 import { buttonEditControl, inputEditCreate, inputEditUpdate } from '../view/garage/edit';
-import { Storage, StorageItemUpdate } from '../storage/storage';
-import { api, randomizer } from './services';
-// import { api, filter, randomizer } from './services';
+import { storage, StorageItemUpdate } from '../storage/storage';
+import { apiGarage, randomizer } from './services';
 import { IObjString } from '../types/storage-types';
 
 export class HandlerEdit {
-  private _bodyCar: IObjString;
   constructor() {
     this.handlerEditCreate();
     this.handlerEditUpdate();
     this.handlerEditGenerator();
-    this._bodyCar = {
-      name: '',
-      color: '',
-    };
   }
 
   handlerEditCreate() {
@@ -28,10 +21,8 @@ export class HandlerEdit {
         name: inputText.value,
         color: inputColor.value,
       };
-      const crCar = async () => await api.createCar(obj);
-      crCar().catch((err) => console.log(err));
-      const gCars = async () => await api.getCars(Storage.carsPage);
-      gCars().catch((err) => console.log(err));
+      apiGarage.createCar(obj).catch((err) => console.log(err));
+      apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
     });
   }
 
@@ -44,10 +35,8 @@ export class HandlerEdit {
         color: inputEditUpdate.color.value,
       };
 
-      const crCar = async () => await api.updateCar(StorageItemUpdate.id, obj);
-      crCar().catch((err) => console.log(err));
-      const gCars = async () => await api.getCars(Storage.carsPage);
-      gCars().catch((err) => console.log(err));
+      apiGarage.updateCar(StorageItemUpdate.id, obj).catch((err) => console.log(err));
+      apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
       // const data = filter.updateItem(StorageItemUpdate);
       // itemsComponent.drawItems(data);
     });
@@ -57,32 +46,15 @@ export class HandlerEdit {
     const button = buttonEditControl.element.generator;
 
     button.click(() => {
-      console.log('generator random 100');
       const itemArr = randomizer.generatorRandom();
-      console.log(itemArr);
       itemArr.forEach((item) => {
         const obj: IObjString = {
           name: item[0],
           color: item[1],
         };
-        const crCar = async () => await api.createCar(obj);
-        crCar().catch((err) => console.log(err));
+        apiGarage.createCar(obj).catch((err) => console.log(err));
       });
-      const gCars = async () => await api.getCars(Storage.carsPage);
-      gCars().catch((err) => console.log(err));
+      apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
     });
-
-    // button.click(() => async (): Promise<void> => {
-    //   console.log('generator random 100');
-    //   try {
-    //     const itemArr = randomizer.generatorRandom();
-    //     console.log(itemArr);
-    //     const stateGarageS = await api.getCars(1);
-    //     console.log('state');
-    //     console.log(stateGarageS);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // });
   }
 }

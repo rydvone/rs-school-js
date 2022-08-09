@@ -1,4 +1,4 @@
-import { ButtonEditConst } from '../../const/edit-const';
+import { ButtonEditConst } from '../../const/button-const';
 import { ButtonsEditControl } from '../elements/buttons-edit-control';
 import { EditEdit } from '../elements/edit-edit';
 import { ElementTemplate } from '../elements/element-template';

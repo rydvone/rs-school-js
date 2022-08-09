@@ -1,14 +1,11 @@
-import { api } from '../../services/services';
+import { apiGarage } from '../../services/services';
 import { StorageItemUpdate } from '../../storage/storage';
 import { IButtonsNoStateStore } from '../../types/buttons-store-types';
 import { IStorageItem } from '../../types/storage-types';
 import { ButtonNoState } from '../elements/button-no-state';
-// import { ButtonsItemControl } from '../elements/buttons-item-control';
 import { ElementTemplate } from '../elements/element-template';
-// import { inputEditUpdate } from './edit';
 import { editComponent } from './page-garage';
 
-// export const icButtons = new ButtonsItemControl();
 export const itemEditButtons: IButtonsNoStateStore = {};
 
 const ELEMENT_CLASS = 'item__edit';
@@ -50,18 +47,16 @@ export class ItemEdit extends ElementTemplate {
   }
 
   handlerSelect() {
-    console.log(StorageItemUpdate);
     StorageItemUpdate.name = this._data.name;
     StorageItemUpdate.color = this._data.color;
     StorageItemUpdate.id = this._data.id;
     editComponent.createEditUpdate(this._data.name, this._data.color, this._data.id);
-    console.log(StorageItemUpdate);
   }
 
   handlerRemove() {
-    const crCar = async () => await api.deleteCar(this._data.id);
+    const crCar = async () => await apiGarage.deleteCar(this._data.id);
     crCar().catch((err) => console.log(err));
-    const gCars = async () => await api.getCars(1);
+    const gCars = async () => await apiGarage.getCars(1);
     gCars().catch((err) => console.log(err));
   }
 

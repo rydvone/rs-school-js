@@ -5,20 +5,17 @@ import { ElementTemplate } from '../elements/element-template';
 import { FlagElement } from '../elements/flag';
 import { ItemControl } from './item-control';
 import { ItemEdit } from './item-edit';
-// import { TFuncMouse } from '../../types/func';
 
 const ELEMENT_CLASS = 'item';
 const WRAPPER_CLASS = 'item__wrapper';
 
 export class Item extends ElementTemplate {
   private _item: HTMLElement;
-  // private _itemEdit: ItemEdit;
   private _data: IStorageItem;
   constructor() {
     super();
     this._data = { ...StorageItem };
     this._item = this.createDiv(ELEMENT_CLASS);
-    // this._itemEdit = this.createEdit();
   }
 
   createEdit(data: IStorageItem) {
