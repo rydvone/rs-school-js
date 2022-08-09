@@ -3,7 +3,7 @@ export interface IStorage {
   cars: IStorageItem[];
   carsCount: number;
   winnersPage: number;
-  winners: IWinners[];
+  winners: ITableWinners[];
   winnersCount: number;
   animation: number[];
   view: EView;
@@ -37,8 +37,8 @@ export enum ESortBy {
 }
 
 export enum ESortOrder {
-  up = 'ASC',
-  down = 'DESC',
+  up = 'asc',
+  down = 'desc',
 }
 
 export interface IItemWinner {
@@ -59,6 +59,16 @@ export interface IGetWinners {
   sort: string;
   order: string;
 }
+
+export interface ITableWinners {
+  color: string;
+  name: string;
+  wins: number;
+  time: number;
+  id: number;
+}
+
+export type KeyTableWinners = keyof ITableWinners;
 
 export interface IStartDrive {
   velocity: number;

@@ -52,6 +52,6 @@ export class ApiGarage {
   }
 
   async getCar(id: number) {
-    await (await fetch(`${path.garage}/${id}`)).json();
+    return (await (await fetch(`${path.garage}/${id}`)).json()) as IStorageItem;
   }
 }

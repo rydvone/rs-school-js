@@ -1,5 +1,5 @@
 // import { IGetCars } from '../types/storage-types';
-import { storage } from '../storage/storage';
+// import { storage } from '../storage/storage';
 import { apiGarage, apiWinners } from './services';
 
 export class HandlerApi {
@@ -9,9 +9,6 @@ export class HandlerApi {
 
   handler() {
     apiGarage.getCars(1).catch((err) => console.log(err));
-
-    apiWinners
-      .getWinners(storage.winnersPage, storage.sortBy, storage.sortOrder)
-      .catch((err) => console.log(err));
+    apiWinners.updateStateWinners().catch((err) => console.log(err));
   }
 }

@@ -44,7 +44,7 @@ export class PageWinners extends ElementTemplate {
   }
 
   renderTitle(count = 0) {
-    this._itemTitle.textContent = `Garage (${count})`;
+    this._itemTitle.textContent = `Winners (${count})`;
   }
 
   renderPage(count = 1) {

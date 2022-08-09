@@ -5,3 +5,8 @@ export const TableHeaderConst: { [key: string]: string } = {
   wins: 'Wins',
   time: 'Best Time',
 };
+
+export enum ESortOrderView {
+  asc = '&uarr;',
+  desc = '&darr;',
+}

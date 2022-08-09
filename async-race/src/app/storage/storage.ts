@@ -5,6 +5,7 @@ import {
   IGetWinners,
   IItemWinner,
   IStorage,
+  ITableWinners,
 } from '../types/storage-types';
 import { IStorageItem } from '../types/storage-types';
 
@@ -52,20 +53,11 @@ export const pageGetWinners: IGetWinners = {
   order: 'ASC',
 };
 
-export const tableWinners: ItableWinners = {
-  number: 1,
-  color: '#c0c0c0',
-  title: 'Car Name',
-  wins: -1,
-  time: -1,
-  id: -1,
-};
-
-export interface ItableWinners {
-  number: number;
-  color: string;
-  title: string;
-  wins: number;
-  time: number;
-  id: number;
-}
+export const tableWinners: ITableWinners[] = [];
+// {
+//   color: '#c0c0c0',
+//   name: 'Car Name',
+//   wins: -1,
+//   time: -1,
+//   id: -1,
+// };

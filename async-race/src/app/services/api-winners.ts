@@ -1,27 +1,43 @@
 import { storage } from '../storage/storage';
 import { path } from '../const/api-const';
-import { IStartDrive, IWinners } from '../types/storage-types';
-import { filter } from './services';
+import { IStartDrive, ITableWinners, IWinners } from '../types/storage-types';
+import { apiGarage, filter } from './services';
 import { winnersComponent } from '../view/pages/page-render';
 import { HTTPStatusCode } from '../types/http-status-codes';
 
 const WINNERS_LIMIT = 10;
 
 export class ApiWinners {
+  async updateStateWinners() {
+    const page = storage.winnersPage;
+    const sort = storage.sortBy;
+    const order = storage.sortOrder;
+
+    const { items, count } = await this.getWinners(page, sort, order);
+    storage.winners = items as unknown as ITableWinners[];
+    storage.winnersCount = Number(count);
+
+    winnersComponent.renderTitle(storage.winnersCount);
+    winnersComponent.renderPage(storage.winnersPage);
+    winnersComponent.elementTable.renderTable(storage.winners);
+    filter.selectedPaginationWinners();
+  }
+
   async getWinners(page: number, sort: string, order: string, limit = WINNERS_LIMIT) {
     const response = await fetch(
       `${path.winners}?_page=${page}&_limit=${limit}${this.getSort(sort, order)}`
     );
-    storage.winners = (await response.json()) as IWinners[];
-    storage.winnersCount = Number(response.headers.get('X-Total-Count'));
-    // const itemEl = await Promise.all(
-    //   items.map(async (winner) => ({ ...winner, car: await apiGarage.getCar(winner.id) }))
-    // );
+    const items = (await response.json()) as IWinners[];
 
-    winnersComponent.renderTitle(storage.winnersCount);
-    winnersComponent.renderPage(storage.winnersPage);
-    // winnersComponent.elementTable.renderTable(storage.winnersPage);
-    filter.selectedPaginationWinners();
+    return {
+      items: await Promise.all(
+        items.map(async (winner) => ({
+          ...winner,
+          ...(await apiGarage.getCar(winner.id)),
+        }))
+      ),
+      count: response.headers.get('X-Total-Count'),
+    };
   }
 
   async getWinner(id: number) {

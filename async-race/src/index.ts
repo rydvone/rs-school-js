@@ -6,7 +6,7 @@ const HELLO = `
 -------------------------------------------------
 `;
 const SCORE_LOG = `
-score = about 75
+score = about 90
 ---> 25 <--- Basic structure:
 (+5) There should be two views on the site: "Garage" and "Winners".
 (+5) "Garage" view should contain its name, page number, and the full amount of items in the database (how many car user has in his garage).
@@ -28,11 +28,12 @@ score = about 75
 (+0) There should be a button to start race. After user clicks this button all the cars on the current page start driving.
 (+0) There should be a button to reset race. After user clicks this button all the cars return to it's initial places.
 (+0) After some car finishes first user should see the message contains car's name that shows which one has won.
----> 0 <--- "Winners" view:
+---> 15 <--- "Winners" view:
+---> Добавление Winner не работает, но пагинация и сортировка работает, если самосу добавить или добавить через другое приложение. Быллы не обязательно выставлять. Просто факт, что работает. 
 (+0) After some car wins it should be displayed at the "Winners view" table.
-(+0) There should be pagination (10 winners per one page).
+(+5) There should be pagination (10 winners per one page).
 (+0) Table should include the next culumns: "№", "Image of the car", "Name of the car", "Wins number", "Best time in seconds" (names of the columns can differ). If the same car wins more than once the number of wins should be incremented while best time should be saved only if it's better than the stored one.
-(+0) User should be able to sort cars by wins number and by best time (ASC, DESC).`;
+(+10) User should be able to sort cars by wins number and by best time (ASC, DESC).DESC).`;
 window.onload = () => {
   console.log('Hello, friend.');
   console.log(HELLO);
