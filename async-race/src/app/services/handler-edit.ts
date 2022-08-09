@@ -1,7 +1,7 @@
 import { buttonEditEdit } from '../view/garage/page-garage';
 import { buttonEditControl, inputEditCreate, inputEditUpdate } from '../view/garage/edit';
 import { storage, StorageItemUpdate } from '../storage/storage';
-import { apiGarage, randomizer } from './services';
+import { apiGarage, apiWinners, randomizer } from './services';
 import { IObjString } from '../types/storage-types';
 
 export class HandlerEdit {
@@ -37,8 +37,7 @@ export class HandlerEdit {
 
       apiGarage.updateCar(StorageItemUpdate.id, obj).catch((err) => console.log(err));
       apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
-      // const data = filter.updateItem(StorageItemUpdate);
-      // itemsComponent.drawItems(data);
+      apiWinners.updateStateWinners().catch((err) => console.log(err));
     });
   }
 

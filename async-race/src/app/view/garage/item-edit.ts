@@ -1,4 +1,4 @@
-import { apiGarage } from '../../services/services';
+import { apiGarage, apiWinners } from '../../services/services';
 import { StorageItemUpdate } from '../../storage/storage';
 import { IButtonsNoStateStore } from '../../types/buttons-store-types';
 import { IStorageItem } from '../../types/storage-types';
@@ -54,10 +54,10 @@ export class ItemEdit extends ElementTemplate {
   }
 
   handlerRemove() {
-    const crCar = async () => await apiGarage.deleteCar(this._data.id);
-    crCar().catch((err) => console.log(err));
-    const gCars = async () => await apiGarage.getCars(1);
-    gCars().catch((err) => console.log(err));
+    apiGarage.deleteCar(this._data.id).catch((err) => console.log(err));
+    apiGarage.getCars(1).catch((err) => console.log(err));
+    apiWinners.deleteWinner(this._data.id).catch((err) => console.log(err));
+    apiWinners.updateStateWinners().catch((err) => console.log(err));
   }
 
   handlerEdit() {

@@ -4,7 +4,6 @@ const COUNT_RANDOM_CAR = 10;
 
 export class Randomizer {
   randomTitleCar() {
-    // const randomTitle = ARR_CAR_MODEL[Math.floor(Math.random() * ARR_CAR_MODEL.length)];
     const ind = Math.floor(Math.random() * CARS_LIST.length);
     const randomBrand = CARS_LIST[ind].brand;
     const randomModel =
