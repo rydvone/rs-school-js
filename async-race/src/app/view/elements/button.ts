@@ -43,7 +43,7 @@ export class Button extends ElementTemplate {
   }
 
   stateSelected(key: string) {
-    console.log('steteButton', key);
+    console.log('stateButton', key);
   }
 
   selected(key: string, store: IButtonsStore) {

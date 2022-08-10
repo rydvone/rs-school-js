@@ -1,6 +1,6 @@
 import { CARS_LIST } from '../const/cars-list';
 
-const COUNT_RANDOM_CAR = 10;
+const COUNT_RANDOM_CAR = 100;
 
 export class Randomizer {
   randomTitleCar() {

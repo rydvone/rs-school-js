@@ -71,7 +71,7 @@ body {
 
 .button.inactive {
   pointer-events: none;
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 /* ------------------------------header------------------------------ */
@@ -130,13 +130,13 @@ body {
 
 .button_pag.inactive {
   pointer-events: none;
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 .h2,
 .h3 {
   margin: 0;
-  padding: .5vh 0;
+  padding: 0.5vh 0;
 }
 
 /* -----------------------------garage------------------------------ */
@@ -169,7 +169,7 @@ body {
 
 .edit__edit.inactive {
   pointer-events: none;
-  opacity: 0.7; 
+  opacity: 0.7;
 }
 
 .button_edit {
@@ -213,7 +213,8 @@ body {
   border-bottom: 0.2em dashed var(--color-grey-dark);
 }
 
-.item__edit {
+.item__edit,
+.item__edit-buttons {
   display: flex;
   flex-direction: row;
   gap: 1vh;
@@ -221,13 +222,14 @@ body {
 
 .item__edit.inactive {
   pointer-events: none;
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 .item__title {
   display: flex;
   align-items: center;
   gap: 1vh;
+  font-weight: 700;
 }
 
 .item__control {
@@ -249,6 +251,12 @@ body {
   align-items: center;
 }
 
+.item__edit-buttons.inactive,
+.item__control.inactive {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 /* -----------------------------winners------------------------------ */
 .winners {
   padding: 0 5vw;
@@ -263,7 +271,7 @@ body {
 }
 
 .thead {
-  background-color: var( --color-yellow-light);
+  background-color: var(--color-yellow-light);
 }
 
 th,
@@ -305,7 +313,7 @@ td {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(46, 46, 45, 0.8)
+  background-color: rgba(46, 46, 45, 0.8);
 }
 
 .overlay-description {

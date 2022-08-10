@@ -20,7 +20,7 @@ export class Item extends ElementTemplate {
     super();
     this._data = { ...data };
     this._item = this.createDiv(ELEMENT_CLASS);
-    this._itemControl = new ItemControl();
+    this._itemControl = new ItemControl(this._data);
     this._itemEdit = new ItemEdit(this._data);
     this.handler();
   }
@@ -31,7 +31,7 @@ export class Item extends ElementTemplate {
   }
 
   createControl() {
-    const item = new ItemControl();
+    const item = new ItemControl(this._data);
     return item;
   }
 
@@ -69,23 +69,13 @@ export class Item extends ElementTemplate {
   }
 
   handlerStart() {
-    console.log('sstarttt');
-    this._itemEdit.element.classList.add(INACTIVE);
-    // this._itemControl.elementButton[EDIT_CONTROL[0]].element.classList.add(INACTIVE);
-    // setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 3000);
-    raceCars
-      .startDrive(this._data.id, this._itemControl.elementButton[EDIT_CONTROL[0]].element)
-      .catch((err) => console.log(err));
-    setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 0);
+    raceCars.startDrive(this._data.id).catch((err) => console.log(err));
   }
 
   handlerStop() {
     this._itemEdit.element.classList.add(INACTIVE);
-    // this._itemControl.elementButton[EDIT_CONTROL[0]].element.classList.add(INACTIVE);
-    // setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 3000);
-    raceCars
-      .stopDrive(this._data.id, this._itemControl.elementButton[EDIT_CONTROL[1]].element)
-      .catch((err) => console.log(err));
+
+    raceCars.stopDrive(this._data.id).catch((err) => console.log(err));
     setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 0);
   }
 
@@ -110,3 +100,5 @@ export class Item extends ElementTemplate {
     return this._item;
   }
 }
+// this._itemControl.elementButton[EDIT_CONTROL[0]].element.classList.add(INACTIVE);
+// setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 3000);

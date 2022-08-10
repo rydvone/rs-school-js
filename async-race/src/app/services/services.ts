@@ -2,6 +2,7 @@ import { ApiGarage } from './api-garage';
 import { ApiWinners } from './api-winners';
 import { Filter } from './filter';
 import { HandlerApi } from './handler-api';
+import { HandlerControl } from './handler-control';
 import { HandlerEdit } from './handler-edit';
 import { HandlerPagination } from './handler-pagination';
 import { HandlerSort } from './handler-sort';
@@ -13,6 +14,7 @@ export const handlerButton = new HandlerEdit();
 export const handlerSwitch = new HandlerSwitch();
 export const handlerPagination = new HandlerPagination();
 export const handlerSort = new HandlerSort();
+export const handlerControl = new HandlerControl();
 
 export const randomizer = new Randomizer();
 export const raceCars = new RaceCars();
@@ -24,8 +26,9 @@ export const handlerApi = new HandlerApi();
 export class Services {
   private _handlerButton: HandlerEdit;
   private _handlerSwitch: HandlerSwitch;
-  private _handlerSort: HandlerSort;
   private _handlerPagination: HandlerPagination;
+  private _handlerSort: HandlerSort;
+  private _handlerControl: HandlerControl;
   private _randomizer: Randomizer;
   private _raceCars: RaceCars;
   private _filter: Filter;
@@ -35,8 +38,9 @@ export class Services {
   constructor() {
     this._handlerButton = handlerButton;
     this._handlerSwitch = handlerSwitch;
-    this._handlerSort = handlerSort;
     this._handlerPagination = handlerPagination;
+    this._handlerSort = handlerSort;
+    this._handlerControl = handlerControl;
     this._randomizer = randomizer;
     this._raceCars = raceCars;
     this._filter = filter;
