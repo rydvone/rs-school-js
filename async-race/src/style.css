@@ -69,6 +69,11 @@ body {
   background-color: var(--color-selected);
 }
 
+.button.inactive {
+  pointer-events: none;
+  opacity: 0.5; 
+}
+
 /* ------------------------------header------------------------------ */
 .header {
   display: flex;
@@ -204,8 +209,6 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  /* align-items: center; */
   padding: 0 1vh;
   border-bottom: 0.2em dashed var(--color-grey-dark);
 }
@@ -214,6 +217,11 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1vh;
+}
+
+.item__edit.inactive {
+  pointer-events: none;
+  opacity: 0.5; 
 }
 
 .item__title {

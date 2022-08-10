@@ -5,7 +5,7 @@ export interface IStorage {
   winnersPage: number;
   winners: ITableWinners[];
   winnersCount: number;
-  animation: number[];
+  animation: { [k: string]: number }[];
   view: EView;
   sortBy: ESortBy;
   sortOrder: ESortOrder;

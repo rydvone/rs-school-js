@@ -18,3 +18,13 @@ export const PageConst: { [key: string]: string } = {
   garage: 'garage',
   winners: 'winners',
 };
+
+export const ItemControlConst: { [key: string]: string } = {
+  start: 'start',
+  stop: 'stop',
+};
+
+export const ItemEditConst: { [key: string]: string } = {
+  select: 'select',
+  remove: 'remove',
+};

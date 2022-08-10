@@ -1,5 +1,6 @@
+import { ItemEditConst } from '../../const/button-const';
 import { apiGarage, apiWinners } from '../../services/services';
-import { StorageItemUpdate } from '../../storage/storage';
+import { storage, StorageItemUpdate } from '../../storage/storage';
 import { IButtonsNoStateStore } from '../../types/buttons-store-types';
 import { IStorageItem } from '../../types/storage-types';
 import { ButtonNoState } from '../elements/button-no-state';
@@ -10,7 +11,7 @@ export const itemEditButtons: IButtonsNoStateStore = {};
 
 const ELEMENT_CLASS = 'item__edit';
 const TITLE_CLASS = 'item__title';
-const EDIT_NAME = ['select', 'remove'];
+// const EDIT_NAME = ['select', 'remove'];
 
 export class ItemEdit extends ElementTemplate {
   private _item: HTMLElement;
@@ -21,17 +22,23 @@ export class ItemEdit extends ElementTemplate {
     this._data = data;
     this._item = this.createDiv(ELEMENT_CLASS);
     this._itemTitle = this.createTitle(data.name);
-    this.createButtons(EDIT_NAME);
+    this.createButtons(ItemEditConst);
     this.appendTo();
     this.handlerEdit();
   }
 
-  createButtons(ARRAY: string[]) {
-    ARRAY.forEach((el) => {
+  createButtons(ItemEditConst: { [k: string]: string }) {
+    const arrKey = Object.keys(ItemEditConst);
+    arrKey.forEach((el) => {
       const item = new ButtonNoState();
-      item.addContent(el);
+      item.addContent(ItemEditConst[el]);
       itemEditButtons[el] = item;
     });
+    // ARRAY.forEach((el) => {
+    //   const item = new ButtonNoState();
+    //   item.addContent(el);
+    //   itemEditButtons[el] = item;
+    // });
   }
 
   createTitle(content: string) {
@@ -41,8 +48,8 @@ export class ItemEdit extends ElementTemplate {
   }
 
   appendTo() {
-    this._item.append(itemEditButtons[EDIT_NAME[0]].element);
-    this._item.append(itemEditButtons[EDIT_NAME[1]].element);
+    this._item.append(itemEditButtons.select.element);
+    this._item.append(itemEditButtons.remove.element);
     this._item.append(this._itemTitle);
   }
 
@@ -55,14 +62,16 @@ export class ItemEdit extends ElementTemplate {
 
   handlerRemove() {
     apiGarage.deleteCar(this._data.id).catch((err) => console.log(err));
-    apiGarage.getCars(1).catch((err) => console.log(err));
-    apiWinners.deleteWinner(this._data.id).catch((err) => console.log(err));
-    apiWinners.updateStateWinners().catch((err) => console.log(err));
+    apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
+    if (storage.winners.find(({ id }) => id === this._data.id)) {
+      apiWinners.deleteWinner(this._data.id).catch((err) => console.log(err));
+      apiWinners.updateStateWinners().catch((err) => console.log(err));
+    }
   }
 
   handlerEdit() {
-    itemEditButtons[EDIT_NAME[0]].click(this.handlerSelect.bind(this));
-    itemEditButtons[EDIT_NAME[1]].click(this.handlerRemove.bind(this));
+    itemEditButtons[ItemEditConst.select].click(this.handlerSelect.bind(this));
+    itemEditButtons[ItemEditConst.remove].click(this.handlerRemove.bind(this));
   }
 
   get element() {

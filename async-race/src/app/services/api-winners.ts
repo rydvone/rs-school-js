@@ -7,6 +7,10 @@ import { HTTPStatusCode } from '../types/http-status-codes';
 
 const WINNERS_LIMIT = 10;
 
+interface ISuccess {
+  success: boolean;
+}
+
 export class ApiWinners {
   async updateStateWinners() {
     const page = storage.winnersPage;
@@ -52,11 +56,11 @@ export class ApiWinners {
     await (await fetch(`${path.winners}/${id}`, { method: 'DELETE' })).json();
   }
 
-  async createWinner(body: { [k: string]: number }) {
+  async createWinner(item: { [k: string]: number }) {
     await (
       await fetch(path.winners, {
         method: 'POST',
-        body: JSON.stringify(body),
+        body: JSON.stringify(item),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -64,11 +68,11 @@ export class ApiWinners {
     ).json();
   }
 
-  async updateWinner(id: number, body: IWinners) {
+  async updateWinner(id: number, item: IWinners) {
     await (
       await fetch(`${path.winners}/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(body),
+        body: JSON.stringify(item),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -100,26 +104,36 @@ export class ApiWinners {
   }
 
   async startEngine(id: number) {
-    return (await (await fetch(`${path.engine}?id=${id}&status=started`)).json()) as IStartDrive;
+    return (await (
+      await fetch(`${path.engine}?id=${id}&status=started`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+    ).json()) as IStartDrive;
   }
 
   async stopEngine(id: number) {
-    return (await (await fetch(`${path.engine}?id=${id}&status=stopped`)).json()) as IStartDrive;
+    return (await (
+      await fetch(`${path.engine}?id=${id}&status=stopped`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+    ).json()) as IStartDrive;
   }
 
   async driveEngine(id: number) {
-    const response = await fetch(`${path.engine}?id=${id}&status=drive`).catch();
-    // if (response.ok) {
-    //   let json = await response.json();
-    // } else {
-    //   alert("Ошибка HTTP: " + response.status);
-    // }
-    // let success = true;
-    if (response.status !== HTTPStatusCode.OK) {
-      return { success: false };
-    }
-    // else {
-    //   return { ...(await response.json() as ) };
-    // }
+    const response = await fetch(`${path.engine}?id=${id}&status=drive`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).catch();
+    return response.status !== HTTPStatusCode.OK
+      ? { success: false }
+      : { ...((await response.json()) as ISuccess) };
   }
 }

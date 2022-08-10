@@ -1,4 +1,4 @@
-import { StorageItem } from '../../storage/storage';
+import { raceCars } from '../../services/services';
 import { IStorageItem } from '../../types/storage-types';
 import { CarElement } from '../elements/car';
 import { ElementTemplate } from '../elements/element-template';
@@ -8,14 +8,21 @@ import { ItemEdit } from './item-edit';
 
 const ELEMENT_CLASS = 'item';
 const WRAPPER_CLASS = 'item__wrapper';
+const INACTIVE = 'inactive';
+const EDIT_CONTROL = ['start', 'stop'];
 
 export class Item extends ElementTemplate {
   private _item: HTMLElement;
+  private _itemControl: ItemControl;
+  private _itemEdit: ItemEdit;
   private _data: IStorageItem;
-  constructor() {
+  constructor(data: IStorageItem) {
     super();
-    this._data = { ...StorageItem };
+    this._data = { ...data };
     this._item = this.createDiv(ELEMENT_CLASS);
+    this._itemControl = new ItemControl();
+    this._itemEdit = new ItemEdit(this._data);
+    this.handler();
   }
 
   createEdit(data: IStorageItem) {
@@ -44,32 +51,62 @@ export class Item extends ElementTemplate {
     return `
       <div class="item__wrapper">
         <div class="item__control"></div>
-        <div class="item__track">
+        <div class="item__track" id="track-${id}">
           <div class="item__car" id="item__car-${id}">${car.getOuter(car.getItem(color))}</div>
-          <div class="item__finish-flag">${flag.getOuter(flag.getItem())}</div>
+          <div class="item__flag-${id}">${flag.getOuter(flag.getItem())}</div>
         </div>    
       </div>      
     `;
   }
 
-  drawItem(data: IStorageItem) {
-    this._data.name = data.name;
-    this._data.color = data.color;
-    this._data.id = data.id;
-
-    this._item.append(this.createEdit(data).element);
+  drawItem() {
+    this._item.append(this._itemEdit.element);
     const wrapper = this.createDiv(WRAPPER_CLASS);
-    wrapper.append(this.createControl().element);
+    wrapper.append(this._itemControl.element);
     wrapper.insertAdjacentHTML('beforeend', `${this.renderTrack(this._data.color, this._data.id)}`);
     this._item.append(wrapper);
     return this._item;
   }
 
-  get element() {
-    return this._item;
+  handlerStart() {
+    console.log('sstarttt');
+    this._itemEdit.element.classList.add(INACTIVE);
+    // this._itemControl.elementButton[EDIT_CONTROL[0]].element.classList.add(INACTIVE);
+    // setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 3000);
+    raceCars
+      .startDrive(this._data.id, this._itemControl.elementButton[EDIT_CONTROL[0]].element)
+      .catch((err) => console.log(err));
+    setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 0);
+  }
+
+  handlerStop() {
+    this._itemEdit.element.classList.add(INACTIVE);
+    // this._itemControl.elementButton[EDIT_CONTROL[0]].element.classList.add(INACTIVE);
+    // setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 3000);
+    raceCars
+      .stopDrive(this._data.id, this._itemControl.elementButton[EDIT_CONTROL[1]].element)
+      .catch((err) => console.log(err));
+    setTimeout(() => this._itemEdit.element.classList.remove(INACTIVE), 0);
+  }
+
+  handler() {
+    this._itemControl.elementButton[EDIT_CONTROL[0]].click(this.handlerStart.bind(this));
+    this._itemControl.elementButton[EDIT_CONTROL[1]].click(this.handlerStop.bind(this));
   }
 
   get data() {
     return this._data;
+  }
+
+  get itemControl() {
+    return this._itemControl;
+  }
+
+  get itemEdit() {
+    return this._itemEdit;
+  }
+
+  get element() {
+    return this._item;
   }
 }

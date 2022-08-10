@@ -6,11 +6,15 @@ import { Item } from './item';
 const ELEMENT_CLASS = 'items';
 const WRONG_CLASS = 'items__wrong';
 const CAPTION_WRONG = 'Wrong response from server';
+
 export class Items extends ElementTemplate {
   private _item: HTMLElement;
+  private _itemOnPage: Item[];
   constructor() {
     super();
     this._item = this.createDiv(ELEMENT_CLASS);
+    this._itemOnPage = [];
+
     this.drawItems(storage.cars);
   }
 
@@ -21,8 +25,9 @@ export class Items extends ElementTemplate {
       this.clearNode(this._item);
       const fragment: DocumentFragment = document.createDocumentFragment();
       data.forEach((el) => {
-        const item = new Item();
-        item.drawItem(el);
+        const item = new Item(el);
+        this._itemOnPage.push(item);
+        item.drawItem();
         fragment.append(item.element);
       });
       this._item.append(fragment);
@@ -38,6 +43,10 @@ export class Items extends ElementTemplate {
 
   appendToOne(item: HTMLElement) {
     this._item.append(item);
+  }
+
+  get elements() {
+    return this._itemOnPage;
   }
 
   get element() {

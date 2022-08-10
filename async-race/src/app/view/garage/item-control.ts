@@ -15,7 +15,7 @@ export class ItemControl extends ElementTemplate {
     this._item = this.createDiv(ELEMENT_CLASS);
     this.createButtons(EDIT_NAME);
     this.appendTo();
-    this.handler();
+    // this.handler();
   }
 
   createButtons(ARRAY: string[]) {
@@ -31,18 +31,22 @@ export class ItemControl extends ElementTemplate {
     this._item.append(itemControlButtons[EDIT_NAME[1]].element);
   }
 
-  handlerStart() {
-    console.log('sstarttt');
-  }
+  // handlerStart() {
+  //   console.log('sstarttt');
+  // }
 
-  handler() {
-    itemControlButtons[EDIT_NAME[0]].click(this.handlerStart.bind(this));
-    itemControlButtons[EDIT_NAME[1]].click(() => {
-      console.log('stooop');
-    });
-  }
+  // handler() {
+  //   itemControlButtons[EDIT_NAME[0]].click(this.handlerStart.bind(this));
+  //   itemControlButtons[EDIT_NAME[1]].click(() => {
+  //     console.log('stooop');
+  //   });
+  // }
 
   get element() {
     return this._item;
+  }
+
+  get elementButton() {
+    return itemControlButtons;
   }
 }
