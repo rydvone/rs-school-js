@@ -13,25 +13,25 @@ export class HandlerControl {
 
   handler() {
     const itemKey = Object.keys(itemControlButtons);
-//     for (const item of itemKey) {
-//       buttonSort[item].addEventListener('click', () => {
-//         console.log();
-//         itemKey.forEach((el) => {
-//           buttonSort[el].classList.remove('selected');
-//           buttonSort[el].textContent = `${TableHeaderConst[el]}`;
-//         });
+    //     for (const item of itemKey) {
+    //       buttonSort[item].addEventListener('click', () => {
+    //         console.log();
+    //         itemKey.forEach((el) => {
+    //           buttonSort[el].classList.remove('selected');
+    //           buttonSort[el].textContent = `${TableHeaderConst[el]}`;
+    //         });
 
-//         storage.sortBy = item;
-//         storage.sortOrder = storage.sortOrder === ESortOrder.up ? ESortOrder.down : ESortOrder.up;
+    //         storage.sortBy = item;
+    //         storage.sortOrder = storage.sortOrder === ESortOrder.up ? ESortOrder.down : ESortOrder.up;
 
-//         buttonSort[item].classList.add('selected');
-//         buttonSort[item].innerHTML = `${TableHeaderConst[item]} ${
-//           ESortOrderView[storage.sortOrder]
-//         }`;
+    //         buttonSort[item].classList.add('selected');
+    //         buttonSort[item].innerHTML = `${TableHeaderConst[item]} ${
+    //           ESortOrderView[storage.sortOrder]
+    //         }`;
 
-//         apiWinners.updateStateWinners().catch((err) => console.log(err));
-//       });
-//     }
+    //         apiWinners.updateStateWinners().catch((err) => console.log(err));
+    //       });
+    //     }
   }
 
   // handler() {
