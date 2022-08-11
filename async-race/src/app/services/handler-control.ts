@@ -50,15 +50,6 @@ export class HandlerControl {
 
         let badIndex: number;
         let restPromises: Promise<IStartDrive>[] = [];
-        // do {
-        //   badIndex = ids.findIndex((ind) => ind === winner.id);
-        //   restPromises = [
-        //     ...promises.slice(0, badIndex),
-        //     ...promises.slice(badIndex + 1, promises.length),
-        //   ];
-        //   ids = [...ids.slice(0, badIndex), ...ids.slice(badIndex + 1, ids.length)];
-        //   winner = await Promise.race(restPromises);
-        // } while (!winner.success);
 
         while (!winner.success) {
           badIndex = ids.findIndex((ind) => ind === winner.id);
