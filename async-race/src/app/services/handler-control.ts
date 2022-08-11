@@ -3,7 +3,7 @@ import { buttonEditControl } from '../view/garage/edit';
 import { storage } from '../storage/storage';
 import { apiWinners, raceCars } from './services';
 import { popup } from '../view/pages/page-template';
-import { IStorageItem } from '../types/storage-types';
+import { IStartDrive, IStorageItem } from '../types/storage-types';
 // import { IStartDrive } from '../types/storage-types';
 // import { raceCars } from './services';
 
@@ -46,8 +46,23 @@ export class HandlerControl {
     startRace.click(async () => {
       this.inactiveComponent();
 
+      let ids = storage.cars.map(({ id }) => id);
       const promises = storage.cars.map(({ id }) => raceCars.startDrive(id));
-      const winner = await Promise.race(promises);
+      let winner = await Promise.race(promises);
+
+      let badIndex: number;
+      let restPromises: Promise<IStartDrive>[] = [];
+
+      while (!winner.success) {
+        badIndex = ids.findIndex((ind) => ind === winner.id);
+        restPromises = [
+          ...promises.slice(0, badIndex),
+          ...promises.slice(badIndex + 1, promises.length),
+        ];
+        ids = [...ids.slice(0, badIndex), ...ids.slice(badIndex + 1, ids.length)];
+        winner = await Promise.race(restPromises);
+      }
+
       winner.time = Number((winner.time / 1000).toFixed(2));
       console.log('winner = ', winner);
       const { name } = storage.cars.find((el) => el.id === winner.id) as IStorageItem;
@@ -65,46 +80,5 @@ export class HandlerControl {
       await Promise.allSettled(promises);
       buttonEditControl.element.stop.element.classList.add(INACTIVE);
     });
-
-    // const winner = raceCars.race(raceCars.startDrive.bind(this));
-    //     for (const item of itemKey) {
-    //       buttonSort[item].addEventListener('click', () => {
-    //         console.log();
-    //         itemKey.forEach((el) => {
-    //           buttonSort[el].classList.remove('selected');
-    //           buttonSort[el].textContent = `${TableHeaderConst[el]}`;
-    //         });
-    //         storage.sortBy = item;
-    //         storage.sortOrder = storage.sortOrder === ESortOrder.up ? ESortOrder.down : ESortOrder.up;
-    //         buttonSort[item].classList.add('selected');
-    //         buttonSort[item].innerHTML = `${TableHeaderConst[item]} ${
-    //           ESortOrderView[storage.sortOrder]
-    //         }`;
-    //         apiWinners.updateStateWinners().catch((err) => console.log(err));
-    //       });
-    //     }
   }
-
-  // handler() {
-  //   const itemKey = Object.keys(buttonSort) as ESortBy[];
-  //   for (const item of itemKey) {
-  //     buttonSort[item].addEventListener('click', () => {
-  //       console.log();
-  //       itemKey.forEach((el) => {
-  //         buttonSort[el].classList.remove('selected');
-  //         buttonSort[el].textContent = `${TableHeaderConst[el]}`;
-  //       });
-
-  //       storage.sortBy = item;
-  //       storage.sortOrder = storage.sortOrder === ESortOrder.up ? ESortOrder.down : ESortOrder.up;
-
-  //       buttonSort[item].classList.add('selected');
-  //       buttonSort[item].innerHTML = `${TableHeaderConst[item]} ${
-  //         ESortOrderView[storage.sortOrder]
-  //       }`;
-
-  //       apiWinners.updateStateWinners().catch((err) => console.log(err));
-  //     });
-  //   }
-  // }
 }
