@@ -16,28 +16,30 @@ export class HandlerEdit {
     const inputColor = inputEditCreate.color;
     const buttonCreate = buttonEditEdit.element.create;
 
-    buttonCreate.click(() => {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    buttonCreate.click(async () => {
       const obj: IObjString = {
         name: inputText.value,
         color: inputColor.value,
       };
-      apiGarage.createCar(obj).catch((err) => console.log(err));
-      apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
+      await apiGarage.createCar(obj);
+      await apiGarage.getCars(storage.carsPage);
     });
   }
 
   handlerEditUpdate() {
     const button = buttonEditEdit.element.update;
 
-    button.click(() => {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    button.click(async () => {
       const obj: IObjString = {
         name: inputEditUpdate.text.value,
         color: inputEditUpdate.color.value,
       };
 
-      apiGarage.updateCar(StorageItemUpdate.id, obj).catch((err) => console.log(err));
-      apiGarage.getCars(storage.carsPage).catch((err) => console.log(err));
-      apiWinners.updateStateWinners().catch((err) => console.log(err));
+      await apiGarage.updateCar(StorageItemUpdate.id, obj);
+      await apiGarage.getCars(storage.carsPage);
+      await apiWinners.updateStateWinners();
     });
   }
 

@@ -1,7 +1,4 @@
 import { storage } from '../storage/storage';
-// import { TFuncRace } from '../types/func-types';
-// import { IStartEngine } from '../types/storage-types';
-// import { TFuncRace } from '../types/func-types';
 import { IStartDrive } from '../types/storage-types';
 import { buttonEditControl } from '../view/garage/edit';
 import { buttonEditEdit } from '../view/garage/page-garage';
@@ -24,7 +21,6 @@ export class RaceCars {
   }
 
   async startDrive(id: number): Promise<IStartDrive> {
-    console.log(id);
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;
     const stopButton = document.getElementById(`stop-single-${id}`) as HTMLButtonElement;
 
@@ -45,16 +41,13 @@ export class RaceCars {
 
     const { success } = await apiWinners.driveEngine(id);
     if (!success) window.cancelAnimationFrame(storage.animation[id].id);
-    // console.log(trackDistance, '  time', time, '   success:', success);
     startButton.disabled = false;
-    // stopButton.disabled = true;
 
     this.activeComponent();
     return { success, id, time };
   }
 
   async stopDrive(id: number) {
-    console.log(id);
     const stopButton = document.getElementById(`stop-single-${id}`) as HTMLButtonElement;
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;
 
