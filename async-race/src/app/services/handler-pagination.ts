@@ -26,17 +26,13 @@ export class HandlerPagination {
     const itemWinners = buttonPaginationWinners[itemKeyAdd[0]];
     itemWinners.click(() => {
       storage.winnersPage -= 1;
-      apiWinners
-        .getWinners(storage.winnersPage, storage.sortBy, storage.sortOrder)
-        .catch((err) => console.log(err));
+      apiWinners.updateStateWinners().catch((err) => console.log(err));
     });
 
     const itemWinnersAdd = buttonPaginationWinners[itemKeyAdd[1]];
     itemWinnersAdd.click(() => {
       storage.winnersPage += 1;
-      apiWinners
-        .getWinners(storage.winnersPage, storage.sortBy, storage.sortOrder)
-        .catch((err) => console.log(err));
+      apiWinners.updateStateWinners().catch((err) => console.log(err));
     });
   }
 }

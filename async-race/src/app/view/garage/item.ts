@@ -68,8 +68,9 @@ export class Item extends ElementTemplate {
     return this._item;
   }
 
-  handlerStart() {
-    raceCars.startDrive(this._data.id).catch((err) => console.log(err));
+  async handlerStart() {
+    const r = await raceCars.startDrive(this._data.id);
+    console.log('r', r);
   }
 
   handlerStop() {
@@ -80,6 +81,7 @@ export class Item extends ElementTemplate {
   }
 
   handler() {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     this._itemControl.elementButton[EDIT_CONTROL[0]].click(this.handlerStart.bind(this));
     this._itemControl.elementButton[EDIT_CONTROL[1]].click(this.handlerStop.bind(this));
   }

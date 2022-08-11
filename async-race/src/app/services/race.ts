@@ -1,6 +1,8 @@
 import { storage } from '../storage/storage';
 // import { TFuncRace } from '../types/func-types';
-// import { IStartDrive } from '../types/storage-types';
+// import { IStartEngine } from '../types/storage-types';
+// import { TFuncRace } from '../types/func-types';
+import { IStartDrive } from '../types/storage-types';
 import { buttonEditControl } from '../view/garage/edit';
 import { buttonEditEdit } from '../view/garage/page-garage';
 import { apiWinners } from './services';
@@ -19,10 +21,9 @@ export class RaceCars {
     buttonEditEdit.element.create.element.classList.remove(INACTIVE);
     buttonEditEdit.element.update.element.classList.remove(INACTIVE);
     buttonEditControl.element.generator.element.classList.remove(INACTIVE);
-    buttonEditControl.element.start.element.classList.remove(INACTIVE);
   }
 
-  async startDrive(id: number) {
+  async startDrive(id: number): Promise<IStartDrive> {
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;
     const stopButton = document.getElementById(`stop-single-${id}`) as HTMLButtonElement;
 
@@ -33,7 +34,6 @@ export class RaceCars {
     const time = Math.round(distance / velocity);
 
     const car = document.getElementById(`item__car-${id}`);
-    // const flag = document.getElementById(`item__flag-${id}`);
     const track = document.getElementById(`track-${id}`);
     if (track === null || car === null) {
       throw new Error('No track with this ID');
@@ -66,6 +66,7 @@ export class RaceCars {
     car.style.transform = `translateX(0)`;
     if (storage.animation[id]) window.cancelAnimationFrame(storage.animation[id].id);
     startButton.disabled = false;
+    buttonEditControl.element.start.element.classList.remove(INACTIVE);
   }
 
   animation(car: HTMLElement, distance: number, animationTime: number) {
@@ -88,13 +89,33 @@ export class RaceCars {
     return state;
   }
 
-  // async race(action: TFuncRace) {
+  // async race(action: TFuncRace, ids: number[] = []): Promise<IFuncRace> {
+  //   // return storage.cars.map(({ id }) => action(id));
+  //   if (ids.length === 0) {
+  //     ids = storage.cars.map((el) => el.id);
+  //   }
+
   //   const carsOnPage = storage.cars.map(({ id }) => action(id));
-  //   const winner = await this.raceAll(
-  //     carsOnPage,
-  //     storage.cars.map((el) => el.id)
-  //   );
-  //   return winner;
+  //   const { success, id, time } = await Promise.race(carsOnPage);
+  //   // const winner = await this.raceAll(
+  //   //   carsOnPage,
+  //   //   storage.cars.map((el) => el.id)
+  //   // );
+  //   // return winner;
+  //   if (!success) {
+  //     const failedIndex = ids.findIndex((ind) => (ind = id));
+  //     const restPromises = [
+  //       ...carsOnPage.slice(0, failedIndex),
+  //       ...carsOnPage.slice(failedIndex + 1, carsOnPage.length),
+  //     ];
+  //     const restIds = [...ids.slice(0, failedIndex), ...ids.slice(failedIndex + 1, ids.length)];
+  //     return this.race(restPromises, restIds);
+  //   }
+  //   const carsR = storage.cars.find((el) => el.id === id) as IStorageItem;
+  //   const timeR = Number((time / 1000).toFixed(2));
+
+  //   return { carsR, timeR };
+  //   // return { ...storage.cars.find((el) => el.id === id), time: Number((time / 1000).toFixed(2)) };
   // }
 
   // async raceAll(promises: TFuncRace, ids: number[]) {
@@ -112,3 +133,28 @@ export class RaceCars {
   //   return { ...storage.cars.find((el) => el.id === id), time: Number((time / 1000).toFixed(2)) };
   // }
 }
+
+// race(action: TFuncRace) {
+// return storage.cars.map(({ id }) => action(id));
+// const carsOnPage = storage.cars.map(({ id }) => action(id));
+// const winner = await this.raceAll(
+//   carsOnPage,
+//   storage.cars.map((el) => el.id)
+// );
+// return winner;
+// }
+
+// async raceAll(promises: TFuncRace, ids: number[]) {
+//   const { success, id, time } = await Promise.race(promises);
+//   // if (!success) {
+//   //   const failedIndex = ids.findIndex((ind) => (ind = id));
+//   //   const restPromises = [
+//   //     ...promises.slice(0, failedIndex),
+//   //     ...promises.slice(failedIndex + 1, promises.length),
+//   //   ];
+//   //   const restIds = [...ids.slice(0, failedIndex), ...ids.slice(failedIndex + 1, ids.length)];
+//   //   return this.raceAll(restPromises, restIds);
+//   // }
+
+//   return { ...storage.cars.find((el) => el.id === id), time: Number((time / 1000).toFixed(2)) };
+// }

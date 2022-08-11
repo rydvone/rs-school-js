@@ -9,9 +9,11 @@ const CLASS_ADD = 'active';
 
 export class Popup extends ElementTemplate {
   private _item: HTMLElement;
+  private _text: HTMLElement;
   constructor() {
     super();
     this._item = this.createDiv(ELEMENT_NAME_CLASS);
+    this._text = this.createDiv(ELEMENT_TEXT_CLASS);
     this.appendTo();
   }
 
@@ -19,9 +21,8 @@ export class Popup extends ElementTemplate {
     const overlay = this.createDiv(ELEMENT_OVERLAY_CLASS);
     this._item.append(overlay);
     const description = this.createDiv(ELEMENT_NAME_CLASS_ADD);
-    const text = this.createDiv(ELEMENT_TEXT_CLASS);
-    text.textContent = 'winner';
-    description.append(text);
+    this._text.textContent = 'winner';
+    description.append(this._text);
     const button = this.createDiv(ELEMENT_BUTTON_CLASS);
     button.textContent = 'close';
     button.onclick = () => {
@@ -31,8 +32,8 @@ export class Popup extends ElementTemplate {
     this._item.append(description);
   }
 
-  innerTo(data: string) {
-    this._item.innerHTML = data;
+  innerText(data: string) {
+    this._text.innerHTML = data;
   }
 
   addClass() {

@@ -70,7 +70,7 @@ export interface ITableWinners {
 
 export type KeyTableWinners = keyof ITableWinners;
 
-export interface IStartDrive {
+export interface IStartEngine {
   velocity: number;
   distance: number;
 }
@@ -81,3 +81,14 @@ export interface IStartDrive {
 //   sort: 'id' | ' wins' | 'time';
 //   order: 'ASC' | 'DESC';
 // }
+
+export interface IStartDrive {
+  success: boolean;
+  id: number;
+  time: number;
+}
+
+export interface IFuncRace {
+  carsR: IStorageItem;
+  timeR: number;
+}
