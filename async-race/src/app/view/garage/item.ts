@@ -69,8 +69,7 @@ export class Item extends ElementTemplate {
   }
 
   async handlerStart() {
-    const r = await raceCars.startDrive(this._data.id);
-    console.log('r', r);
+    await raceCars.startDrive(this._data.id);
   }
 
   handlerStop() {

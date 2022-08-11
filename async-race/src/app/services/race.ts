@@ -24,6 +24,7 @@ export class RaceCars {
   }
 
   async startDrive(id: number): Promise<IStartDrive> {
+    console.log(id);
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;
     const stopButton = document.getElementById(`stop-single-${id}`) as HTMLButtonElement;
 
@@ -53,6 +54,7 @@ export class RaceCars {
   }
 
   async stopDrive(id: number) {
+    console.log(id);
     const stopButton = document.getElementById(`stop-single-${id}`) as HTMLButtonElement;
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;
 
