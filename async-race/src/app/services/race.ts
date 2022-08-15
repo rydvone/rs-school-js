@@ -19,38 +19,6 @@ export class RaceCars {
     buttonEditEdit.element.update.element.classList.remove(INACTIVE);
     buttonEditControl.element.generator.element.classList.remove(INACTIVE);
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  async race(action: (arg0: number) => any) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    const carsOnPage = storage.cars.map(({ id }) => action(id));
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const winner = await this.raceAll(
-      carsOnPage,
-      storage.cars.map((el) => el.id)
-    );
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return winner;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  async raceAll(promises: any[], ids: number[]): Promise<any> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { success, id, time } = await Promise.race(promises);
-    if (!success) {
-      const failedIndex = ids.findIndex((ind) => ind === id);
-      const restPromises = [
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        ...promises.slice(0, failedIndex),
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        ...promises.slice(failedIndex + 1, promises.length),
-      ];
-      const restIds = [...ids.slice(0, failedIndex), ...ids.slice(failedIndex + 1, ids.length)];
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      return this.raceAll(restPromises, restIds);
-    }
-
-    return { ...storage.cars.find((el) => el.id === id), time: Number((time / 1000).toFixed(2)) };
-  }
 
   async startDrive(id: number): Promise<IStartDrive> {
     const startButton = document.getElementById(`start-single-${id}`) as HTMLButtonElement;

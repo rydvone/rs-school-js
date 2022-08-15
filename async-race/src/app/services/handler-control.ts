@@ -3,8 +3,7 @@ import { buttonEditControl } from '../view/garage/edit';
 import { storage } from '../storage/storage';
 import { apiWinners, raceCars } from './services';
 import { popup } from '../view/pages/page-template';
-import { IStartDrive, IStorageItem } from '../types/storage-types';
-// import { TFuncRace } from '../types/func-types';
+import { IStorageItem } from '../types/storage-types';
 
 const INACTIVE = 'inactive';
 
@@ -48,23 +47,15 @@ export class HandlerControl {
         this.inactiveComponent();
 
         const ids = storage.cars.map(({ id }) => id);
-        const promises = storage.cars.map(({ id }) => raceCars.startDrive(id));
+        const promises = ids.map((id) => ({ id, car: raceCars.startDrive(id) }));
 
-        const winner = (await raceCars.raceAll(promises, ids)) as IStartDrive;
-        // let winner = await Promise.race(promises);
-        // let badIndex: number;
-        // let restPromises: Promise<IStartDrive>[] = [];
-        // while (!winner.success) {
-        //   badIndex = ids.findIndex((ind) => ind === winner.id);
-        //   restPromises = [
-        //     ...promises.slice(0, badIndex),
-        //     ...promises.slice(badIndex + 1, promises.length),
-        //   ];
-        //   ids = [...ids.slice(0, badIndex), ...ids.slice(badIndex + 1, ids.length)];
-        //   console.log(badIndex, ids, restPromises);
-        //   winner = await Promise.race(restPromises);
-        // }
-        // winner.time = Number((winner.time / 1000).toFixed(2));
+        let winner = await Promise.race(promises.map(({ car }) => car));
+        let racingCars = [...promises];
+        for (let i = 0; i < promises.length && !winner.success; i += 1) {
+          racingCars = racingCars.filter(({ id }) => id !== winner.id);
+          winner = await Promise.race(racingCars.map(({ car }) => car));
+        }
+        winner.time = Number((winner.time / 1000).toFixed(2));
         const { name } = storage.cars.find((el) => el.id === winner.id) as IStorageItem;
 
         popup.innerText(`Winner: ${name} with ${winner.time}s`);
@@ -81,7 +72,6 @@ export class HandlerControl {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     stopRace.click(() => {
       storage.cars.map(({ id }) => raceCars.stopDrive(id));
-      // await Promise.all(promises);
       buttonEditControl.element.stop.element.classList.add(INACTIVE);
       buttonEditControl.element.start.element.classList.remove(INACTIVE);
     });
