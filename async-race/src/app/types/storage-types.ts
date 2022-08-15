@@ -75,13 +75,6 @@ export interface IStartEngine {
   distance: number;
 }
 
-// export interface IGetWinners {
-//   page: number;
-//   limit: number;
-//   sort: 'id' | ' wins' | 'time';
-//   order: 'ASC' | 'DESC';
-// }
-
 export interface IStartDrive {
   success: boolean;
   id: number;

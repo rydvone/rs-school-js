@@ -1,4 +1,5 @@
 import { ButtonEditConst } from '../../const/button-const';
+import { EEditUpdate } from '../../const/init-const';
 import { ButtonsEditControl } from '../elements/buttons-edit-control';
 import { EditEdit } from '../elements/edit-edit';
 import { ElementTemplate } from '../elements/element-template';
@@ -45,7 +46,7 @@ export class Edit extends ElementTemplate {
     return item;
   }
 
-  createEditUpdate(title = '', color = '#e66465', id = -1) {
+  createEditUpdate(title = EEditUpdate.title, color = EEditUpdate.color, id = EEditUpdate.id) {
     const item = this._editUpdate;
     item.appendTo(title, color);
     if (id === -1) {

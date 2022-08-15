@@ -1,4 +1,3 @@
-// import { Item } from '../garage/item';
 import { ElementTemplate } from '../elements/element-template';
 import { paginationComponent } from '../pages/page-template';
 import { Table } from './table';

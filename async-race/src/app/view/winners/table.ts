@@ -27,15 +27,8 @@ export class Table extends ElementTemplate {
     this._itemHeader.append(this.createHeader());
     this._item.append(this._itemHeader);
     this._itemBody = this.createNode(TR_BODY, TR_BODY);
-    // this._itemBody = this.createNode(TR, TR);
     this._item.append(this._itemBody);
   }
-
-  // renderTable(winners: { [key: string]: string }) {
-  //   console.log(winners);
-  //   const key = Object.keys(winners);
-  //   key.reduce((acc, cur) => acc + `<td>${winners[cur]}<td>`, '');
-  // }
 
   renderTable(winners: ITableWinners[]) {
     this._itemBody.innerHTML = '';

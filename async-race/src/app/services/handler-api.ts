@@ -1,5 +1,3 @@
-// import { IGetCars } from '../types/storage-types';
-// import { storage } from '../storage/storage';
 import { apiGarage, apiWinners } from './services';
 
 export class HandlerApi {

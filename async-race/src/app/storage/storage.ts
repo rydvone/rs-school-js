@@ -54,10 +54,3 @@ export const pageGetWinners: IGetWinners = {
 };
 
 export const tableWinners: ITableWinners[] = [];
-// {
-//   color: '#c0c0c0',
-//   name: 'Car Name',
-//   wins: -1,
-//   time: -1,
-//   id: -1,
-// };

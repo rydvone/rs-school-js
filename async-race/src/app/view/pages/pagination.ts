@@ -1,7 +1,6 @@
 import { PageConst, PaginationConst } from '../../const/button-const';
 import { IButtonsStore } from '../../types/buttons-store-types';
 import { Button } from '../elements/button';
-// import { Button } from '../elements/button';
 import { ElementTemplate } from '../elements/element-template';
 
 const ELEMENT_CLASS = 'pagination';
