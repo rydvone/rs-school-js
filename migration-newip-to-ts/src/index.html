@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>NewsPortal</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="title-h1"><a href="." class="link link_h1">News Portal</a></h1>
+        <div class="header__select-wrapper">
+            <form class="header__form">
+                <label for="select-sort" class="header__label">Sort News by 'Page':</label>
+                <select id="select-sort" class="header__select">
+                    <option value="1" class="header__option"> Page 1 </option>
+                    <option value="2" class="header__option"> Page 2 </option>
+                    <option value="3" class="header__option"> Page 3 </option>
+                </select>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="visual">API is broken :(</div>
+        <div class="slider-control"></div>
+        <div class="sources buttons"></div>
+        <div class="news"></div>
+        <div class="visual-news">No more News :(</div>
+    </main>
+    <footer class="footer">
+
+        <div class="footer__data">
+            <div class="footer__item">©</div>
+            <div class="footer__item">2022</div>
+            <div class="footer__item">
+                <a class="link" href="https://github.com/rydvone">github</a>
+            </div>
+        </div>
+
+        <div class="footer__rs">
+            <a href="https://rs.school/js/" class="link link_icons">
+                <img src="https://rs.school/images/rs_school_js.svg" width="60" height="30" alt="logo rsschool"
+                    class="icons icons_footer">
+            </a>
+        </div>
+    </footer>
+
+    <template id="sourceItemTemp">
+        <div class="source__item">
+            <span class="source__item-name"></span>
+        </div>
+    </template>
+
+    <template id="newsItemTemp">
+        <div class="news__item">
+            <div class="news__meta">
+                <div class="news__meta-photo"></div>
+                <ul class="news__meta-details">
+                    <li class="news__meta-author"></li>
+                    <li class="news__meta-date"></li>
+                </ul>
+            </div>
+            <div class="news__description">
+                <h2 class="news__description-title"></h2>
+                <h3 class="news__description-source"></h3>
+                <p class="news__description-content"></p>
+                <p class="news__read-more">
+                    <a href="#">Read More</a>
+                </p>
+            </div>
+        </div>
+    </template>
+
+</body>
+
+</html>
